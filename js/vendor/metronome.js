@@ -14,6 +14,8 @@ canvasContext;
 var last16thNoteDrawn = -1;
 var notesInQueue = [];
 var playAway = false;
+var kick_elements = null;
+var snare_elements = null;
 
 var bufferLoader, stems;
 
@@ -142,12 +144,12 @@ function queueActive() {
 	}
 }
 
-function runKick(){
-
+function runKick() {
+	kick_elements.toggleClass('kick');
 }
 
 function runSnare(){
-
+	snare_elements.toggleClass('snare');
 }
 
 function scheduler() {
@@ -176,7 +178,7 @@ function init() {
 	var container = document.createElement( 'div' );
 	window.context = window.context || window.webkitcontext;
 	context = new AudioContext();
-	bufferLoader = new BufferLoader( context, [ 'sounds/kick.mp3', 'sounds/hum.mp3', 'sounds/highhum.mp3', ], finishedLoading );
+	bufferLoader = new BufferLoader( context, [ 'moth_stems/drums_excited.mp3', 'moth_stems/hum_base.mp3', 'moth_stems/hum_high.mp3', ], finishedLoading );
 	bufferLoader.load();
 }
 
@@ -188,6 +190,9 @@ function finishedLoading(bufferList) {
 }
 
 $(document).ready(function(){
+	kick_elements = $('[data-kick]');
+	snare_elements = $('[data-snare]');
+
 	$("html").mousemove(function(event) {
 		if (playAway) {
 			if (gainNode['kick'] !== null) {

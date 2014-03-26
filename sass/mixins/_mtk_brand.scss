@@ -1,5 +1,11 @@
 // colors
+$base: #3b3d43;
+$blue: #9dd2b5;
+$green: #6aa427;
+$yellow: #f0b747;
+$orange: #de5b1e;
 
+$cta: #5FACFF;
 
 // font
 // get from typekit
@@ -25,6 +31,7 @@
 body {
 	font-size: 24px;
 	margin: 0;
+	background: $base;
 }
 
 html, body {
