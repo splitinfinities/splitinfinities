@@ -13,18 +13,19 @@
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
 	<body id="body" class="index">
-	<div id="home">
+	<div id="center"></div>
+<div id="home">
 	<div class="stripe-container">
-		<a href="#and-his-past" class="stripe orange animated bounceInLeft" data-kick data-snare>
+		<a href="#and-his-past" class="stripe orange animated bounceInLeft click-activate" data-activate="#resume" data-kick data-snare>
 			<span>resume</span>
 		</a>
-		<a href="#and-the-things-he's-done" class="stripe yellow snare animated bounceInRight" data-snare data-kick>
+		<a href="#and-the-things-he's-done" class="stripe yellow snare animated bounceInRight click-activate" data-activate="#portfolio" data-snare data-kick>
 			<span>portfolio</span>
 		</a>
-		<a href="#and-the-thoughts-he's-knocked-around" class="stripe green snare kick animated bounceInLeft" data-snare data-kick>
+		<a href="#and-the-thoughts-he's-knocked-around" class="stripe green snare kick animated bounceInLeft click-activate" data-activate="#ideas" data-snare data-kick>
 			<span>ideas</span>
 		</a>
-		<a href="#and-the-people-who-made-him" class="stripe blue kick animated bounceInRight" data-snare data-kick>
+		<a href="#and-the-people-who-made-him" class="stripe blue kick animated bounceInRight click-activate" data-activate="inspirations" data-snare data-kick>
 			<span>inspirations</span>
 		</a>
 	</div>
@@ -45,6 +46,14 @@
 </div>
 <div id="inspirations" class="panel">
 	<div class="container"></div>
+</div>
+<div id="debug">
+	<span id="x-pos">Horizontal Position: <span class="value"></span></span><br />
+	<span id="y-pos">Vertical Position: <span class="value"></span></span><br />
+	<span id="x-half-pos">1/2 page Vertical: <span class="value"></span></span><br />
+	<span id="y-half-pos">1/2 page Horizontal: <span class="value"></span></span><br />
+	<span id="x-half-per">1/2 page Vertical percentage: <span class="value"></span></span><br />
+	<span id="y-half-per">1/2 page Horizontal percentage: <span class="value"></span></span><br />
 </div>
 		<script src="../bower_components/sprockets-modernizr/modernizr.js"></script>
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>

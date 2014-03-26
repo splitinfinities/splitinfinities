@@ -11,6 +11,7 @@
 html, body {
 	height: 100%;
 	width: 100%;
+	font-family: "Avenir", Helvetica, Arial, sans-serif;
 }
 
 .panel {
@@ -32,7 +33,16 @@ html, body {
 
 // pages
 
+#center {
+	position: fixed;
+	width: 0;
+	height: 0;
+	top: 50%;
+	left: 50%;
+}
+
 @import "section/_home";
 // @import "section/_nav";
 // @import "section/_mantle";
 // @import "legacy.scss";
+@import "section/_debug";

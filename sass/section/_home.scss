@@ -56,25 +56,24 @@
 
 			span {
 				position: absolute;
-				left: 40%;
-				top: 60px;
-				font-size: 50px;
+				left: 42.5%;
+				top: 75px;
+				font-size: 40px;
 				font-weight: 100;
 				color: white;
-				font-family: "Avenir", Helvetica, Arial, sans-serif;
 				@include rotate(-100deg, 100px);
 				@include transition(font-size 50ms ease-in-out 0ms, text-shadow 150ms ease 0ms);
 			}
 
 			&.kick {
 				span {
-					font-size: 55px;
+					font-size: 46px;
 				}
 			}
 
 			&.snare {
 				span {
-					font-size: 45px;
+					font-size: 36px;
 				}
 			}
 

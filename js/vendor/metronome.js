@@ -16,6 +16,9 @@ var notesInQueue = [];
 var playAway = false;
 var kick_elements = null;
 var snare_elements = null;
+var kick_functions = [];
+var snare_functions = [];
+var track_functions = [];
 
 var bufferLoader, stems;
 
@@ -25,8 +28,8 @@ var gainNode = {
 }
 
 var interactions = {
-	kickVolume: 1,
-	highhumVolume: 1,
+	kickVolume: 0,
+	highhumVolume: 0,
 };
 
 // First, let's shim the requestAnimationFrame API, with a setTimeout fallback
@@ -101,16 +104,18 @@ function playSound(buffer, time, stem_title) {
 	source.buffer = buffer;
 
 	if (stem_title === "kick") {
-		gainNode['kick'] = context.createGain();
+		gainNode['kick'] = context.createBiquadFilter();
 		source.connect(gainNode['kick']);
 		gainNode['kick'].connect(context.destination);
-		gainNode['kick'].gain.value = interactions['kickVolume'];
+		gainNode['kick'].type = "bandpass";
+		gainNode['kick'].frequency.value = interactions['kickVolume'];
 	}
 	else if (stem_title === "highhum") {
-		gainNode['highhum'] = context.createGain();
+		gainNode['highhum'] = context.createBiquadFilter();
 		source.connect(gainNode['highhum']);
 		gainNode['highhum'].connect(context.destination);
-		gainNode['highhum'].gain.value = interactions['highhumVolume'];
+		gainNode['highhum'].type = "lowshelf";
+		gainNode['highhum'].frequency.value = -interactions['highhumVolume'];
 	}
 	else {
 		source.connect(context.destination);
@@ -125,6 +130,7 @@ function scheduleNote( beatNumber, time ) {
 
 	if (beatNumber%16 === 0) {
 		queueActive();
+
 	}
 
 	if (beatNumber%4 === 0) {
@@ -142,14 +148,32 @@ function queueActive() {
 		playSound(stems[0], 0, "kick");
 		playSound(stems[2], 0, "highhum");
 	}
+
+	$.each(track_functions, function(key, val){
+		val();
+	});
+
+	track_functions = [];
 }
 
 function runKick() {
 	kick_elements.toggleClass('kick');
+
+	$.each(kick_functions, function(key, val){
+		val();
+	});
+
+	kick_functions = [];
 }
 
 function runSnare(){
 	snare_elements.toggleClass('snare');
+
+	$.each(snare_functions, function(key, val){
+		val();
+	});
+
+	snare_functions = [];
 }
 
 function scheduler() {
@@ -178,7 +202,7 @@ function init() {
 	var container = document.createElement( 'div' );
 	window.context = window.context || window.webkitcontext;
 	context = new AudioContext();
-	bufferLoader = new BufferLoader( context, [ 'moth_stems/hum_high.mp3', 'moth_stems/drums_relaxed.mp3', 'moth_stems/hum_base.mp3', ], finishedLoading );
+	bufferLoader = new BufferLoader( context, [ 'moth_stems/hum_high.mp3', 'moth_stems/drums_excited.mp3', 'moth_stems/hum_base.mp3', ], finishedLoading );
 	bufferLoader.load();
 }
 
@@ -196,28 +220,53 @@ $(document).ready(function(){
 
 
 	$("html").mousemove(function(event) {
+		var x = (event.clientX - $('#center').offset().left) + $(window).scrollLeft();
+		var y = (event.clientY - $('#center').offset().top) + $(window).scrollTop();
+		x = -x>0 ? -x : x;
+		y = -y>0 ? -y : y;
+		x = x / $(window).innerWidth() * 3000;
+		y = y / $(window).innerHeight() * 3000;
+
 		if (playAway) {
+
 			if (gainNode['kick'] !== null) {
-				kickVolume = event.pageY / 1000;
-				gainNode['kick'].gain.value = kickVolume;
+				kickVolume = y;
+				gainNode['kick'].frequency.value = kickVolume;
 				interactions['kickVolume'] = kickVolume;
 			}
 
 			if (gainNode['highhum'] !== null) {
-				highhumVolume = event.pageX / 1000;
-				gainNode['highhum'].gain.value = highhumVolume;
+				highhumVolume = x ;
+				gainNode['highhum'].frequency.value = highhumVolume;
 				interactions['highhumVolume'] = highhumVolume;
 			}
 		}
+
+		if ($("#debug").length == 1) {
+			$("#x-pos .value", "#debug").text( event.clientX );
+			$("#y-pos .value", "#debug").text( event.clientY );
+
+			$("#x-half-pos .value", "#debug").text( event.clientX / $(window).innerWidth() );
+			$("#y-half-pos .value", "#debug").text( event.clientY / $(window).innerHeight() );
+
+			$("#x-half-per .value", "#debug").text( x );
+			$("#y-half-per .value", "#debug").text( y );
+		}
 	});
 
-	$('body').hammer().on('doubletap', function(){
+$('.stripe').on('click', function() {
+	if (!$('#home').hasClass('spread')) {
+		$('.bounceInLeft').addClass('animated bounceOutRight');
+		$('.bounceInRight').addClass('animated bounceOutLeft');
 		window.playAway = !window.playAway;
-		$("#home").toggleClass('spread');
-		$('.bounceInRight, .bounceInLeft').removeClass('bounceInRight bounceInLeft');
-	});
+		track_functions[track_functions.length] = function() {
+			$("#home").toggleClass('spread');
+			$('.bounceInRight, .bounceInLeft, .bounceOutRight, .bounceOutLeft ').removeClass('animated bounceInRight bounceInLeft bounceOutLeft bounceOutRight');
+		}
+	}
+});
 
-	var hidden = "hidden";
+var hidden = "hidden";
 
 	// Standards:
 	if (hidden in document)
@@ -249,4 +298,19 @@ $(document).ready(function(){
 			play();
 		}
 	}
+
+	$(document).keyup(function(e) {
+		if (e.keyCode == 27) {
+			if ($('#home').hasClass('spread')) {
+				$('.bounceInLeft').addClass('animated bounceOutRight');
+				$('.bounceInRight').addClass('animated bounceOutLeft');
+				window.playAway = !window.playAway;
+				track_functions[track_functions.length] = function() {
+					$("#home").toggleClass('spread');
+					$('.bounceInRight, .bounceInLeft, .bounceOutRight, .bounceOutLeft ').removeClass('animated bounceInRight bounceInLeft bounceOutLeft bounceOutRight');
+				}
+			}
+		}
+	});
 });
+
