@@ -282,6 +282,7 @@ html, body {
         left: 40%;
         top: 100px;
         font-size: 50px;
+        font-weight: 100;
         color: white;
         font-family: "Avenir", Helvetica, Arial, sans-serif;
         -moz-transform: perspective(100px) rotate(-100deg);
@@ -293,29 +294,30 @@ html, body {
         -webkit-transition: all 50ms ease-in-out;
         -webkit-transition-delay: 0ms;
         transition: all 50ms ease-in-out 0ms; }
-      /* line 67, ../sass/section/_home.scss */
+      /* line 68, ../sass/section/_home.scss */
       #home .stripe-container .stripe.kick span {
         font-size: 55px; }
-      /* line 73, ../sass/section/_home.scss */
+      /* line 74, ../sass/section/_home.scss */
       #home .stripe-container .stripe.snare span {
         font-size: 45px; }
-      /* line 78, ../sass/section/_home.scss */
+      /* line 79, ../sass/section/_home.scss */
       #home .stripe-container .stripe:hover {
         height: 205px; }
-        /* line 80, ../sass/section/_home.scss */
+        /* line 81, ../sass/section/_home.scss */
         #home .stripe-container .stripe:hover.orange {
           top: -5px; }
-        /* line 83, ../sass/section/_home.scss */
+        /* line 84, ../sass/section/_home.scss */
         #home .stripe-container .stripe:hover.yellow {
           top: 195px; }
-        /* line 86, ../sass/section/_home.scss */
+        /* line 87, ../sass/section/_home.scss */
         #home .stripe-container .stripe:hover.green {
           top: 395px; }
-        /* line 89, ../sass/section/_home.scss */
+        /* line 90, ../sass/section/_home.scss */
         #home .stripe-container .stripe:hover.blue {
           top: 595px; }
-        /* line 92, ../sass/section/_home.scss */
+        /* line 93, ../sass/section/_home.scss */
         #home .stripe-container .stripe:hover span {
           color: white;
           font-size: 26px;
+          font-weight: 500;
           text-shadow: 100px 20px rgba(0, 0, 0, 0.25), -50px 150px rgba(0, 0, 0, 0.35), 100px -50px rgba(0, 0, 0, 0.1), -100px 200px rgba(0, 0, 0, 0.2), -150px 75px rgba(0, 0, 0, 0.45), 75px 50px rgba(0, 0, 0, 0.5); }
