@@ -1,0 +1,71 @@
+// colors
+
+
+// font
+// get from typekit
+
+// selection
+::selection {
+	background: #dfdfdf;
+	color: black;
+	font-weight:normal;
+	font-style:normal;
+	font-variant:normal;
+}
+
+::-moz-selection {
+	background: #dfdfdf;
+	color: black;
+	font-weight: normal;
+	font-style: normal;
+	font-variant: normal;
+}
+
+//	typography
+body {
+	font-size: 24px;
+	margin: 0;
+}
+
+html, body {
+	height: 100%;
+	width: 100%;
+}
+
+// button
+a:link,
+a:visited {
+
+}
+
+.button {
+
+	&:hover {
+
+	}
+
+	&:active {
+
+	}
+
+	&.secondary {
+
+		&:active {
+
+		}
+
+		&:hover {
+
+		}
+	}
+
+}
+
+// utility
+.pull-left { float: left; }
+.pull-right { float: right; }
+.clearfix { clear: both; }
+.group:before,
+.group:after { content: ""; display: table; }
+.group:after { clear: both; }
+.group { zoom: 1; }

@@ -1,0 +1,35 @@
+@mixin panel($width, $paddingLR) {
+	min-width: 100%;
+	min-height: 100%;
+	display: block;
+	position: relative;
+
+	.container {
+		display: block;
+		width: ceil($width - $paddingLR * 2);
+		height: auto;
+		margin: 0 auto;
+		padding: 0 $paddingLR;
+
+		@include respond-to(lg) {
+			width: ceil($break-md - ceil($paddingLR / 1.5) * 2);
+			padding: 0 ceil($paddingLR / 1.5);
+		}
+
+		@include respond-to(md) {
+			width: ceil($break-sm - ceil($paddingLR / 2) * 2);
+			padding: 0 ceil($paddingLR / 2);
+		}
+
+		@include respond-to(sm) {
+			width: ceil($break-xs - ceil($paddingLR / 2.5) * 2);
+			padding: 0 ceil($paddingLR / 2.5);
+		}
+
+		@include respond-to(xs) {
+			width: 310px;
+			padding: 0 5px;
+		}
+	}
+}
+

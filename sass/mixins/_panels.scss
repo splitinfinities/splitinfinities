@@ -1,0 +1,13 @@
+@mixin panel($container-width) {
+	width: 100%;
+	min-width:$container-width;
+	height: 100%;
+	display: block;
+	position: relative;
+
+	.container {
+		width: $container-width;
+		display: block;
+		margin: 0 auto;
+	}
+}

@@ -1,0 +1,58 @@
+.show-xs { display: none; }
+.show-sm { display: none; }
+.show-md { display: none; }
+.show-lg { display: block; }
+
+.hide-xs { display: block; }
+.hide-sm { display: block; }
+.hide-md { display: block; }
+.hide-lg { display: none; }
+
+
+@include respond-to(lg) {
+	.show-xs { display: none; }
+	.show-sm { display: none; }
+	.show-md { display: none; }
+	.show-lg { display: block; }
+
+	.hide-xs { display: block; }
+	.hide-sm { display: block; }
+	.hide-md { display: block; }
+	.hide-lg { display: none; }
+}
+
+@include respond-to(md) {
+	.show-xs { display: none; }
+	.show-sm { display: none; }
+	.show-md { display: block; }
+	.show-lg { display: block; }
+
+	.hide-xs { display: block; }
+	.hide-sm { display: block; }
+	.hide-md { display: none; }
+	.hide-lg { display: none; }
+}
+
+@include respond-to(sm) {
+	.show-xs { display: none; }
+	.show-sm { display: block; }
+	.show-md { display: block; }
+	.show-lg { display: block; }
+
+	.hide-xs { display: block; }
+	.hide-sm { display: none; }
+	.hide-md { display: none; }
+	.hide-lg { display: none; }
+}
+
+@include respond-to(xs) {
+	.show-xs { display: block; }
+	.show-sm { display: block; }
+	.show-md { display: block; }
+	.show-lg { display: block; }
+
+	.hide-xs { display: none; }
+	.hide-sm { display: none; }
+	.hide-md { display: none; }
+	.hide-lg { display: none; }
+}

@@ -1,0 +1,30 @@
+{
+	"name": "intern",
+	"version": "1.5.0",
+	"main": "main",
+	"description": "Intern. A next-generation code testing stack for JavaScript.",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/theintern/intern.git"
+	},
+	"licenses": [
+		{ "type": "BSD-3-Clause", "url": "https://github.com/theintern/intern/blob/master/LICENSE" }
+	],
+	"dependencies": {
+		"wd": "0.2.2",
+		"istanbul": "0.1.35",
+		"sauce-connect-launcher": "0.1.11",
+		"dojo": "https://github.com/csnover/dojo2-core/archive/9f825f8793b57b15c1e64b0ab6dd2b8b94a1f7ff.tar.gz",
+		"chai": "1.9.0"
+	},
+	"devDependencies": {
+		"intern": "1.5.0"
+	},
+	"bugs": "https://github.com/theintern/intern/issues",
+	"keywords": [ "javascript", "test", "unit", "testing", "ci", "continuous integration", "bdd", "tdd", "xunit", "istanbul", "chai", "dojo", "toolkit", "selenium", "sauce labs", "code coverage" ],
+	"homepage": "http://theintern.io/",
+	"bin": {
+		"intern-client": "./bin/intern-client.js",
+		"intern-runner": "./bin/intern-runner.js"
+	}
+}

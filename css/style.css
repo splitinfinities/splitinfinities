@@ -1,0 +1,168 @@
+/*------------------------------------------------------------------
+MEDIA QUERIES
+-------------------------------------------------------------------*/
+.show-xs {
+  display: none; }
+
+.show-sm {
+  display: none; }
+
+.show-md {
+  display: none; }
+
+.show-lg {
+  display: block; }
+
+.hide-xs {
+  display: block; }
+
+.hide-sm {
+  display: block; }
+
+.hide-md {
+  display: block; }
+
+.hide-lg {
+  display: none; }
+
+@media (max-width: 1200px) {
+  .show-xs {
+    display: none; }
+
+  .show-sm {
+    display: none; }
+
+  .show-md {
+    display: none; }
+
+  .show-lg {
+    display: block; }
+
+  .hide-xs {
+    display: block; }
+
+  .hide-sm {
+    display: block; }
+
+  .hide-md {
+    display: block; }
+
+  .hide-lg {
+    display: none; } }
+@media (max-width: 992px) {
+  .show-xs {
+    display: none; }
+
+  .show-sm {
+    display: none; }
+
+  .show-md {
+    display: block; }
+
+  .show-lg {
+    display: block; }
+
+  .hide-xs {
+    display: block; }
+
+  .hide-sm {
+    display: block; }
+
+  .hide-md {
+    display: none; }
+
+  .hide-lg {
+    display: none; } }
+@media (max-width: 740px) {
+  .show-xs {
+    display: none; }
+
+  .show-sm {
+    display: block; }
+
+  .show-md {
+    display: block; }
+
+  .show-lg {
+    display: block; }
+
+  .hide-xs {
+    display: block; }
+
+  .hide-sm {
+    display: none; }
+
+  .hide-md {
+    display: none; }
+
+  .hide-lg {
+    display: none; } }
+@media (max-width: 480px) {
+  .show-xs {
+    display: block; }
+
+  .show-sm {
+    display: block; }
+
+  .show-md {
+    display: block; }
+
+  .show-lg {
+    display: block; }
+
+  .hide-xs {
+    display: none; }
+
+  .hide-sm {
+    display: none; }
+
+  .hide-md {
+    display: none; }
+
+  .hide-lg {
+    display: none; } }
+::selection {
+  background: #dfdfdf;
+  color: black;
+  font-weight: normal;
+  font-style: normal;
+  font-variant: normal; }
+
+::-moz-selection {
+  background: #dfdfdf;
+  color: black;
+  font-weight: normal;
+  font-style: normal;
+  font-variant: normal; }
+
+body {
+  font-size: 24px;
+  margin: 0; }
+
+html, body {
+  height: 100%;
+  width: 100%; }
+
+.pull-left {
+  float: left; }
+
+.pull-right {
+  float: right; }
+
+.clearfix {
+  clear: both; }
+
+.group:before,
+.group:after {
+  content: "";
+  display: table; }
+
+.group:after {
+  clear: both; }
+
+.group {
+  zoom: 1; }
+
+html, body {
+  height: 100%;
+  width: 100%; }

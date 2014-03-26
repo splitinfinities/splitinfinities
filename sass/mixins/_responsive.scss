@@ -1,0 +1,64 @@
+/*------------------------------------------------------------------
+MEDIA QUERIES
+-------------------------------------------------------------------*/
+
+$break-xs: 480px;
+$break-sm: 740px;
+$break-md: 992px;
+$break-lg: 1200px;
+
+@mixin respond-to-min($media) {
+	@if $media == "xs" {
+		@media (min-width: $break-xs) {
+			@content;
+		}
+	}
+	@else if $media == "sm" {
+		@media (min-width: $break-sm) {
+			@content;
+		}
+	}
+	@else if $media == "md" {
+		@media (min-width: $break-md) {
+			@content;
+		}
+	}
+	@else if $media == "lg" {
+		@media (min-width: $break-lg) {
+			@content;
+		}
+	}
+	@else {
+		@media (min-width: $media) {
+			@content;
+		}
+	}
+}
+
+@mixin respond-to($media) {
+	@if $media == "xs" {
+		@media (max-width: $break-xs) {
+			@content;
+		}
+	}
+	@else if $media == "sm" {
+		@media (max-width: $break-sm) {
+			@content;
+		}
+	}
+	@else if $media == "md" {
+		@media (max-width: $break-md) {
+			@content;
+		}
+	}
+	@else if $media == "lg" {
+		@media (max-width: $break-lg) {
+			@content;
+		}
+	}
+	@else {
+		@media (max-width: $media) {
+			@content;
+		}
+	}
+}
