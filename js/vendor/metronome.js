@@ -178,7 +178,7 @@ function init() {
 	var container = document.createElement( 'div' );
 	window.context = window.context || window.webkitcontext;
 	context = new AudioContext();
-	bufferLoader = new BufferLoader( context, [ 'moth_stems/drums_excited.mp3', 'moth_stems/hum_base.mp3', 'moth_stems/hum_high.mp3', ], finishedLoading );
+	bufferLoader = new BufferLoader( context, [ 'moth_stems/hum_high.mp3', 'moth_stems/drums_relaxed.mp3', 'moth_stems/hum_base.mp3', ], finishedLoading );
 	bufferLoader.load();
 }
 
@@ -192,6 +192,8 @@ function finishedLoading(bufferList) {
 $(document).ready(function(){
 	kick_elements = $('[data-kick]');
 	snare_elements = $('[data-snare]');
+
+
 
 	$("html").mousemove(function(event) {
 		if (playAway) {
@@ -211,6 +213,8 @@ $(document).ready(function(){
 
 	$('body').hammer().on('doubletap', function(){
 		window.playAway = !window.playAway;
+		$("#home").toggleClass('spread');
+		$('.bounceInRight, .bounceInLeft').removeClass('bounceInRight bounceInLeft');
 	});
 
 	var hidden = "hidden";

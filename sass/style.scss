@@ -13,6 +13,23 @@ html, body {
 	width: 100%;
 }
 
+.panel {
+	@include panel(1200px, 20px);
+	position: absolute;
+	display: none;
+	.container {
+		height: 100%;
+		background-color: white;
+		border-radius: 2px;
+		border: 0 solid transparent;
+		border-left: 10px solid $green;
+	}
+
+	&.animated {
+		display: block;
+	}
+}
+
 // pages
 
 @import "section/_home";
