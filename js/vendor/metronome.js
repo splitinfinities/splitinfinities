@@ -267,12 +267,12 @@ $(document).ready(function() {
 
 	if (Modernizr.touch) {
 		window.ondeviceorientation = function(event) {
-			var accelerationX = Math.ceil(event.gamma * 50);
+			var accelerationX = Math.ceil(event.gamma * 20);
 			var accelerationY = Math.ceil(event.beta * 10);
 			var x = (accelerationX - $('#center').offset().left) + $(window).scrollLeft();
 			var y = (accelerationY - $('#center').offset().top) + $(window).scrollTop();
-			// var newx = -x>0 ? -x : x;
-			// var newy = -y>0 ? -y : y;
+			var newx = -x>0 ? 0 : x;
+			var newy = -y>0 ? 0 : y;
 			var newx = x;
 			var newy = y;
 
