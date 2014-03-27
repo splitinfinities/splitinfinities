@@ -4,7 +4,7 @@ var startTime;
 var current16thNote;
 var tempo = 58.81;
 var lookahead = 25.0;
-var scheduleAheadTime = 0.1;
+var scheduleAheadTime = 0.025;
 var nextNoteTime = 0.0;
 var noteResolution = 2;
 var noteLength = 0.1;
@@ -213,34 +213,45 @@ function finishedLoading(bufferList) {
 	play();
 }
 
-$(document).ready(function(){
+var mobileInit = 0;
+
+$(document).ready(function() {
 	kick_elements = $('[data-kick]');
 	snare_elements = $('[data-snare]');
 
+	if (Modernizr.touch && mobileInit !== 1) {
+		$("html").one('click', function() {
+			isPlaying = false;
+			play();
+			mobileInit = 1;
+		});
+	}
 
 
 	$("html").mousemove(function(event) {
 		var x = (event.clientX - $('#center').offset().left) + $(window).scrollLeft();
 		var y = (event.clientY - $('#center').offset().top) + $(window).scrollTop();
-		x = -x>0 ? -x : x;
-		y = -y>0 ? -y : y;
-		x = x / $(window).innerWidth() * 3000;
-		y = y / $(window).innerHeight() * 3000;
+		var newx = -x>0 ? -x : x;
+		var newy = -y>0 ? -y : y;
+		newx = x / $(window).innerWidth() * 3000;
+		newy = y / $(window).innerHeight() * 3000;
 
 		if (playAway) {
-
 			if (gainNode['kick'] !== null) {
-				kickVolume = y;
+				kickVolume = newy;
 				gainNode['kick'].frequency.value = kickVolume;
 				interactions['kickVolume'] = kickVolume;
 			}
 
 			if (gainNode['highhum'] !== null) {
-				highhumVolume = x ;
+				highhumVolume = newx;
 				gainNode['highhum'].frequency.value = highhumVolume;
 				interactions['highhumVolume'] = highhumVolume;
 			}
 		}
+
+		$('#home').css("transform", "translate("+ ( ( x / 60 ) * -1) +"%, "+ ( ( y / 30 ) * -1) +"%)");
+		$('#portfolio, #resume, #ideas, #inspirations').css("transform", "translate("+ ((x/80)*-1) +"%, "+ ((y/60)*-1) +"%)");
 
 		if ($("#debug").length == 1) {
 			$("#x-pos .value", "#debug").text( event.clientX );
@@ -255,19 +266,29 @@ $(document).ready(function(){
 	});
 
 $('.stripe').on('click', function() {
+	var panelToPop = $(this).attr('data-activate');
 	if (!$('#home').hasClass('spread')) {
 		$('.bounceInLeft').addClass('animated bounceOutRight');
 		$('.bounceInRight').addClass('animated bounceOutLeft');
 		window.playAway = !window.playAway;
+
 		track_functions[track_functions.length] = function() {
 			$("#home").toggleClass('spread');
-			$('.bounceInRight, .bounceInLeft, .bounceOutRight, .bounceOutLeft ').removeClass('animated bounceInRight bounceInLeft bounceOutLeft bounceOutRight');
+			$('.bounceInRight, .bounceInLeft, .bounceOutRight, .bounceOutLeft').removeClass('animated bounceInRight bounceInLeft bounceOutLeft bounceOutRight');
+			$(panelToPop).addClass('animated');
+		}
+
+		snare_functions[snare_functions.length] = function() {
+
+		}
+
+		kick_functions[kick_functions.length] = function() {
+			$('.panel').not($(panelToPop)).removeClass('animated');
 		}
 	}
 });
 
 var hidden = "hidden";
-
 	// Standards:
 	if (hidden in document)
 		document.addEventListener("visibilitychange", onchange);
@@ -292,7 +313,7 @@ var hidden = "hidden";
 		};
 		evt = evt || window.event;
 		if (evt.type in evtMap) {
-			play();
+			play(); // TODO: tie onblur to stopping, and onvisible to playing only IF the track isn't currently playing.
 		}
 		else {
 			play();
@@ -307,7 +328,7 @@ var hidden = "hidden";
 				window.playAway = !window.playAway;
 				track_functions[track_functions.length] = function() {
 					$("#home").toggleClass('spread');
-					$('.bounceInRight, .bounceInLeft, .bounceOutRight, .bounceOutLeft ').removeClass('animated bounceInRight bounceInLeft bounceOutLeft bounceOutRight');
+					$('.panel').removeClass('animated');
 				}
 			}
 		}
