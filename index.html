@@ -6,7 +6,9 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=0.5,minimum-scale=0.5,maximum-scale=0.5,user-scalable=no" />
-	<title></title>
+	<title>wr.me</title>
+
+	<link rel="stylesheet" type="text/css" href="../bower_components/normalize-css/normalize.css" />
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 	<link rel="stylesheet" type="text/css" href="../bower_components/animate.css/animate.min.css" />
 	<script type="text/javascript" src="//use.typekit.net/ncu5cby.js"></script>
@@ -14,23 +16,30 @@
 </head>
 	<body id="body" class="index">
 	<div id="center"></div>
-<div id="home">
-	<div class="stripe-container">
-		<a href="#and-his-past" class="stripe orange animated bounceInLeft click-activate" data-activate="#resume" data-kick data-snare>
-			<span>resume</span>
-		</a>
-		<a href="#and-the-things-he's-done" class="stripe yellow snare animated bounceInRight click-activate" data-activate="#portfolio" data-snare data-kick>
-			<span>portfolio</span>
-		</a>
-		<a href="#and-the-thoughts-he's-knocked-around" class="stripe green snare kick animated bounceInLeft click-activate" data-activate="#ideas" data-snare data-kick>
-			<span>ideas</span>
-		</a>
-		<a href="#and-the-people-who-made-him" class="stripe blue kick animated bounceInRight click-activate" data-activate="#inspirations" data-snare data-kick>
-			<span>inspirations</span>
-		</a>
+	<div id="home">
+		<div class="stripe-container">
+			<a href="#and-his-past" class="stripe orange animated bounceInLeft click-activate" data-activate="#resume" data-kick data-snare>
+				<span>resume</span>
+			</a>
+			<a href="#and-the-things-he's-done" class="stripe yellow snare animated bounceInRight click-activate" data-activate="#portfolio" data-snare data-kick>
+				<span>portfolio</span>
+			</a>
+			<a href="#and-the-thoughts-he's-knocked-around" class="stripe green snare kick animated bounceInLeft click-activate" data-activate="#ideas" data-snare data-kick>
+				<span>ideas</span>
+			</a>
+			<a href="#and-the-people-who-made-him" class="stripe blue kick animated bounceInRight click-activate" data-activate="#inspirations" data-snare data-kick>
+				<span>inspirations</span>
+			</a>
+		</div>
 	</div>
+<div id="initial-intro" style="display:none;" class="alert animated bounceInDown">
+	<p><b>move your cursor</b> or <b>rotate your device</b> to pan around</p>
 </div>
-<div id="portfolio" class="panel">
+
+<div id="first-intro" style="display:none;" class="alert animated bounceInDown" data-init>
+	<p>hit the <span class="key"><span class="keycap">esc</span></span> key to go back</p>
+</div>
+<div id="portfolio" class="panel" data-kick data-snare>
 	<div class="container">
 		<h1>portfolio</h1>
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -83,7 +92,7 @@
 		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 	</div>
 </div>
-<div id="resume" class="panel">
+<div id="resume" class="panel" data-snare data-kick>
 	<div class="container">
 		<h1>resume // timeline</h1>
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -136,7 +145,7 @@
 		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 	</div>
 </div>
-<div id="ideas" class="panel">
+<div id="ideas" class="panel" data-snare data-kick>
 	<div class="container">
 		<h1>ideas</h1>
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -192,57 +201,11 @@
 <div id="contact" class="panel">
 	<div class="container"></div>
 </div>
-<div id="inspirations" class="panel">
+<div id="inspirations" class="panel" data-snare data-kick>
 	<div class="container">
-		<h1>inspirations</h1>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		<h1>a json string of things and people who made me</h1>
+		<code>nice</code>
+		<h6 class="pull-right">databases are real life connections made binary</h6>
 	</div>
 </div>
 <div id="debug">

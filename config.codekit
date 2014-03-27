@@ -7348,6 +7348,14 @@
 		"outputAbbreviatedPath": "\/kit\/_scripts.html",
 		"outputPathIsSetByUser": 0
 		},
+	"\/kit\/section\/_alerts.kit": {
+		"fileType": 2048,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/kit\/section\/_alerts.kit",
+		"outputAbbreviatedPath": "\/kit\/section\/_alerts.html",
+		"outputPathIsSetByUser": 0
+		},
 	"\/kit\/section\/_contact.kit": {
 		"fileType": 2048,
 		"ignore": 1,
@@ -7424,6 +7432,21 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/sass\/ie.scss",
 		"outputAbbreviatedPath": "\/css\/ie.css",
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"useLibsass": 0
+		},
+	"\/sass\/mixins\/_keycap.scss": {
+		"createSourceMap": 0,
+		"debugStyle": 0,
+		"decimalPrecision": 5,
+		"fileType": 4,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/sass\/mixins\/_keycap.scss",
+		"outputAbbreviatedPath": "\/css\/_keycap.css",
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,
@@ -7550,6 +7573,21 @@
 		"shouldRunBless": 0,
 		"useLibsass": 0
 		},
+	"\/sass\/section\/_alerts.scss": {
+		"createSourceMap": 0,
+		"debugStyle": 0,
+		"decimalPrecision": 5,
+		"fileType": 4,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/sass\/section\/_alerts.scss",
+		"outputAbbreviatedPath": "\/css\/_alerts.css",
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"useLibsass": 0
+		},
 	"\/sass\/section\/_body.scss": {
 		"createSourceMap": 0,
 		"debugStyle": 0,
@@ -7595,6 +7633,36 @@
 		"shouldRunBless": 0,
 		"useLibsass": 0
 		},
+	"\/sass\/section\/_ideas.scss": {
+		"createSourceMap": 0,
+		"debugStyle": 0,
+		"decimalPrecision": 5,
+		"fileType": 4,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/sass\/section\/_ideas.scss",
+		"outputAbbreviatedPath": "\/css\/_ideas.css",
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"useLibsass": 0
+		},
+	"\/sass\/section\/_inspirations.scss": {
+		"createSourceMap": 0,
+		"debugStyle": 0,
+		"decimalPrecision": 5,
+		"fileType": 4,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/sass\/section\/_inspirations.scss",
+		"outputAbbreviatedPath": "\/css\/_inspirations.css",
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"useLibsass": 0
+		},
 	"\/sass\/section\/_portfolio.scss": {
 		"createSourceMap": 0,
 		"debugStyle": 0,
@@ -7604,6 +7672,21 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/sass\/section\/_portfolio.scss",
 		"outputAbbreviatedPath": "\/css\/_portfolio.css",
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"useLibsass": 0
+		},
+	"\/sass\/section\/_resume.scss": {
+		"createSourceMap": 0,
+		"debugStyle": 0,
+		"decimalPrecision": 5,
+		"fileType": 4,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/sass\/section\/_resume.scss",
+		"outputAbbreviatedPath": "\/css\/_resume.css",
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"shouldRunAutoprefixer": 0,

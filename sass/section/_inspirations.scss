@@ -1,0 +1,29 @@
+#inspirations {
+	.container {
+		border: 5px solid white;
+		margin-bottom: 30px;
+		position: relative;
+
+		h1 {
+			margin: 0;
+		}
+
+		h6 {
+			position: absolute;
+			right: 0;
+			bottom: -80px;
+		}
+	}
+
+	&.kick {
+		.container {
+			border-color: $blue;
+		}
+	}
+
+	&.snare {
+		.container {
+			@include single-box-shadow(0px, 0px, 0px, 5px, $blue);
+		}
+	}
+}

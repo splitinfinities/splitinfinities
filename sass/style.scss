@@ -1,5 +1,6 @@
 @import "compass/css3/transform";
 @import "compass/css3/transition";
+@import "compass/css3/box-shadow";
 
 // mixins
 @import "mixins/_panels";
@@ -7,6 +8,7 @@
 @import "mixins/_panels_responsive";
 @import "mixins/_responsive_helpers";
 @import "mixins/_mtk_brand";
+@import "mixins/_keycap";
 
 html, body {
 	height: 100%;
@@ -14,18 +16,28 @@ html, body {
 	font-family: "Avenir", Helvetica, Arial, sans-serif;
 	overflow-x: hidden;
 	padding-bottom: 100px;
+	color: #333;
 }
 
 .panel {
 	@include panel(1200px, 20px);
 	position: absolute;
 	display: none;
-	margin-bottom: 200px;
+	padding-bottom: 50%;
 	.container {
 		height: 100%;
 		background-color: white;
 		border-radius: 2px;
 		border: 0 solid transparent;
+
+		p {
+			letter-spacing: .01rem;
+			font-weight: 400;
+			font-style: normal;
+			font-size: 22px;
+			line-height: 1.5;
+			text-shadow: 0 1px 0 rgba(0, 0, 0, .1);
+		}
 	}
 
 	&.animated {
@@ -43,7 +55,12 @@ html, body {
 	left: 50%;
 }
 
+@import "section/_alerts";
 @import "section/_home";
+@import "section/_portfolio";
+@import "section/_ideas";
+@import "section/_inspirations";
+@import "section/_resume";
 // @import "section/_nav";
 // @import "section/_mantle";
 // @import "legacy.scss";

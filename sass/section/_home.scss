@@ -120,7 +120,7 @@
 			left: 0;
 			top: 0;
 			.stripe {
-				width: 800px;
+				width: 1500px;
 				height: 200px;
 
 				margin: 0;
@@ -128,11 +128,12 @@
 				&.orange {
 					top: 0;
 					bottom: auto;
-					left: -250px;
+					left: -700px;
 					right: auto;
 					@include rotate(-45deg, 1px);
 					span {
-						top: 50px;
+						top: 75px;
+						left: 50%;
 						@include rotate(45deg, 1px);
 					}
 				}
@@ -141,10 +142,11 @@
 					top: 0px;
 					bottom: auto;
 					left: auto;
-					right: -250px;
+					right: -700px;
 					@include rotate(45deg, 1px);
 					span {
-						top: 50px;
+						top: 65px;
+						left: 40%;
 						@include rotate(-45deg, 1px);
 					}
 				}
@@ -152,11 +154,12 @@
 				&.green {
 					top: auto;
 					bottom: 0;
-					left: -250px;
+					left: -700px;
 					right: auto;
 					@include rotate(45deg, 1px);
 					span {
-						top: 50px;
+						top: 75px;
+						left: 50%;
 						@include rotate(-45deg, 1px);
 					}
 				}
@@ -165,10 +168,11 @@
 					top: auto;
 					bottom: 0;
 					left: auto;
-					right: -250px;
+					right: -700px;
 					@include rotate(-45deg, 1px);
 					span {
-						top: 50px;
+						top: 75px;
+						left: 40%;
 						@include rotate(45deg, 1px);
 					}
 				}

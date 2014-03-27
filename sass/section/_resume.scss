@@ -1,4 +1,4 @@
-#portfolio {
+#resume {
 	.container {
 		border: 5px solid white;
 		h1 {
@@ -8,13 +8,13 @@
 
 	&.kick {
 		.container {
-			border-color: $yellow;
+			border-color: $orange;
 		}
 	}
 
 	&.snare {
 		.container {
-			@include single-box-shadow(0px, 0px, 0px, 5px, $yellow);
+			@include single-box-shadow(0px, 0px, 0px, 5px, $orange);
 		}
 	}
 }

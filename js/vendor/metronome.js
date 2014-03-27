@@ -33,7 +33,7 @@ var interactions = {
 };
 
 // First, let's shim the requestAnimationFrame API, with a setTimeout fallback
-window.requestAnimFrame = (function(){
+window.requestAnimFrame = (function() {
 	return  window.requestAnimationFrame ||
 	window.webkitRequestAnimationFrame ||
 	window.mozRequestAnimationFrame ||
@@ -109,15 +109,15 @@ function playSound(buffer, time, stem_title) {
 		gainNode['kick'].connect(context.destination);
 		gainNode['kick'].type = "bandpass";
 		gainNode['kick'].frequency.value = interactions['kickVolume'];
-		gainNode['kick'].gain.value = .5;
+		gainNode['kick'].gain.value = .75;
 	}
 	else if (stem_title === "highhum") {
 		gainNode['highhum'] = context.createBiquadFilter();
 		source.connect(gainNode['highhum']);
 		gainNode['highhum'].connect(context.destination);
-		gainNode['highhum'].type = "lowshelf";
-		gainNode['highhum'].frequency.value = interactions['highhumVolume'];
-		gainNode['highhum'].gain.value = .5;
+		gainNode['highhum'].type = "notch";
+		gainNode['highhum'].frequency.value = interactions['highhumVolume'] * 5;
+		gainNode['highhum'].gain.value = .75;
 	}
 	else if (stem_title === "hum") {
 		gainNode['hum'] = context.createGain;
@@ -136,7 +136,6 @@ function scheduleNote( beatNumber, time ) {
 
 	if (beatNumber%16 === 0) {
 		queueActive();
-
 	}
 
 	if (beatNumber%4 === 0) {
@@ -208,7 +207,7 @@ function init() {
 	var container = document.createElement( 'div' );
 	window.context = window.context || window.webkitcontext;
 	context = new AudioContext();
-	bufferLoader = new BufferLoader( context, [ 'moth_stems/hum_high.mp3', 'moth_stems/drums_excited.mp3', 'moth_stems/hum_base.mp3', ], finishedLoading );
+	bufferLoader = new BufferLoader( context, [ 'moth_stems/hum_pizzacatto.mp3', 'moth_stems/drums_relaxed.mp3', 'moth_stems/hum_base.mp3', ], finishedLoading );
 	bufferLoader.load();
 }
 
@@ -257,6 +256,9 @@ $(document).ready(function() {
 	kick_elements = $('[data-kick]');
 	snare_elements = $('[data-snare]');
 
+
+	setTimeout(function() {  $('#initial-intro').show(); setTimeout(function() { $('#initial-intro').hide(); }, 6000) }, 1000);
+
 	if (Modernizr.touch && mobileInit !== 1) {
 		$("html").one('click', function() {
 			isPlaying = false;
@@ -293,15 +295,19 @@ $(document).ready(function() {
 	}
 	$('.stripe').on('click', function() {
 		var panelToPop = $(this).attr('data-activate');
+
 		if (!$('#home').hasClass('spread')) {
-			$('.bounceInLeft').addClass('animated bounceOutRight');
-			$('.bounceInRight').addClass('animated bounceOutLeft');
 			window.playAway = !window.playAway;
 
+			$('#home').hide()
+
 			track_functions[track_functions.length] = function() {
-				$("#home").toggleClass('spread');
-				$('.bounceInRight, .bounceInLeft, .bounceOutRight, .bounceOutLeft').removeClass('animated bounceInRight bounceInLeft bounceOutLeft bounceOutRight');
 				$(panelToPop).addClass('animated');
+				$('.alert').hide();
+				$('#first-intro[data-init]').show();
+				setTimeout( function() { $('#first-intro[data-init]').removeAttr('data-init').hide(); }, 6000);
+				$("#home").toggleClass('spread').show();
+				$('.stripe').removeClass('animated bounceInLeft bounceInRight');
 			}
 
 			snare_functions[snare_functions.length] = function() {
@@ -310,6 +316,18 @@ $(document).ready(function() {
 
 			kick_functions[kick_functions.length] = function() {
 				$('.panel').not($(panelToPop)).removeClass('animated');
+			}
+		} else {
+			track_functions[track_functions.length] = function() {
+				$(panelToPop).addClass('animated');
+			}
+
+			snare_functions[snare_functions.length] = function() {
+				$('.panel').not($(panelToPop)).removeClass('animated');
+
+				kick_functions[kick_functions.length] = function() {
+					$(panelToPop).addClass('animated');
+				}
 			}
 		}
 	});
