@@ -482,4 +482,4 @@ html, body {
   background-color: white;
   margin: 5px;
   z-index: 99999;
-  display: none; }
+  display: block; }

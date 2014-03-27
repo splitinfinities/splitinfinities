@@ -28,8 +28,8 @@ var gainNode = {
 }
 
 var interactions = {
-	kickVolume: 0,
-	highhumVolume: 0,
+	kickVolume: .5,
+	highhumVolume: .5,
 };
 
 // First, let's shim the requestAnimationFrame API, with a setTimeout fallback
@@ -109,13 +109,19 @@ function playSound(buffer, time, stem_title) {
 		gainNode['kick'].connect(context.destination);
 		gainNode['kick'].type = "bandpass";
 		gainNode['kick'].frequency.value = interactions['kickVolume'];
+		gainNode['kick'].gain.value = .5;
 	}
 	else if (stem_title === "highhum") {
 		gainNode['highhum'] = context.createBiquadFilter();
 		source.connect(gainNode['highhum']);
 		gainNode['highhum'].connect(context.destination);
 		gainNode['highhum'].type = "lowshelf";
-		gainNode['highhum'].frequency.value = -interactions['highhumVolume'];
+		gainNode['highhum'].frequency.value = interactions['highhumVolume'];
+		gainNode['highhum'].gain.value = .5;
+	}
+	else if (stem_title === "hum") {
+		gainNode['hum'] = context.createGain;
+		source.connect(context.destination);
 	}
 	else {
 		source.connect(context.destination);
@@ -213,6 +219,38 @@ function finishedLoading(bufferList) {
 	play();
 }
 
+function accelerationUpdates(x, y, newx, newy, event) {
+
+	if (playAway) {
+
+		if (gainNode['kick'] !== null) {
+			kickVolume = newy;
+			gainNode['kick'].frequency.value = kickVolume;
+			interactions['kickVolume'] = kickVolume;
+		}
+
+		if (gainNode['highhum'] !== null) {
+			highhumVolume = newx;
+			gainNode['highhum'].frequency.value = highhumVolume;
+			interactions['highhumVolume'] = highhumVolume;
+		}
+	}
+
+	$('#home').css("transform", "translate("+ ( ( x / 60 ) * -1) +"%, "+ ( ( y / 30 ) * -1) +"%)");
+	$('#portfolio, #resume, #ideas, #inspirations').css("transform", "translate("+ ((x/80)*-1) +"%, "+ ((y/60)*-1) +"%)");
+
+	if ($("#debug").length == 1) {
+		$("#x-pos .value", "#debug").text( x );
+		$("#y-pos .value", "#debug").text( y );
+
+		$("#x-half-pos .value", "#debug").text( newx );
+		$("#y-half-pos .value", "#debug").text( newy );
+
+		$("#x-half-per .value", "#debug").text( x );
+		$("#y-half-per .value", "#debug").text( y );
+	}
+}
+
 var mobileInit = 0;
 
 $(document).ready(function() {
@@ -227,68 +265,56 @@ $(document).ready(function() {
 		});
 	}
 
+	if (Modernizr.touch) {
+		window.ondeviceorientation = function(event) {
+			var accelerationX = Math.ceil(event.gamma * 50);
+			var accelerationY = Math.ceil(event.beta * 10);
+			var x = (accelerationX - $('#center').offset().left) + $(window).scrollLeft();
+			var y = (accelerationY - $('#center').offset().top) + $(window).scrollTop();
+			// var newx = -x>0 ? -x : x;
+			// var newy = -y>0 ? -y : y;
+			var newx = x;
+			var newy = y;
 
-	$("html").mousemove(function(event) {
-		var x = (event.clientX - $('#center').offset().left) + $(window).scrollLeft();
-		var y = (event.clientY - $('#center').offset().top) + $(window).scrollTop();
-		var newx = -x>0 ? -x : x;
-		var newy = -y>0 ? -y : y;
-		newx = x / $(window).innerWidth() * 3000;
-		newy = y / $(window).innerHeight() * 3000;
-
-		if (playAway) {
-			if (gainNode['kick'] !== null) {
-				kickVolume = newy;
-				gainNode['kick'].frequency.value = kickVolume;
-				interactions['kickVolume'] = kickVolume;
-			}
-
-			if (gainNode['highhum'] !== null) {
-				highhumVolume = newx;
-				gainNode['highhum'].frequency.value = highhumVolume;
-				interactions['highhumVolume'] = highhumVolume;
-			}
+			accelerationUpdates(x, y, newx, newy, event);
 		}
+	}
+	else {
+		$("html").mousemove(function(event) {
+			var x = (event.clientX - $('#center').offset().left) + $(window).scrollLeft();
+			var y = (event.clientY - $('#center').offset().top) + $(window).scrollTop();
+			var newx = -x>0 ? -x : x;
+			var newy = -y>0 ? -y : y;
+			newx = x / $(window).innerWidth() * 3000;
+			newy = y / $(window).innerHeight() * 3000;
 
-		$('#home').css("transform", "translate("+ ( ( x / 60 ) * -1) +"%, "+ ( ( y / 30 ) * -1) +"%)");
-		$('#portfolio, #resume, #ideas, #inspirations').css("transform", "translate("+ ((x/80)*-1) +"%, "+ ((y/60)*-1) +"%)");
+			accelerationUpdates(x, y, newx, newy, event);
+		});
+	}
+	$('.stripe').on('click', function() {
+		var panelToPop = $(this).attr('data-activate');
+		if (!$('#home').hasClass('spread')) {
+			$('.bounceInLeft').addClass('animated bounceOutRight');
+			$('.bounceInRight').addClass('animated bounceOutLeft');
+			window.playAway = !window.playAway;
 
-		if ($("#debug").length == 1) {
-			$("#x-pos .value", "#debug").text( event.clientX );
-			$("#y-pos .value", "#debug").text( event.clientY );
+			track_functions[track_functions.length] = function() {
+				$("#home").toggleClass('spread');
+				$('.bounceInRight, .bounceInLeft, .bounceOutRight, .bounceOutLeft').removeClass('animated bounceInRight bounceInLeft bounceOutLeft bounceOutRight');
+				$(panelToPop).addClass('animated');
+			}
 
-			$("#x-half-pos .value", "#debug").text( event.clientX / $(window).innerWidth() );
-			$("#y-half-pos .value", "#debug").text( event.clientY / $(window).innerHeight() );
+			snare_functions[snare_functions.length] = function() {
 
-			$("#x-half-per .value", "#debug").text( x );
-			$("#y-half-per .value", "#debug").text( y );
+			}
+
+			kick_functions[kick_functions.length] = function() {
+				$('.panel').not($(panelToPop)).removeClass('animated');
+			}
 		}
 	});
 
-$('.stripe').on('click', function() {
-	var panelToPop = $(this).attr('data-activate');
-	if (!$('#home').hasClass('spread')) {
-		$('.bounceInLeft').addClass('animated bounceOutRight');
-		$('.bounceInRight').addClass('animated bounceOutLeft');
-		window.playAway = !window.playAway;
-
-		track_functions[track_functions.length] = function() {
-			$("#home").toggleClass('spread');
-			$('.bounceInRight, .bounceInLeft, .bounceOutRight, .bounceOutLeft').removeClass('animated bounceInRight bounceInLeft bounceOutLeft bounceOutRight');
-			$(panelToPop).addClass('animated');
-		}
-
-		snare_functions[snare_functions.length] = function() {
-
-		}
-
-		kick_functions[kick_functions.length] = function() {
-			$('.panel').not($(panelToPop)).removeClass('animated');
-		}
-	}
-});
-
-var hidden = "hidden";
+	var hidden = "hidden";
 	// Standards:
 	if (hidden in document)
 		document.addEventListener("visibilitychange", onchange);
