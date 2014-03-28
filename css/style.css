@@ -255,9 +255,19 @@ html, body {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   overflow-x: hidden;
   padding-bottom: 100px;
-  color: #333; }
+  color: #333;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
 
-/* line 22, ../sass/style.scss */
+/* line 24, ../sass/style.scss */
+#pjax-container {
+  position: absolute;
+  width: 80%;
+  height: auto;
+  /* display: none; */
+  left: 10%; }
+
+/* line 32, ../sass/style.scss */
 .panel {
   min-width: 100%;
   min-height: 100%;
@@ -293,13 +303,13 @@ html, body {
       .panel .container {
         width: 310px;
         padding: 0 5px; } }
-  /* line 27, ../sass/style.scss */
+  /* line 37, ../sass/style.scss */
   .panel .container {
     height: 100%;
     background-color: white;
     border-radius: 2px;
     border: 0 solid transparent; }
-    /* line 33, ../sass/style.scss */
+    /* line 43, ../sass/style.scss */
     .panel .container p {
       letter-spacing: .01rem;
       font-weight: 400;
@@ -307,11 +317,11 @@ html, body {
       font-size: 22px;
       line-height: 1.5;
       text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1); }
-  /* line 43, ../sass/style.scss */
+  /* line 53, ../sass/style.scss */
   .panel.animated {
     display: block; }
 
-/* line 50, ../sass/style.scss */
+/* line 60, ../sass/style.scss */
 #center {
   position: fixed;
   width: 0;
@@ -322,16 +332,17 @@ html, body {
 /* line 1, ../sass/section/_alerts.scss */
 .alert {
   position: fixed;
-  top: -50px;
-  padding-top: 50px;
+  bottom: -50px;
+  padding-bottom: 50px;
   left: 50%;
   width: 50%;
   margin-left: -25%;
+  color: #3b3d43;
   background-color: rgba(255, 255, 255, 0.8);
   text-align: center;
-  border-radius: 0 0 50px 50px;
-  border: 2px solid #3b3d43;
-  border-top: 0;
+  border-radius: 6px 6px 0 0;
+  border: 4px solid #3b3d43;
+  border-bottom: 0;
   z-index: 99999; }
 
 /* line 1, ../sass/section/_home.scss */
@@ -342,6 +353,23 @@ html, body {
   left: 0;
   right: 0; }
   /* line 8, ../sass/section/_home.scss */
+  #home .bio {
+    width: 300px;
+    padding: 15px;
+    position: absolute;
+    top: 15%; }
+    /* line 13, ../sass/section/_home.scss */
+    #home .bio img {
+      width: 250px;
+      height: 250px;
+      display: block;
+      margin: 0 auto;
+      border-radius: 50%; }
+    /* line 21, ../sass/section/_home.scss */
+    #home .bio p {
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.5); }
+  /* line 27, ../sass/section/_home.scss */
   #home .stripe-container {
     position: absolute;
     display: block;
@@ -356,7 +384,7 @@ html, body {
     -ms-transform: perspective(0px) rotate(100deg);
     -webkit-transform: perspective(0px) rotate(100deg);
     transform: perspective(0px) rotate(100deg); }
-    /* line 20, ../sass/section/_home.scss */
+    /* line 39, ../sass/section/_home.scss */
     #home .stripe-container .stripe {
       width: 3000px;
       height: 205px;
@@ -375,27 +403,27 @@ html, body {
       -webkit-transition: height 400ms ease;
       -webkit-transition-delay: 0ms;
       transition: height 400ms ease 0ms; }
-      /* line 33, ../sass/section/_home.scss */
+      /* line 52, ../sass/section/_home.scss */
       #home .stripe-container .stripe.orange {
         background-color: #de5b1e;
         top: 0;
         z-index: 1; }
-      /* line 39, ../sass/section/_home.scss */
+      /* line 58, ../sass/section/_home.scss */
       #home .stripe-container .stripe.yellow {
         background-color: #f0b747;
         top: 200px;
         z-index: 2; }
-      /* line 45, ../sass/section/_home.scss */
+      /* line 64, ../sass/section/_home.scss */
       #home .stripe-container .stripe.green {
         background-color: #6aa427;
         top: 400px;
         z-index: 3; }
-      /* line 51, ../sass/section/_home.scss */
+      /* line 70, ../sass/section/_home.scss */
       #home .stripe-container .stripe.blue {
         background-color: #9dd2b5;
         top: 600px;
         z-index: 4; }
-      /* line 57, ../sass/section/_home.scss */
+      /* line 76, ../sass/section/_home.scss */
       #home .stripe-container .stripe span {
         position: absolute;
         left: 42.5%;
@@ -412,41 +440,44 @@ html, body {
         -webkit-transition: font-size 50ms ease-in-out, text-shadow 150ms ease;
         -webkit-transition-delay: 0ms, 0ms;
         transition: font-size 50ms ease-in-out 0ms, text-shadow 150ms ease 0ms; }
-      /* line 69, ../sass/section/_home.scss */
+      /* line 88, ../sass/section/_home.scss */
       #home .stripe-container .stripe.kick span {
         font-size: 46px; }
-      /* line 75, ../sass/section/_home.scss */
+      /* line 94, ../sass/section/_home.scss */
       #home .stripe-container .stripe.snare span {
         font-size: 36px; }
-      /* line 80, ../sass/section/_home.scss */
+      /* line 99, ../sass/section/_home.scss */
       #home .stripe-container .stripe:hover {
         height: 205px; }
-        /* line 82, ../sass/section/_home.scss */
+        /* line 101, ../sass/section/_home.scss */
         #home .stripe-container .stripe:hover.orange {
           top: -5px; }
-        /* line 85, ../sass/section/_home.scss */
+        /* line 104, ../sass/section/_home.scss */
         #home .stripe-container .stripe:hover.yellow {
           top: 195px; }
-        /* line 88, ../sass/section/_home.scss */
+        /* line 107, ../sass/section/_home.scss */
         #home .stripe-container .stripe:hover.green {
           top: 395px; }
-        /* line 91, ../sass/section/_home.scss */
+        /* line 110, ../sass/section/_home.scss */
         #home .stripe-container .stripe:hover.blue {
           top: 595px; }
-        /* line 94, ../sass/section/_home.scss */
+        /* line 113, ../sass/section/_home.scss */
         #home .stripe-container .stripe:hover span {
           color: white;
           top: 100px;
           font-size: 26px;
           font-weight: 500;
           text-shadow: 100px 20px rgba(0, 0, 0, 0.25), -50px 150px rgba(0, 0, 0, 0.35), 100px -50px rgba(0, 0, 0, 0.1), -100px 200px rgba(0, 0, 0, 0.2), -150px 75px rgba(0, 0, 0, 0.45), 75px 50px rgba(0, 0, 0, 0.5); }
-  /* line 111, ../sass/section/_home.scss */
+  /* line 130, ../sass/section/_home.scss */
   #home.spread {
     width: 135%;
     height: 135%;
     left: -17.5%;
     top: -17.5%; }
-    /* line 116, ../sass/section/_home.scss */
+    /* line 136, ../sass/section/_home.scss */
+    #home.spread .bio {
+      display: none; }
+    /* line 140, ../sass/section/_home.scss */
     #home.spread .stripe-container {
       -moz-transform: perspective(1px) rotate(0deg);
       -ms-transform: perspective(1px) rotate(0deg);
@@ -456,12 +487,12 @@ html, body {
       height: 100%;
       left: 0;
       top: 0; }
-      /* line 122, ../sass/section/_home.scss */
+      /* line 146, ../sass/section/_home.scss */
       #home.spread .stripe-container .stripe {
         width: 1500px;
         height: 200px;
         margin: 0; }
-        /* line 128, ../sass/section/_home.scss */
+        /* line 152, ../sass/section/_home.scss */
         #home.spread .stripe-container .stripe.orange {
           top: 0;
           bottom: auto;
@@ -471,7 +502,7 @@ html, body {
           -ms-transform: perspective(1px) rotate(-45deg);
           -webkit-transform: perspective(1px) rotate(-45deg);
           transform: perspective(1px) rotate(-45deg); }
-          /* line 134, ../sass/section/_home.scss */
+          /* line 158, ../sass/section/_home.scss */
           #home.spread .stripe-container .stripe.orange span {
             top: 75px;
             left: 50%;
@@ -479,7 +510,7 @@ html, body {
             -ms-transform: perspective(1px) rotate(45deg);
             -webkit-transform: perspective(1px) rotate(45deg);
             transform: perspective(1px) rotate(45deg); }
-        /* line 141, ../sass/section/_home.scss */
+        /* line 165, ../sass/section/_home.scss */
         #home.spread .stripe-container .stripe.yellow {
           top: 0px;
           bottom: auto;
@@ -489,7 +520,7 @@ html, body {
           -ms-transform: perspective(1px) rotate(45deg);
           -webkit-transform: perspective(1px) rotate(45deg);
           transform: perspective(1px) rotate(45deg); }
-          /* line 147, ../sass/section/_home.scss */
+          /* line 171, ../sass/section/_home.scss */
           #home.spread .stripe-container .stripe.yellow span {
             top: 65px;
             left: 40%;
@@ -497,7 +528,7 @@ html, body {
             -ms-transform: perspective(1px) rotate(-45deg);
             -webkit-transform: perspective(1px) rotate(-45deg);
             transform: perspective(1px) rotate(-45deg); }
-        /* line 154, ../sass/section/_home.scss */
+        /* line 178, ../sass/section/_home.scss */
         #home.spread .stripe-container .stripe.green {
           top: auto;
           bottom: 0;
@@ -507,7 +538,7 @@ html, body {
           -ms-transform: perspective(1px) rotate(45deg);
           -webkit-transform: perspective(1px) rotate(45deg);
           transform: perspective(1px) rotate(45deg); }
-          /* line 160, ../sass/section/_home.scss */
+          /* line 184, ../sass/section/_home.scss */
           #home.spread .stripe-container .stripe.green span {
             top: 75px;
             left: 50%;
@@ -515,7 +546,7 @@ html, body {
             -ms-transform: perspective(1px) rotate(-45deg);
             -webkit-transform: perspective(1px) rotate(-45deg);
             transform: perspective(1px) rotate(-45deg); }
-        /* line 167, ../sass/section/_home.scss */
+        /* line 191, ../sass/section/_home.scss */
         #home.spread .stripe-container .stripe.blue {
           top: auto;
           bottom: 0;
@@ -525,7 +556,7 @@ html, body {
           -ms-transform: perspective(1px) rotate(-45deg);
           -webkit-transform: perspective(1px) rotate(-45deg);
           transform: perspective(1px) rotate(-45deg); }
-          /* line 173, ../sass/section/_home.scss */
+          /* line 197, ../sass/section/_home.scss */
           #home.spread .stripe-container .stripe.blue span {
             top: 75px;
             left: 40%;

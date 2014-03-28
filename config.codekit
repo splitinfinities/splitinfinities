@@ -7304,6 +7304,14 @@
 		"outputAbbreviatedPath": "\/index.html",
 		"outputPathIsSetByUser": 0
 		},
+	"\/inspirations.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/inspirations.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsSetByUser": 0
+		},
 	"\/js\/vendor\/metronome.js": {
 		"fileType": 64,
 		"ignore": 0,
@@ -7323,6 +7331,14 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
+		},
+	"\/json.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/json.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsSetByUser": 0
 		},
 	"\/kit\/_body.kit": {
 		"fileType": 2048,
@@ -7358,7 +7374,7 @@
 		},
 	"\/kit\/section\/_contact.kit": {
 		"fileType": 2048,
-		"ignore": 1,
+		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/kit\/section\/_contact.kit",
 		"outputAbbreviatedPath": "\/kit\/section\/_contact.html",
@@ -7382,7 +7398,7 @@
 		},
 	"\/kit\/section\/_ideas.kit": {
 		"fileType": 2048,
-		"ignore": 1,
+		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/kit\/section\/_ideas.kit",
 		"outputAbbreviatedPath": "\/kit\/section\/_ideas.html",
@@ -7390,7 +7406,7 @@
 		},
 	"\/kit\/section\/_inspirations.kit": {
 		"fileType": 2048,
-		"ignore": 1,
+		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/kit\/section\/_inspirations.kit",
 		"outputAbbreviatedPath": "\/kit\/section\/_inspirations.html",
@@ -7398,7 +7414,7 @@
 		},
 	"\/kit\/section\/_portfolio.kit": {
 		"fileType": 2048,
-		"ignore": 1,
+		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/kit\/section\/_portfolio.kit",
 		"outputAbbreviatedPath": "\/kit\/section\/_portfolio.html",
@@ -7406,7 +7422,7 @@
 		},
 	"\/kit\/section\/_resume.kit": {
 		"fileType": 2048,
-		"ignore": 1,
+		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/kit\/section\/_resume.kit",
 		"outputAbbreviatedPath": "\/kit\/section\/_resume.html",

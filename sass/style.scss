@@ -17,6 +17,16 @@ html, body {
 	overflow-x: hidden;
 	padding-bottom: 100px;
 	color: #333;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+#pjax-container {
+	position: absolute;
+	width: 80%;
+	height: auto;
+	/* display: none; */
+	left: 10%;
 }
 
 .panel {

@@ -5,6 +5,25 @@
 	left: 0;
 	right: 0;
 
+	.bio {
+		width: 300px;
+		padding: 15px;
+		position:absolute;
+		top: 15%;
+		img {
+			width: 250px;
+			height: 250px;
+			display: block;
+			margin: 0 auto;
+			border-radius: 50%;
+		}
+
+		p {
+			font-size: 16px;
+			color: rgba(255,255,255,.5);
+		}
+	}
+
 	.stripe-container {
 		position: absolute;
 		display: block;
@@ -113,6 +132,11 @@
 		height: 135%;
 		left: -17.5%;
 		top: -17.5%;
+
+		.bio {
+			display: none;
+		}
+
 		.stripe-container {
 			@include rotate(0deg, 1px);
 			width: 100%;
