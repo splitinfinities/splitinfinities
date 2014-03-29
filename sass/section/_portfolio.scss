@@ -1,8 +1,48 @@
 #portfolio {
 	.container {
 		border: 5px solid white;
+
 		h1 {
-			margin: 0;
+			margin: 0.333333em 0;
+		}
+
+		.item {
+			position: relative;
+			width: 50%;
+			height: auto;
+
+			.bg {
+				position: relative;
+				width: 100%;
+				margin: 0;
+				padding: 0;
+				height: auto;
+				opacity: .75;
+				-webkit-filter: blur(3px);
+			}
+
+			.icon {
+				position: absolute;
+				width: 75px;
+				margin: 0;
+				margin-top: -50px;
+				padding: 0;
+				height: auto;
+				z-index: 2;
+				top: 50%;
+				left: 50px;
+				border: 3px solid rgba(255, 255, 255, .5);
+				border-radius: 3px;
+			}
+
+			h2 {
+				position: absolute;
+				bottom: 10px;
+				left: 10px;
+				padding: 0;
+				margin: 0;
+				text-shadow: 0px 0px 30px white;
+			}
 		}
 	}
 

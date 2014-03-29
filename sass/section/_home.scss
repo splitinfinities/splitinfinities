@@ -7,9 +7,13 @@
 
 	.bio {
 		width: 300px;
-		padding: 15px;
+		padding: 30px;
 		position:absolute;
-		top: 15%;
+		top: 0;
+		z-index: 99;
+		background-color: $base;
+		border-radius: 10px;
+
 		img {
 			width: 250px;
 			height: 250px;
@@ -20,7 +24,7 @@
 
 		p {
 			font-size: 16px;
-			color: rgba(255,255,255,.5);
+			color: mix(#ffffff, $base);
 		}
 	}
 

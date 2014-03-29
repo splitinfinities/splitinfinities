@@ -4,6 +4,10 @@
 		margin-bottom: 30px;
 		position: relative;
 
+		pre, code {
+			word-wrap: break-word;
+		}
+
 		h1 {
 			margin: 0;
 		}

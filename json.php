@@ -4,28 +4,80 @@
 		"middle_name" => "Michael",
 		"last_name" => "Riley",
 		"gender" => "male",
-		"religion" => "faith",
 		"born" => "Modesto, California",
-		"timezone" => "-5",
-		"locale" => "en_US",
-		"at_age" => [
-			23 => array(
-				"link" => "https://www.facebook.com/billoriley",
+		"at_age" => array(
+			23 => array( // a snapshot of me at age 23
+				"religion" => "we are star stuff",
+				"politics" => "centered",
+				"timezone" => "-5",
 				"location" => array(
 					"id" => "103107309730219",
-					"name" => "Council Bluffs, Iowa"
+					"name" => "Council Bluffs, Iowa",
 				),
-				"inspirations" => array(
-					"d.s.", // david shreffler
-					"m.p.v.b.", // martin patrick victor boehme
-					"t.j.f.", // thomas johnathan frank
-					"q.h.r.", // quinton hugh rau
-					"a.m.", // angela miller
-					"a.m.",
-					"j.s.",
-				)
+				"locale" => "en_US",
+				"loves" => array(),
+				"hates" => array(),
+				"proud_of" => array(),
+				"link" => "http://williamriley.me/",
+				"people_who_made_me" => array(
+					"i_know" => array(
+						"nickalaus dow spradley",
+						"david shreffler",
+						"martin patrick victor boehme",
+						"thomas johnathan frank",
+						"sammie charles kelley",
+						"quinton hugh rau",
+						"angie miller",
+						"aaron leeroy meadows",
+						"derek munyon",
+						"craig hughes",
+						"joel rausch",
+						"doug smith",
+						"christopher bell",
+						"louis charles stanard",
+						"joe sparano",
+						"ryan beck",
+						"nick koneck",
+						"leah gregory",
+						"jake ekans welchert",
+					),
+					"inspirations" => array(
+						"people" => array(
+							"elon musk",
+							"evan williams",
+							"thom yorke",
+							"ryan north",
+							"robert scoble",
+							"gary vaynerchuk",
+						),
+						"organizations" => array(
+							"tesla motors",
+							"apple",
+							"medium",
+							"mozilla",
+							"twitter",
+							"google",
+							"square enix",
+							"facebook",
+							"jquery",
+							"ubuntu",
+							"w3c",
+							"ervin & smith",
+							"mojang",
+							"omaha code school",
+							"big wheel brigade",
+							"sony",
+							"blogglebeans",
+							"ows",
+							"flywheel",
+							"nintendo",
+							"microsoft",
+							"die socialisten",
+						),
+					),
+				),
 			),
-		]
+		),
 	);
 
 	echo json_encode($williamriley);

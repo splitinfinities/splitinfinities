@@ -125,7 +125,7 @@ function playSound(buffer, time, stem_title) {
 			gainNode['hum_base'] = context.createBiquadFilter();
 			source.connect(gainNode['hum_base']);
 			gainNode['hum_base'].connect(context.destination);
-			gainNode['hum_base'].type = "bandpass";
+			gainNode['hum_base'].type = "highpass";
 			gainNode['hum_base'].frequency.value = interactions['hum_base'];
 		}
 		else if (stem_title === "real_pizzicato") {
@@ -267,6 +267,8 @@ function accelerationUpdates(x, y, newx, newy, event) {
 	$('#home').css("transform", "translate("+ ( ( x / 60 ) * -1) +"%, "+ ( ( y / 30 ) * -1) +"%)");
 	$('#portfolio, #resume, #ideas, #inspirations').css("transform", "translate("+ ((x/80)*-1) +"%, "+ ((y/60)*-1) +"%)");
 
+	$('.subtle-parallax').css("transform", "translate("+ ( ( x / 60 ) * -1) +"%, "+ ( ( y / 30 ) * -1) +"%)");
+
 	if ($("#debug").length == 1) {
 		$("#x-pos .value", "#debug").text( x );
 		$("#y-pos .value", "#debug").text( y );
@@ -312,7 +314,7 @@ $(document).ready(function() {
 
 	if (Modernizr.touch) {
 		window.ondeviceorientation = function(event) {
-			var accelerationX = Math.ceil(event.gamma * 20);
+			var accelerationX = Math.ceil(event.gamma * 10);
 			var accelerationY = Math.ceil(event.beta * 10);
 			var x = (accelerationX - $('#center').offset().left) + $(window).scrollLeft();
 			var y = (accelerationY - $('#center').offset().top) + $(window).scrollTop();
