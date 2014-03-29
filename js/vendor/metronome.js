@@ -120,6 +120,12 @@ function playSound(buffer, time, stem_title) {
 			gainNode['real_pizzicato'].frequency.value = 1075;
 			gainNode['real_pizzicato'].gain.value = 1;
 		}
+		else if (stem_title === "drums_relaxed") {
+			gainNode['drums_relaxed'] = context.createGain();
+			source.connect(gainNode['drums_relaxed']);
+			gainNode['drums_relaxed'].connect(context.destination);
+			gainNode['drums_relaxed'].gain.value = 1;
+		}
 	} else {
 		if (stem_title === "hum_base") {
 			gainNode['hum_base'] = context.createBiquadFilter();
