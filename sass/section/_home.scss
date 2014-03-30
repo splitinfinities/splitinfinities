@@ -26,6 +26,23 @@
 			font-size: 16px;
 			color: mix(#ffffff, $base);
 		}
+
+		a.icon {
+			font-size: 36px;
+			margin-right: 13px;
+
+			&.icon-facebook:hover {
+				color: #3b5998;
+			}
+
+			&.icon-twitter:hover {
+				color: #55acee;
+			}
+
+			&.icon-linkedin:hover {
+				color: #0e76a8;
+			}
+		}
 	}
 
 	.stripe-container {

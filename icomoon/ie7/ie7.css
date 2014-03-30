@@ -1,0 +1,33 @@
+.icon-laptop {
+	*zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#x21;');
+}
+.icon-desktop {
+	*zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#x22;');
+}
+.icon-tablet {
+	*zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#x23;');
+}
+.icon-phone {
+	*zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#x24;');
+}
+.icon-portfolio {
+	*zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#x25;');
+}
+.icon-ideas {
+	*zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#x26;');
+}
+.icon-inspirations {
+	*zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#x27;');
+}
+.icon-timeline {
+	*zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#x28;');
+}
+.icon-facebook {
+	*zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#x29;');
+}
+.icon-twitter {
+	*zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#x2a;');
+}
+.icon-linkedin {
+	*zoom: expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#x2c;');
+}
