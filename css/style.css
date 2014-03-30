@@ -270,6 +270,26 @@ html, body {
   left: 10%; }
 
 /* line 34, ../sass/style.scss */
+a:link, a:visited {
+  color: inherit;
+  text-decoration: none; }
+
+/* line 39, ../sass/style.scss */
+.underline {
+  position: relative;
+  display: inline-block; }
+  /* line 43, ../sass/style.scss */
+  .underline:before {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 3px;
+    border-radius: 1px;
+    background-color: #5facff;
+    bottom: 0;
+    position: absolute; }
+
+/* line 55, ../sass/style.scss */
 .panel {
   min-width: 100%;
   min-height: 100%;
@@ -305,23 +325,24 @@ html, body {
       .panel .container {
         width: 310px;
         padding: 0 5px; } }
-  /* line 39, ../sass/style.scss */
+  /* line 60, ../sass/style.scss */
   .panel .container {
     height: 100%;
     background-color: white;
     border-radius: 2px;
     border: 0 solid transparent; }
-    /* line 45, ../sass/style.scss */
+    /* line 66, ../sass/style.scss */
     .panel .container p {
       font-weight: 400;
       font-style: normal;
       font-size: 22px;
-      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1); }
-  /* line 53, ../sass/style.scss */
+      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+      margin: .5em 0; }
+  /* line 75, ../sass/style.scss */
   .panel.animated {
     display: block; }
 
-/* line 60, ../sass/style.scss */
+/* line 82, ../sass/style.scss */
 #center {
   position: fixed;
   width: 0;
