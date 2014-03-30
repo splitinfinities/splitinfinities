@@ -301,7 +301,7 @@ a:link, a:visited {
   /* line 7, ../sass/mixins/_panels_responsive.scss */
   .panel .container {
     display: block;
-    width: 1160px;
+    width: 1360px;
     height: auto;
     margin: 0 auto;
     padding: 0 20px; }
@@ -674,19 +674,25 @@ a:link, a:visited {
   position: relative; }
   /* line 7, ../sass/section/_inspirations.scss */
   #inspirations .container pre, #inspirations .container code {
-    word-wrap: break-word; }
-  /* line 11, ../sass/section/_inspirations.scss */
+    -ms-word-break: break-all;
+    word-break: break-all;
+    word-break: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+    font-size: 16px; }
+  /* line 17, ../sass/section/_inspirations.scss */
   #inspirations .container h1 {
     margin: 0; }
-  /* line 15, ../sass/section/_inspirations.scss */
+  /* line 21, ../sass/section/_inspirations.scss */
   #inspirations .container h6 {
     position: absolute;
     right: 0;
     bottom: -80px; }
-/* line 23, ../sass/section/_inspirations.scss */
+/* line 29, ../sass/section/_inspirations.scss */
 #inspirations.kick .container {
   border-color: #9dd2b5; }
-/* line 29, ../sass/section/_inspirations.scss */
+/* line 35, ../sass/section/_inspirations.scss */
 #inspirations.snare .container {
   -moz-box-shadow: 0px 0px 0px 5px #9dd2b5;
   -webkit-box-shadow: 0px 0px 0px 5px #9dd2b5;

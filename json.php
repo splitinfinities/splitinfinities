@@ -7,7 +7,7 @@
 		"born" => "Modesto, California",
 		"at_age" => array(
 			23 => array( // a snapshot of me at age 23
-				"religion" => "we are star stuff",
+				"religion" => "monomyth",
 				"politics" => "centered",
 				"timezone" => "-5",
 				"location" => array(
@@ -88,5 +88,5 @@
 		),
 	);
 
-	echo json_encode($williamriley);
+	echo json_encode($williamriley, JSON_PRETTY_PRINT);
 ?>

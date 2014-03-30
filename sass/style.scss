@@ -53,7 +53,7 @@ a:link, a:visited {
 }
 
 .panel {
-	@include panel(1200px, 20px);
+	@include panel(1400px, 20px);
 	position: absolute;
 	display: none;
 	padding-bottom: 50%;
