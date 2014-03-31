@@ -40,6 +40,8 @@ var interactions = {
 	"real_pizzicato": 1,
 	"drums_relaxed": 1,
 	"drums_excited": 1,
+	"real_pizzicato_filter": 1,
+	"hum_base_filter": 1,
 };
 
 // First, let's shim the requestAnimationFrame API, with a setTimeout fallback
