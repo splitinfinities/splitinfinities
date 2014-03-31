@@ -268,15 +268,15 @@ function accelerationUpdates(x, y, newx, newy, event) {
 
 	if (playAway) {
 		if (gainNode['hum_base'] !== null) {
-			frequency = newy;
-			gainNode['hum_base_filter'].frequency.value = frequency * 2;
-			interactions['hum_base'] = frequency;
+			frequency = newy * 2;
+			gainNode['hum_base_filter'].frequency.value = frequency;
+			interactions['hum_base_filter'] = frequency;
 		}
 
 		if (gainNode['real_pizzicato'] !== null) {
-			frequency = newx;
-			gainNode['real_pizzicato_filter'].frequency.value = frequency * 2;
-			interactions['real_pizzicato'] = frequency;
+			frequency = newx * 2;
+			gainNode['real_pizzicato_filter'].frequency.value = frequency;
+			interactions['real_pizzicato_filter'] = frequency;
 		}
 	} else {
 
