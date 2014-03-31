@@ -28,7 +28,9 @@ var bufferLoader, stems;
 
 var gainNode = {
 	"hum_base": null,
+	"hum_base_filter": null,
 	"real_pizzicato": null,
+	"real_pizzicato_filter": null,
 	"drums_relaxed": null,
 	"drums_excited": null,
 }
@@ -112,13 +114,15 @@ function playSound(buffer, time, stem_title) {
 	source.buffer = buffer;
 
 	if (onlyplaypizzi === true) {
-		if (stem_title === "real_pizzicato") {
-			gainNode['real_pizzicato'] = context.createBiquadFilter();
-			source.connect(gainNode['real_pizzicato']);
-			gainNode['real_pizzicato'].connect(context.destination);
-			gainNode['real_pizzicato'].type = "lowpass";
-			gainNode['real_pizzicato'].frequency.value = 1075;
-			gainNode['real_pizzicato'].gain.value = .25;
+		if (stem_title === "hum_base") {
+			gainNode['hum_base_filter'] = context.createBiquadFilter(); // create the filter
+			gainNode['hum_base'] = context.createGain(); // create the gain, between the filter and the source
+			gainNode['hum_base_filter'].connect(gainNode['hum_base']); // connect the filter to the gain
+			source.connect(gainNode['hum_base']); // connect the gain to the source
+			gainNode['hum_base'].connect(context.destination); //
+			gainNode['hum_base_filter'].type = "notch";
+			gainNode['hum_base_filter'].frequency.value = 1075;
+			gainNode['hum_base'].gain.value = .25;
 		}
 		else if (stem_title === "drums_relaxed") {
 			gainNode['drums_relaxed'] = context.createGain();
@@ -128,30 +132,36 @@ function playSound(buffer, time, stem_title) {
 		}
 	} else {
 		if (stem_title === "hum_base") {
-			gainNode['hum_base'] = context.createBiquadFilter();
-			source.connect(gainNode['hum_base']);
+			gainNode['hum_base_filter'] = context.createBiquadFilter(); // create the filter
+			gainNode['hum_base'] = context.createGain(); // create the gain, between the filter and the source
+			gainNode['hum_base_filter'].connect(gainNode['hum_base']); // connect the filter to the gain
+			source.connect(gainNode['hum_base_filter']); // connect the gain to the source
 			gainNode['hum_base'].connect(context.destination);
-			gainNode['hum_base'].type = "lowpass";
-			gainNode['hum_base'].frequency.value = interactions['hum_base'];
+			gainNode['hum_base_filter'].type = "lowpass";
+			gainNode['hum_base_filter'].frequency.value = interactions['hum_base_filter'];
+			gainNode['hum_base'].gain.value = .65;
 		}
 		else if (stem_title === "real_pizzicato") {
-			gainNode['real_pizzicato'] = context.createBiquadFilter();
-			source.connect(gainNode['real_pizzicato']);
-			gainNode['real_pizzicato'].connect(context.destination);
-			gainNode['real_pizzicato'].type = "lowpass";
-			gainNode['real_pizzicato'].frequency.value = interactions['real_pizzicato'];
+			gainNode['real_pizzicato_filter'] = context.createBiquadFilter(); // create the filter
+			gainNode['real_pizzicato'] = context.createGain(); // create the gain, between the filter and the source
+			gainNode['real_pizzicato_filter'].connect(gainNode['real_pizzicato']); // connect the filter to the gain
+			source.connect(gainNode['real_pizzicato_filter']); // connect the gain to the source
+			gainNode['real_pizzicato'].connect(context.destination); //
+			gainNode['real_pizzicato_filter'].type = "highpass";
+			gainNode['real_pizzicato_filter'].frequency.value = interactions['real_pizzicato_filter'];
+			gainNode['real_pizzicato'].gain.value = .5;
 		}
 		else if (stem_title === "drums_relaxed") {
 			gainNode['drums_relaxed'] = context.createGain();
 			source.connect(gainNode['drums_relaxed']);
 			gainNode['drums_relaxed'].connect(context.destination);
-			gainNode['drums_relaxed'].gain.value = (playAway === true) ? 0 : 1;
+			gainNode['drums_relaxed'].gain.value = (playAway === true) ? 0 : .75;
 		}
 		else if (stem_title === "drums_excited") {
 			gainNode['drums_excited'] = context.createGain();
 			source.connect(gainNode['drums_excited']);
 			gainNode['drums_excited'].connect(context.destination);
-			gainNode['drums_excited'].gain.value = (playAway === true) ? 1 : 0;
+			gainNode['drums_excited'].gain.value = (playAway === true) ? .75 : 0;
 		}
 		else {
 			source.connect(context.destination);
@@ -182,8 +192,8 @@ function queueActive() {
 	playSound(stems[1], 0, "drums_relaxed");
 
 	if (playAway) {
-		playSound(stems[0], 0, "hum_base");
-		playSound(stems[2], 0, "real_pizzicato");
+		playSound(stems[0], 0, "real_pizzicato");
+		playSound(stems[2], 0, "hum_base");
 		playSound(stems[3], 0, "drums_excited");
 	}
 
@@ -257,13 +267,13 @@ function accelerationUpdates(x, y, newx, newy, event) {
 	if (playAway) {
 		if (gainNode['hum_base'] !== null) {
 			frequency = newy;
-			gainNode['hum_base'].frequency.value = frequency;
+			gainNode['hum_base_filter'].frequency.value = frequency * 2;
 			interactions['hum_base'] = frequency;
 		}
 
 		if (gainNode['real_pizzicato'] !== null) {
 			frequency = newx;
-			gainNode['real_pizzicato'].frequency.value = frequency;
+			gainNode['real_pizzicato_filter'].frequency.value = frequency * 2;
 			interactions['real_pizzicato'] = frequency;
 		}
 	} else {
