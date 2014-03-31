@@ -253,7 +253,7 @@ function init() {
 	var container = document.createElement( 'div' );
 	window.context = window.context || window.webkitcontext;
 	context = new AudioContext();
-	bufferLoader = new BufferLoader( context, [ 'moth_stems/real_pizzicato.mp3', 'moth_stems/drums_relaxed.mp3', 'moth_stems/hum_base.mp3', 'moth_stems/drums_excited.mp3', ], finishedLoading );
+	bufferLoader = new BufferLoader( context, [ 'moth_stems/hum_high.mp3', 'moth_stems/drums_relaxed.mp3', 'moth_stems/hum_base.mp3', 'moth_stems/drums_excited.mp3', ], finishedLoading );
 	bufferLoader.load();
 }
 
