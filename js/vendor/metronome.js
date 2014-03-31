@@ -4,10 +4,10 @@ var startTime;
 var current16thNote;
 var tempo = 58.81;
 var lookahead = 25.0;
-var scheduleAheadTime = 0.025;
+var scheduleAheadTime = 0.0125;
 var nextNoteTime = 0.0;
 var noteResolution = 2;
-var noteLength = 0.1;
+var noteLength = 0.4;
 var timerID = 0;
 var canvas,
 canvasContext;
@@ -118,20 +118,20 @@ function playSound(buffer, time, stem_title) {
 			gainNode['real_pizzicato'].connect(context.destination);
 			gainNode['real_pizzicato'].type = "lowpass";
 			gainNode['real_pizzicato'].frequency.value = 1075;
-			gainNode['real_pizzicato'].gain.value = 1;
+			gainNode['real_pizzicato'].gain.value = .25;
 		}
 		else if (stem_title === "drums_relaxed") {
 			gainNode['drums_relaxed'] = context.createGain();
 			source.connect(gainNode['drums_relaxed']);
 			gainNode['drums_relaxed'].connect(context.destination);
-			gainNode['drums_relaxed'].gain.value = 1;
+			gainNode['drums_relaxed'].gain.value = .25;
 		}
 	} else {
 		if (stem_title === "hum_base") {
 			gainNode['hum_base'] = context.createBiquadFilter();
 			source.connect(gainNode['hum_base']);
 			gainNode['hum_base'].connect(context.destination);
-			gainNode['hum_base'].type = "highpass";
+			gainNode['hum_base'].type = "lowpass";
 			gainNode['hum_base'].frequency.value = interactions['hum_base'];
 		}
 		else if (stem_title === "real_pizzicato") {
@@ -326,8 +326,6 @@ $(document).ready(function() {
 			var y = (accelerationY - $('#center').offset().top) + $(window).scrollTop();
 			var newx = -x>0 ? 0 : x;
 			var newy = -y>0 ? 0 : y;
-			var newx = x;
-			var newy = y;
 
 			accelerationUpdates(x, y, newx, newy, event);
 		}
@@ -338,8 +336,9 @@ $(document).ready(function() {
 			var y = (event.clientY - $('#center').offset().top) + $(window).scrollTop();
 			var newx = (-x>0) ? -x : x;
 			var newy = (-y>0) ? -y : y;
-			newx = newx / $(document).innerWidth() * 4000;
-			newy = newx / $(document).innerHeight() * 4000;
+			newx = newx / $(window).innerWidth() * 4000;
+			newy = newy / $(window).innerHeight() * 4000;
+
 			accelerationUpdates(x, y, newx, newy, event);
 		});
 	}
