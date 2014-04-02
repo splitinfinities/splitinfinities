@@ -20,6 +20,11 @@ var kick_functions = [];
 var snare_functions = [];
 var track_functions = [];
 var onlyplaypizzi = false;
+var barsUntilPizzi = 8;
+var playPizzi = false;
+var aboutToPlayPizzi = false;
+var loops = 0;
+
 
 var getParameterByName = function (e){e=e.replace(/[\[]/,"\\[").replace(/[\]]/,"\\]");var t=new RegExp("[\\?&]"+e+"=([^&#]*)"),n=t.exec(location.search);return n==null?"":decodeURIComponent(n[1].replace(/\+/g," "))};
 
@@ -29,19 +34,25 @@ var bufferLoader, stems;
 var gainNode = {
 	"hum_base": null,
 	"hum_base_filter": null,
+	"hum_high": null,
+	"hum_high_filter": null,
 	"real_pizzicato": null,
 	"real_pizzicato_filter": null,
 	"drums_relaxed": null,
 	"drums_excited": null,
+	"drums_transtion": null,
 }
 
 var interactions = {
 	"hum_base": 1,
+	"hum_high": 1,
 	"real_pizzicato": 1,
 	"drums_relaxed": 1,
 	"drums_excited": 1,
+	"drums_transition": 1,
 	"real_pizzicato_filter": 1,
 	"hum_base_filter": 1,
+	"hum_high_filter": 1,
 };
 
 // First, let's shim the requestAnimationFrame API, with a setTimeout fallback
@@ -149,7 +160,7 @@ function playSound(buffer, time, stem_title) {
 			gainNode['real_pizzicato_filter'].connect(gainNode['real_pizzicato']); // connect the filter to the gain
 			source.connect(gainNode['real_pizzicato_filter']); // connect the gain to the source
 			gainNode['real_pizzicato'].connect(context.destination); //
-			gainNode['real_pizzicato_filter'].type = "highpass";
+			gainNode['real_pizzicato_filter'].type = "notch";
 			gainNode['real_pizzicato_filter'].frequency.value = interactions['real_pizzicato_filter'];
 			gainNode['real_pizzicato'].gain.value = .5;
 		}
@@ -165,6 +176,22 @@ function playSound(buffer, time, stem_title) {
 			gainNode['drums_excited'].connect(context.destination);
 			gainNode['drums_excited'].gain.value = (playAway === true) ? .75 : 0;
 		}
+		else if (stem_title === "drums_transition") {
+			gainNode['drums_transition'] = context.createGain();
+			source.connect(gainNode['drums_transition']);
+			gainNode['drums_transition'].connect(context.destination);
+			gainNode['drums_transition'].gain.value = .75;
+		}
+		else if (stem_title === "hum_high") {
+			gainNode['hum_high_filter'] = context.createBiquadFilter(); // create the filter
+			gainNode['hum_high'] = context.createGain(); // create the gain, between the filter and the source
+			gainNode['hum_high_filter'].connect(gainNode['hum_high']); // connect the filter to the gain
+			source.connect(gainNode['hum_high_filter']); // connect the gain to the source
+			gainNode['hum_high'].connect(context.destination);
+			gainNode['hum_high_filter'].type = "lowpass";
+			gainNode['hum_high_filter'].frequency.value = interactions['hum_high_filter'];
+			gainNode['hum_high'].gain.value = .65;
+		}
 		else {
 			source.connect(context.destination);
 		}
@@ -175,9 +202,23 @@ function playSound(buffer, time, stem_title) {
 
 function scheduleNote( beatNumber, time ) {
 	notesInQueue.push( { note: beatNumber, time: time } );
-	var i = 0;
 
 	if (beatNumber%16 === 0) {
+		loops++;
+
+		if (loops % barsUntilPizzi === 0) {
+			playPizzi = true;
+			if (loops % (barsUntilPizzi * 2) === 0) {
+				playPizzi = false;
+			}
+		}
+		else if (loops % barsUntilPizzi === (barsUntilPizzi - 1)) {
+			aboutToPlayPizzi = true;
+			if (loops % ( 	(barsUntilPizzi * 2) - 1) === 0) {
+				aboutToPlayPizzi = false;
+			}
+		}
+
 		queueActive();
 	}
 
@@ -191,12 +232,22 @@ function scheduleNote( beatNumber, time ) {
 }
 
 function queueActive() {
-	playSound(stems[1], 0, "drums_relaxed");
+
+	if (playPizzi) {
+		playSound(stems[0], 0, "real_pizzicato");
+	}
 
 	if (playAway) {
-		playSound(stems[0], 0, "real_pizzicato");
+		playSound(stems[4], 0, "hum_high");
 		playSound(stems[2], 0, "hum_base");
 		playSound(stems[3], 0, "drums_excited");
+	} else {
+		playSound(stems[1], 0, "drums_relaxed");
+	}
+
+	if (aboutToPlayPizzi) {
+		playSound(stems[5], 0, "drums_transition");
+		aboutToPlayPizzi = false;
 	}
 
 	// execute each queued up track function
@@ -253,7 +304,7 @@ function init() {
 	var container = document.createElement( 'div' );
 	window.context = window.context || window.webkitcontext;
 	context = new AudioContext();
-	bufferLoader = new BufferLoader( context, [ 'moth_stems/hum_high.mp3', 'moth_stems/drums_relaxed.mp3', 'moth_stems/hum_base.mp3', 'moth_stems/drums_excited.mp3', ], finishedLoading );
+	bufferLoader = new BufferLoader( context, [ 'moth_stems/hum_pizzicato.mp3', 'moth_stems/drums_relaxed.mp3', 'moth_stems/hum_base.mp3', 'moth_stems/drums_excited.mp3','moth_stems/hum_high.mp3', 'moth_stems/transition_reverse.mp3', ], finishedLoading );
 	bufferLoader.load();
 }
 
@@ -266,20 +317,22 @@ function finishedLoading(bufferList) {
 
 function accelerationUpdates(x, y, newx, newy, event) {
 
-	if (playAway) {
-		if (gainNode['hum_base'] !== null) {
-			frequency = newy * 2;
-			gainNode['hum_base_filter'].frequency.value = frequency;
-			interactions['hum_base_filter'] = frequency;
-		}
+	if (gainNode['hum_base'] !== null) {
+		frequency = newy;
+		gainNode['hum_base_filter'].frequency.value = frequency;
+		interactions['hum_base_filter'] = frequency;
+	}
 
-		if (gainNode['real_pizzicato'] !== null) {
-			frequency = newx * 2;
-			gainNode['real_pizzicato_filter'].frequency.value = frequency;
-			interactions['real_pizzicato_filter'] = frequency;
-		}
-	} else {
+	if (gainNode['real_pizzicato'] !== null) {
+		frequency = (newx + newy);
+		gainNode['real_pizzicato_filter'].frequency.value = frequency;
+		interactions['real_pizzicato_filter'] = frequency;
+	}
 
+	if (gainNode['hum_high'] !== null) {
+		frequency = newx;
+		gainNode['hum_high_filter'].frequency.value = frequency;
+		interactions['hum_high_filter'] = frequency;
 	}
 
 	$('#home').css("transform", "translate("+ ( ( x / 60 ) * -1) +"%, "+ ( ( y / 30 ) * -1) +"%)");
