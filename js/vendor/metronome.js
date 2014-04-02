@@ -368,10 +368,15 @@ $(document).ready(function() {
 
 	$(document).pjax('.pjax', '#pjax-container');
 
+	$(document).on('pjax:timeout', function(event) {
+		// Prevent default timeout redirection behavior
+		event.preventDefault()
+	});
+
 	$(document).on('pjax:complete', function() {
 		kick_elements = $('[data-kick]');
 		snare_elements = $('[data-snare]');
-	})
+	});
 
 	setTimeout(function() {  $('#initial-intro').show(); setTimeout(function() { $('#initial-intro').hide(); }, 6000) }, 1000);
 
