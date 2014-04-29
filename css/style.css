@@ -501,6 +501,10 @@ nav {
     padding: 0;
     margin: 0;
     text-shadow: 0px 0px 30px white; }
+    @media (max-width: 740px) {
+      /* line 45, ../sass/section/_portfolio.scss */
+      #portfolio .container .item h2 {
+        height: auto; } }
 
 /* line 2, ../sass/section/_ideas.scss */
 #ideas h1 {
