@@ -480,11 +480,17 @@ nav {
     padding: 0;
     height: auto;
     z-index: 2;
-    top: 50%;
+    top: 25%;
     left: 50%;
     border: 3px solid rgba(255, 255, 255, 0.5);
     border-radius: 3px; }
-  /* line 39, ../sass/section/_portfolio.scss */
+    @media (max-width: 740px) {
+      /* line 24, ../sass/section/_portfolio.scss */
+      #portfolio .container .item .icon {
+        width: 60px;
+        margin-top: -30px;
+        margin-left: -30px; } }
+  /* line 45, ../sass/section/_portfolio.scss */
   #portfolio .container .item h2 {
     position: absolute;
     width: 100%;
