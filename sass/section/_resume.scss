@@ -1,20 +1,284 @@
 #resume {
 	.container {
-		border: 5px solid white;
-		h1 {
+		font-size: 24px;
+
+		@include respond-to($break-md) {
+			font-size: 20px;
+		}
+
+		@include respond-to($break-xs) {
+			font-size: 16px;
+		}
+	}
+
+	header {
+		padding-top: 20px;
+
+		h1, h2, h3 {
+			margin: 0;
+			line-height: 1.4;
+			text-align: center;
+		}
+
+	}
+
+	.hr {
+		width: 100%;
+		display: block;
+		height: 1px;
+		border-bottom: 2px solid #ddd;
+		position: relative;
+		margin: 44px 0;
+
+		.section-title {
+			position: absolute;
+			display: block;
+			top: -22px;
+			left: 10px;
+			background-color: white;
+			padding: 5px 10px;
 			margin: 0;
 		}
-	}
 
-	&.kick {
-		.container {
-			border-color: $orange;
+		@include respond-to($break-md) {
+			margin: 30px 0;
+			.section-title {
+				padding: 2px 5px;
+				top: -16px;
+			}
+		}
+		@include respond-to($break-xs) {
+			margin: 24px 0;
+			.section-title {
+				padding: 2px 5px;
+				top: -12px;
+			}
 		}
 	}
 
-	&.snare {
-		.container {
-			@include single-box-shadow(0px, 0px, 0px, 5px, $orange);
+	p {
+		small {
+			color: lighten($base, 20%);
+		}
+	}
+
+	.side-by-side {
+		@extend .group;
+		list-style-type: circle;
+		margin: 0;
+		padding: 0;
+		li {
+			float: left;
+			margin-left: 1.75em;
+			color: #ccc;
+			span {
+				color: $base;
+			}
+		}
+
+		.hide-print {
+			display: block;
+		}
+
+		.overflow {
+			display: none;
+		}
+
+		&.active {
+			.overflow {
+				display: list-item;
+			}
+
+			.hide-print {
+				display: block;
+			}
+
+			.cut {
+				display: none;
+			}
+		}
+	}
+
+	.timeline {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		position: relative;
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			width: 2px;
+			background: $cta;
+			left: 20%;
+			margin-left: -6px;
+		}
+
+		& > li {
+			position: relative;
+
+			&:nth-child(even) {
+				page-break-after:always;
+			}
+
+			.time {
+				display: block;
+				width: 15%;
+				padding-right: 100px;
+				position: absolute;
+
+				span {
+					display: block;
+					text-align: right;
+					font-size: .9em;
+				}
+			}
+
+			.label {
+				margin: 0 0 10px 25%;
+				background: white;
+				border: 2px solid $cta;
+				color: $base;
+				padding: 1em;
+				font-size: 1.2em;
+				font-weight: 300;
+				line-height: 1.4;
+				position: relative;
+				border-radius: 2px;
+
+				&:after {
+					left: -32px;
+					border: solid transparent;
+					content: " ";
+					height: 0;
+					width: 0;
+					position: absolute;
+					pointer-events: none;
+					border-right-color: white;
+					border-width: 19px;
+					margin-left: -3px;
+					top: 9px;
+				}
+
+				&:before {
+					right: 100%;
+					border: solid transparent;
+					content: " ";
+					height: 0;
+					width: 0;
+					position: absolute;
+					pointer-events: none;
+					border-right-color: $cta;
+					border-width: 19px;
+					top: 9px;
+				}
+
+				h4 {
+					margin: 0;
+					padding: 0;
+					border-bottom: 1px solid rgba(255,255,255,0.4);
+
+					small {
+						color: lighten($base, 20%);
+						font-weight: 500;
+					}
+				}
+
+				ul {
+					list-style-type: circle;
+					li {
+						color: #ccc;
+						margin-bottom: 12px;
+						span {
+							color: $base;
+						}
+					}
+
+					@include respond-to($break-sm) {
+						padding-left: 20px;
+					}
+				}
+			}
+
+			.icon {
+				width: 60px;
+				height: 60px;
+				font-size: 30px;
+				line-height: 60px;
+				position: absolute;
+				color: $base;
+				background: white;
+				border: 2px solid $cta;
+				border-radius: 50%;
+				text-align: center;
+				left: 20%;
+				top: 0;
+				margin: 0 0 0 -37px;
+				overflow: hidden;
+				z-index: 1;
+
+				&.light {
+					color: white;
+				}
+
+				&:before {
+					position: relative;
+					z-index: 2;
+				}
+
+				img {
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					left: 0;
+					top: 0;
+					border-radius: 50%;
+					opacity: 1;
+					z-index: 1;
+				}
+			}
+		}
+
+		@include respond-to($break-sm) {
+			& > li {
+				margin-top: 52px;
+				.time {
+					width: auto;
+					padding: 5px 10px;
+					margin: -36px 0 0 10%;
+					border: 2px solid $cta;
+					background-color: white;
+
+					span {
+						text-align: left;
+						width: 100%;
+					}
+				}
+
+				.label {
+					margin: 0 0 100px 10%;
+				}
+
+				.icon {
+					width: 40px;
+					height: 40px;
+					font-size: 20px;
+					left: 0;
+					top: 8px;
+					margin: 0;
+					line-height: 40px;
+				}
+			}
+		}
+
+		@include respond-to($break-xs) {
+			& > li {
+				.time {
+					margin: -32px 0 0 10%;
+				}
+			}
 		}
 	}
 }

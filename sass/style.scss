@@ -11,11 +11,7 @@
 @import "mixins/_keycap";
 
 html, body {
-	height: 100%;
-	width: 100%;
 	font-family: "Avenir", Helvetica, Arial, sans-serif;
-	overflow-x: hidden;
-	padding-bottom: 100px;
 	color: #333;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -23,61 +19,125 @@ html, body {
 	line-height: 1.5;
 }
 
-#pjax-container {
-	position: absolute;
-	width: 80%;
-	height: auto;
-	/* display: none; */
-	left: 10%;
+body {
+	padding-top: 80px;
 }
 
 a:link, a:visited {
-	color: inherit;
+	color: $cta;
 	text-decoration: none;
 }
 
-.underline {
-	position: relative;
-	display: inline-block;
+a:hover {
+	color: mix($cta, $base);
+}
 
-	&:before {
-		content: "";
-		display: inline-block;
+.orange {
+	background-color: $orange;
+}
+
+.yellow {
+	background-color: $yellow;
+}
+
+.green {
+	background-color: $green;
+}
+
+.blue {
+	background-color: $blue;
+}
+
+footer {
+	a {
+		display: block;
 		width: 100%;
-		height: 3px;
-		border-radius: 1px;
-		background-color: $cta;
-		bottom: 0;
-		position: absolute;
+		height: 100px;
+		line-height: 100px;
+		text-align: center;
+	}
+	page-break-before: always;
+}
+
+nav {
+	width: 100%;
+	position: absolute;
+	top: 0;
+	z-index: 10;
+
+	ul {
+		display: block;
+		width: 100%;
+		padding: 0;
+		margin: 0;
+		list-style-type: none;
+
+		li {
+			width: 25%;
+			display: block;
+			float: left;
+			color: white;
+
+			a, a:link, a:visited {
+				color: white;
+				font-weight: 100;
+				display: block;
+				width: 100%;
+				text-align: center;
+				line-height: 2;
+				@include single-transition(line-height, 100ms, ease, 0ms);
+			}
+
+			&:hover {
+				a {
+					line-height: 2.25;
+				}
+			}
+
+			&.active {
+				a {
+					line-height: 2.5;
+					font-weight: 500;
+				}
+			}
+		}
+	}
+
+	@include respond-to($break-sm) {
+		ul {
+			li {
+				a, a:link, a:visited {
+					font-size: 12px;
+					line-height: 3.5;
+				}
+
+				&:hover {
+					a {
+						line-height: 4;
+					}
+				}
+
+				&.active {
+					a {
+						line-height: 4.5;
+						font-weight: 500;
+					}
+				}
+			}
+		}
 	}
 }
 
 .panel {
-	@include panel(1400px, 20px);
-	position: absolute;
-	display: none;
-	padding-bottom: 50%;
+	@include panel(1200px, 26px);
+	margin-bottom: 50%;
+	page-break-after:always;
+
 	.container {
-		height: 100%;
 		background-color: white;
-		border-radius: 2px;
-		border: 0 solid transparent;
-
-		p {
-			font-weight: 400;
-			font-style: normal;
-			font-size: 22px;
-			text-shadow: 0 1px 0 rgba(0, 0, 0, .1);
-			margin: .5em 0;
-		}
 	}
 
-	&.animated {
-		display: block;
-	}
 }
-
-// pages
 
 #center {
 	position: fixed;
@@ -87,13 +147,10 @@ a:link, a:visited {
 	left: 50%;
 }
 
-@import "section/_alerts";
+// pages
+
 @import "section/_home";
 @import "section/_portfolio";
 @import "section/_ideas";
 @import "section/_inspirations";
 @import "section/_resume";
-// @import "section/_nav";
-// @import "section/_mantle";
-// @import "legacy.scss";
-@import "section/_debug";

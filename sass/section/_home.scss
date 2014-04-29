@@ -1,15 +1,9 @@
 #home {
-	position: fixed;
-	width: 100%;
-	height: 100%;
-	left: 0;
-	right: 0;
-
+	margin-bottom: 0;
+	page-break-after:avoid;
 	.bio {
 		width: 300px;
 		padding: 30px;
-		position:absolute;
-		top: 0;
 		z-index: 99;
 		background-color: $base;
 		border-radius: 10px;
@@ -23,6 +17,7 @@
 		}
 
 		p {
+			text-align: center;
 			font-size: 16px;
 			color: mix(#ffffff, $base);
 		}
@@ -30,6 +25,7 @@
 		a.icon {
 			font-size: 36px;
 			margin-right: 13px;
+			color: mix(#ffffff, $base);
 
 			&.icon-facebook:hover {
 				color: #3b5998;
@@ -43,185 +39,10 @@
 				color: #0e76a8;
 			}
 		}
-	}
 
-	.stripe-container {
-		position: absolute;
-		display: block;
-		height: 0;
-		left: 50%;
-		top: 50%;
-		right: 0;
-		bottom: 0;
-		margin-top: 0;
-		width: 0;
-		@include rotate(100deg, 0px);
-
-		.stripe {
-			width: 3000px;
-			height: 205px;
-			display: block;
-			position: absolute;
-			left: -1500px;
-			margin-top: -450px;
-			overflow: hidden;
-			z-index: 9;
-			@include rotate(0deg, 0px);
-
-			@include transition(height 400ms ease 0ms);
-
-			&.orange {
-				background-color: $orange;
-				top: 0;
-				z-index: 1;
-			}
-
-			&.yellow {
-				background-color: $yellow;
-				top: 200px;
-				z-index: 2;
-			}
-
-			&.green {
-				background-color: $green;
-				top: 400px;
-				z-index: 3;
-			}
-
-			&.blue {
-				background-color: $blue;
-				top: 600px;
-				z-index: 4;
-			}
-
-			span {
-				position: absolute;
-				left: 42.5%;
-				top: 75px;
-				font-size: 40px;
-				font-weight: 100;
-				color: white;
-				@include rotate(-100deg, 0px);
-				@include transition(font-size 50ms ease-in-out 0ms, text-shadow 150ms ease 0ms);
-			}
-
-			&.kick {
-				span {
-					font-size: 46px;
-				}
-			}
-
-			&.snare {
-				span {
-					font-size: 36px;
-				}
-			}
-
-			&:hover {
-				height: 205px;
-				&.orange {
-					top: -5px;
-				}
-				&.yellow {
-					top: 195px;
-				}
-				&.green {
-					top: 395px;
-				}
-				&.blue {
-					top: 595px;
-				}
-				span {
-					color: white;
-					top: 100px;
-
-					font-size: 26px;
-					font-weight: 500;
-					text-shadow: 100px 20px rgba(0, 0, 0, .25),
-								-50px 150px rgba(0, 0, 0, .35),
-								100px -50px rgba(0, 0, 0, .10),
-								-100px 200px rgba(0, 0, 0, .20),
-								-150px 75px rgba(0, 0, 0, .45),
-								75px 50px rgba(0, 0, 0, .5);
-				}
-			}
-		}
-	}
-
-	&.spread {
-		width: 135%;
-		height: 135%;
-		left: -17.5%;
-		top: -17.5%;
-
-		.bio {
-			display: none;
-		}
-
-		.stripe-container {
-			@include rotate(0deg, 1px);
-			width: 100%;
-			height: 100%;
-			left: 0;
-			top: 0;
-			.stripe {
-				width: 1500px;
-				height: 200px;
-
-				margin: 0;
-
-				&.orange {
-					top: 0;
-					bottom: auto;
-					left: -700px;
-					right: auto;
-					@include rotate(-45deg, 1px);
-					span {
-						top: 75px;
-						left: 50%;
-						@include rotate(45deg, 1px);
-					}
-				}
-
-				&.yellow {
-					top: 0px;
-					bottom: auto;
-					left: auto;
-					right: -700px;
-					@include rotate(45deg, 1px);
-					span {
-						top: 65px;
-						left: 40%;
-						@include rotate(-45deg, 1px);
-					}
-				}
-
-				&.green {
-					top: auto;
-					bottom: 0;
-					left: -700px;
-					right: auto;
-					@include rotate(45deg, 1px);
-					span {
-						top: 75px;
-						left: 50%;
-						@include rotate(-45deg, 1px);
-					}
-				}
-
-				&.blue {
-					top: auto;
-					bottom: 0;
-					left: auto;
-					right: -700px;
-					@include rotate(-45deg, 1px);
-					span {
-						top: 75px;
-						left: 40%;
-						@include rotate(45deg, 1px);
-					}
-				}
-			}
+		@include respond-to($break-xs) {
+			width: 260px;
 		}
 	}
 }
+
