@@ -133,7 +133,7 @@ function playSound(buffer, time, stem_title) {
 			gainNode['hum_base_filter'].connect(gainNode['hum_base']); // connect the filter to the gain
 			source.connect(gainNode['hum_base']); // connect the gain to the source
 			gainNode['hum_base'].connect(context.destination); //
-			gainNode['hum_base_filter'].type = "notch";
+			gainNode['hum_base_filter'].type = "highpass";
 			gainNode['hum_base_filter'].frequency.value = 1075;
 			gainNode['hum_base'].gain.value = .25;
 		}
@@ -239,11 +239,12 @@ function queueActive() {
 
 	if (playAway) {
 		playSound(stems[4], 0, "hum_high");
-		playSound(stems[2], 0, "hum_base");
 		playSound(stems[3], 0, "drums_excited");
 	} else {
 		playSound(stems[1], 0, "drums_relaxed");
 	}
+
+	playSound(stems[2], 0, "hum_base");
 
 	if (aboutToPlayPizzi) {
 		playSound(stems[5], 0, "drums_transition");
@@ -304,7 +305,7 @@ function init() {
 	var container = document.createElement( 'div' );
 	window.context = window.context || window.webkitcontext;
 	context = new AudioContext();
-	bufferLoader = new BufferLoader( context, [ 'moth_stems/hum_pizzicato.mp3', 'moth_stems/drums_relaxed.mp3', 'moth_stems/hum_base.mp3', 'moth_stems/drums_excited.mp3','moth_stems/hum_high.mp3', 'moth_stems/transition_reverse.mp3', ], finishedLoading );
+	bufferLoader = new BufferLoader( context, [ 'moth_stems/real_pizzicato.mp3', 'moth_stems/drums_relaxed.mp3', 'moth_stems/hum_base.mp3', 'moth_stems/drums_excited.mp3','moth_stems/hum_high.mp3', 'moth_stems/transition_reverse.mp3', ], finishedLoading );
 	bufferLoader.load();
 }
 
@@ -319,8 +320,8 @@ function accelerationUpdates(x, y, newx, newy, event) {
 
 	if (gainNode['hum_base'] !== null) {
 		frequency = newy;
-		gainNode['hum_base_filter'].frequency.value = frequency;
-		interactions['hum_base_filter'] = frequency;
+		gainNode['hum_base_filter'].frequency.value = frequency*2;
+		interactions['hum_base_filter'] = frequency*2;
 	}
 
 	if (gainNode['real_pizzicato'] !== null) {
