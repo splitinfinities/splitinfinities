@@ -4,7 +4,7 @@ if ($_SERVER['HTTP_X_PJAX'] == 'true'): ?>
 	<div class="container">
 		<h1>Inspirations</h1>
 		<p><a href="http://en.wikipedia.org/wiki/JSON" target="_blank" title="JSON" class="underline">JSON</a> is a data format, or a kind of language, that&rsquo;s used between systems to communicate a lot of information about a thing. Here, I&rsquo;m using <a href="http://en.wikipedia.org/wiki/Quantified_Self" target="_blank" title="Quantified Self" class="underline">&ldquo;quantified self&rdquo;</a> practices to capture as much of who I am as&nbsp;possible. </p>
-		<pre class="json"><code class="json"><?php include('../json.php'); ?></code></pre>
+		<pre class="json"><code class="json"><?php echo file_get_contents('https://bill_riley.hubdia.dev/json'); ?></code></pre>
 	</div>
 </div>
 <script>$('pre code').each(function(i, e) {hljs.highlightBlock(e)})</script>
