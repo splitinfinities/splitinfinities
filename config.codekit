@@ -10537,6 +10537,83 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/images\/aiga.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 7850,
+		"inputAbbreviatedPath": "\/images\/aiga.png",
+		"outputAbbreviatedPath": "\/images\/aiga.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/ens.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 21681,
+		"inputAbbreviatedPath": "\/images\/ens.png",
+		"outputAbbreviatedPath": "\/images\/ens.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/grainandmortar.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 65281,
+		"inputAbbreviatedPath": "\/images\/grainandmortar.png",
+		"outputAbbreviatedPath": "\/images\/grainandmortar.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/hubdia.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 114696,
+		"inputAbbreviatedPath": "\/images\/hubdia.png",
+		"outputAbbreviatedPath": "\/images\/hubdia.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/iowawestern.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 29232,
+		"inputAbbreviatedPath": "\/images\/iowawestern.png",
+		"outputAbbreviatedPath": "\/images\/iowawestern.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/mtk.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 73836,
+		"inputAbbreviatedPath": "\/images\/mtk.png",
+		"outputAbbreviatedPath": "\/images\/mtk.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/will_profile_photo.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 597220,
+		"inputAbbreviatedPath": "\/images\/will_profile_photo.png",
+		"outputAbbreviatedPath": "\/images\/will_profile_photo.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/index.php": {
 		"fileType": 8192,
 		"ignore": 0,
