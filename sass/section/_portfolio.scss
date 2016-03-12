@@ -1,14 +1,14 @@
 #portfolio {
 	.container {
-		border: 5px solid white;
 
 		h1 {
+			text-align: center;
 			margin: 0.333333em 0;
 		}
 
 		.item {
 			position: relative;
-			width: 50%;
+			width: 100%;
 			height: auto;
 
 			.bg {
@@ -23,38 +23,40 @@
 
 			.icon {
 				position: absolute;
-				width: 75px;
+				width: 150px;
 				margin: 0;
-				margin-top: -50px;
+				margin-top: -75px;
+				margin-left: -75px;
 				padding: 0;
 				height: auto;
 				z-index: 2;
-				top: 50%;
-				left: 50px;
+				top: 25%;
+				left: 50%;
 				border: 3px solid rgba(255, 255, 255, .5);
 				border-radius: 3px;
+
+				@include respond-to($break-sm) {
+					width: 60px;
+					margin-top: -30px;
+					margin-left: -30px;
+				}
 			}
 
 			h2 {
 				position: absolute;
+				width: 100%;
 				bottom: 10px;
-				left: 10px;
+				text-align: center;
+				left: 0;
+				height: 75px;
 				padding: 0;
 				margin: 0;
 				text-shadow: 0px 0px 30px white;
+
+				@include respond-to($break-sm) {
+					height: auto;
+				}
 			}
-		}
-	}
-
-	&.kick {
-		.container {
-			border-color: $yellow;
-		}
-	}
-
-	&.snare {
-		.container {
-			@include single-box-shadow(0px, 0px, 0px, 5px, $yellow);
 		}
 	}
 }

@@ -1,3 +1,33 @@
 /* Welcome to Compass. Use this file to define print styles.
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" /> */
+
+nav {
+	display: none;
+}
+
+body {
+	padding: 0;
+}
+
+.panel {
+	width: 100%;
+	.container {
+		margin-top: 20px;
+		width: 90%;
+	}
+}
+
+.overflow {
+	display: list-item !important;
+}
+
+.hide-print {
+	display: none !important;
+}
+
+#resume {
+	.timeline {
+		top: 30px;
+	}
+}

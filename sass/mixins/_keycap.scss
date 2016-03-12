@@ -2,7 +2,9 @@
 	display: inline-block !important;
 	position: relative;
 	top: -5px;
-	width: 40px;
+	width: auto;
+	padding: 0 15px;
+	line-height: 2;
 	height: 45px;
 	margin: 2px;
 	border-width: 3px 7px 10px;
@@ -10,11 +12,15 @@
 	border-radius: 4px;
 	background: #d3cfcc;
 	border-color: #ece8e4 #dedad6 #c9c4c4;
+	cursor: pointer;
 
+	&:active {
+		@include scale(.9);
+	}
 
 	.keycap {
 		display: inline-block !important;
-		width: 40px;
+		width: auto;
 		height: 31px;
 		padding: 13px 0 0 0px;
 		font-size: 18px;
@@ -31,5 +37,9 @@
 		top: 0;
 		color: black;
 		text-align: center;
+	}
+
+	@include respond-to($break-sm) {
+		height: 35px;
 	}
 }

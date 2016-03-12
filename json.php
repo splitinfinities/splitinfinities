@@ -1,93 +1,34 @@
 <?php
-	$williamriley = array(
-		"first_name" => "William",
-		"middle_name" => "Michael",
-		"last_name" => "Riley",
-		"gender" => "male",
-		"born" => "Modesto, California",
-		"at_age" => array(
-			23 => array( // a snapshot of me at age 23
-				"religion" => "monomyth",
-				"politics" => "centered",
-				"timezone" => "-5",
-				"location" => array(
-					"id" => "103107309730219",
-					"name" => "Council Bluffs, Iowa",
-				),
-				"locale" => "en_US",
-				"loves" => array(),
-				"hates" => array(),
-				"proud_of" => array(),
-				"link" => "http://williamriley.me/",
-				"people_who_made_me" => array(
-					"i_know" => array(
-						"nickalaus dow spradley",
-						"david shreffler",
-						"martin patrick victor boehme",
-						"thomas johnathan frank",
-						"sammie charles kelley",
-						"quinton hugh rau",
-						"mitch jordan",
-						"angie miller",
-						"aaron leeroy meadows",
-						"aaron christensen",
-						"derek munyon",
-						"craig hughes",
-						"aaron peterson",
-						"jon prosser",
-						"adam norris",
-						"joel rausch",
-						"doug smith",
-						"christopher bell",
-						"louis charles stanard",
-						"joe sparano",
-						"aaron perkins",
-						"adam lyons",
-						"ryan beck",
-						"nick koneck",
-						"leah gregory",
-						"jake ekans welchert",
-						"tara shupe",
-						"joshua schwieger"
-					),
-					"inspirations" => array(
-						"people" => array(
-							"elon musk",
-							"evan williams",
-							"thom yorke",
-							"ryan north",
-							"robert scoble",
-							"gary vaynerchuk",
-						),
-						"organizations" => array(
-							"tesla motors",
-							"apple",
-							"medium",
-							"mozilla",
-							"twitter",
-							"google",
-							"square enix",
-							"facebook",
-							"jquery",
-							"ubuntu",
-							"w3c",
-							"ervin & smith",
-							"mojang",
-							"omaha code school",
-							"big wheel brigade",
-							"sony",
-							"blogglebeans",
-							"ows",
-							"flywheel",
-							"nintendo",
-							"microsoft",
-							"die socialisten",
-						),
-					),
-				),
-			),
-		),
-	);
+$raw_hubdia_data = file_get_contents('https://bill_riley.hubdia.com/json');
+$usable_hubdia_data = json_decode($raw_hubdia_data);
 
-	echo json_encode($williamriley, JSON_PRETTY_PRINT);
+	// getting your username
+	echo $usable_hubdia_data->username;
+
+	// getting your location
+	echo $usable_hubdia_data->location_colloquial;
+
+	// accessing your social links
+	if (count($usable_hubdia_data->user_platforms) > 0) {
+		foreach ($usable_hubdia_data->user_platforms as $platform) {
+			echo $platform->permalink;
+		}
+	}
+
+	// accessing your favorites
+	if (count($usable_hubdia_data->favorites) > 0) {
+		foreach ($usable_hubdia_data->favorites as $favorite) {
+			echo ($favorite->item->name !== null) ? $favorite->item->name : '';
+		}
+	}
+
+	// accessing the people who inspire you
+	foreach ($usable_hubdia_data->inspirations as $inspiration) {
+		echo $inspiration->following->first_name;
+	}
+
+	// accessing the people who are inspired by you
+	foreach ($usable_hubdia_data->inspirators as $inspirator) {
+		echo $inspirator->follower->first_name;
+	}
 ?>

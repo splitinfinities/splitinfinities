@@ -1,5 +1,9 @@
 #inspirations {
 	.container {
+		h1 {
+			text-align: center;
+		}
+
 		border: 5px solid white;
 		margin-bottom: 30px;
 		position: relative;
@@ -22,18 +26,6 @@
 			position: absolute;
 			right: 0;
 			bottom: -80px;
-		}
-	}
-
-	&.kick {
-		.container {
-			border-color: $blue;
-		}
-	}
-
-	&.snare {
-		.container {
-			@include single-box-shadow(0px, 0px, 0px, 5px, $blue);
 		}
 	}
 }

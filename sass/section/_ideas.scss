@@ -1,20 +1,15 @@
 #ideas {
-	.container {
-		border: 5px solid white;
-		h1 {
-			margin: 0;
-		}
+	h1 {
+		text-align: center;
 	}
 
-	&.kick {
-		.container {
-			border-color: $green;
-		}
-	}
+	ul {
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+		li {
+			text-align: center;
 
-	&.snare {
-		.container {
-			@include single-box-shadow(0px, 0px, 0px, 5px, $green);
 		}
 	}
 }
