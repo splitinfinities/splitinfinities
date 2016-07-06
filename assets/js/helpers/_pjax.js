@@ -79,7 +79,6 @@ $(document).on('pjax:end', function() {
 	λ.rebind_magnific();
 	λ.rebind_figcaptions();
 	λ.init_testimonial();
-	λ.rebind_fancy_buttons();
 	λ.rebind_article_progress();
 	λ.rebind_hide_navigation_on_scroll();
 	λ.prevent_widows();

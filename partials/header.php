@@ -1,7 +1,6 @@
 <header role="banner">
 	<div class="container">
 		<div class="column">
-			<a class="logo ajax" href="<?php echo esc_url(home_url('/')); ?>"><?php partial('assets', 'logo'); ?></a>
 			<button type="button" class="hamburger caf" data-func="open_nav">
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
@@ -16,6 +15,7 @@
 				endif;
 				?>
 			</nav>
+			<a class="logo subhead<?php pjaxify(); ?>" href="<?php echo esc_url(home_url('/')); ?>"><?php partial('assets', 'logo'); ?></a>
 		</div>
 	</div>
 	<progress id="article-progress" value="0"></progress>

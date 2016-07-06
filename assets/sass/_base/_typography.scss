@@ -140,7 +140,7 @@
 		&.scale { width: 100%; }
 	}
 
-	svg:not(:root) { overflow: hidden; }
+	// svg:not(:root) { overflow: hidden; }
 
 	canvas.apng-image {
 		margin: 0 auto;

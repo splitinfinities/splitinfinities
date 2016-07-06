@@ -3,7 +3,7 @@
 	---------------------------------- */
 
 	html {
-		font: normal 400 62.5%/1.4 $body_font;
+		font: normal 400 62.5%/1.4 $body-font;
 		color: $body;
 		box-sizing: border-box;
 		-webkit-font-smoothing: antialiased;
@@ -54,3 +54,46 @@
 
 	::-moz-selection, *::-moz-selection { background: $red; }
 	::selection, *::selection { background: $red; }
+
+
+	@font-face {
+		font-family: "Circular";
+		src:url("../fonts/lineto-circular-book.eot");
+		src:url("../fonts/lineto-circular-book.eot?#iefix") format("embedded-opentype"),
+			url("../fonts/lineto-circular-book.woff") format("woff");
+		font-weight: 300;
+		font-style: normal;
+	}
+
+
+	/* Subsetted */
+
+	@font-face {
+		font-family: "Circular-Subsetted";
+		src:url("../fonts/lineto-circular-subsetted-book.eot");
+		src:url("../fonts/lineto-circular-subsetted-book.eot?#iefix") format("embedded-opentype"),
+			url("../fonts/lineto-circular-subsetted-book.woff") format("woff");
+		font-weight: 300;
+		font-style: normal;
+	}
+
+	@font-face {
+		font-family: "Circular";
+		src:url("../fonts/lineto-circular-bold.eot");
+		src:url("../fonts/lineto-circular-bold.eot?#iefix") format("embedded-opentype"),
+			url("../fonts/lineto-circular-bold.woff") format("woff");
+		font-weight: 600;
+		font-style: normal;
+	}
+
+
+	/* Subsetted */
+
+	@font-face {
+		font-family: "Circular-Subsetted";
+		src:url("../fonts/lineto-circular-subsetted-bold.eot");
+		src:url("../fonts/lineto-circular-subsetted-bold.eot?#iefix") format("embedded-opentype"),
+			url("../fonts/lineto-circular-subsetted-bold.woff") format("woff");
+		font-weight: 600;
+		font-style: normal;
+	}

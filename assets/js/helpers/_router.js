@@ -24,7 +24,6 @@
         λ.rebind_scrollto();
         λ.prevent_widows();
         λ.rebind_figcaptions();
-        λ.rebind_fancy_buttons();
         λ.init_testimonial();
         λ.manage_visible_videos();
 

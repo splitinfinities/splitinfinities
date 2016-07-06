@@ -2,7 +2,7 @@
 	:: Base
 	---------------------------------- */
 	html {
-		font-family: $body_font !important;
+		font-family: $body-font !important;
 		margin: 20px;
 		font-size: 10px;
 	}
@@ -30,7 +30,7 @@
 		}
 
 		p {
-			font: normal 400 1.9rem / 1.684210526 $body_font;
+			font: normal 400 1.9rem / 1.684210526 $body-font;
 			letter-spacing: 0.2px;
 			color: $body;
 			margin-bottom: 44.184210529px;
@@ -115,7 +115,7 @@
 				color: $body;
 				line-height: 1.684210526;
 				position: relative;
-				font-family: $body_font !important;
+				font-family: $body-font !important;
 				margin-bottom: 4px;
 			}
 
@@ -451,7 +451,7 @@
 				}
 
 				figcaption {
-					font-family: $body_font !important;
+					font-family: $body-font !important;
 					font-size: 1.7rem;
 					color: $body;
 					font-style: italic;
