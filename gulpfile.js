@@ -1,5 +1,5 @@
 'use strict';
-var our_proxy_url = "aiga-show.dev:8888";
+var our_proxy_url = "mtk-williamriley.dev:8888";
 
 var gulp = require('gulp');
 var gutil = require('gulp-util');
@@ -17,7 +17,8 @@ var sass = require('gulp-sass');
 var postcss = require('gulp-postcss');
 var autoprefixer = require('autoprefixer');
 var sourcemaps = require('gulp-sourcemaps');
-var cssNano = require('cssnano');
+var cssnano = require('gulp-cssnano');
+var bulkSass = require('gulp-sass-bulk-import');
 
 // BrowserSync
 var browserSync = require('browser-sync');
@@ -91,7 +92,7 @@ function forEach(object, callback) {
 // ### Write to rev manifest
 // If there are any revved files then write them to the rev manifest.
 // See https://github.com/sindresorhus/gulp-rev
-var write_to_revision_manifest = function (directory) {
+var write_to_revision_manifest = function(directory) {
   return lazypipe()
   .pipe(gulp.dest, './assets_compiled/' + directory)
   .pipe(rev.manifest, revision_manifest, {
@@ -129,6 +130,7 @@ var tasks = {
     return gulp.src('./assets/sass/*.scss')
     // sourcemaps + sass + error handling
     .pipe(gulpif(!production, sourcemaps.init()))
+    .pipe(bulkSass())
     .pipe(sass({
       sourceComments: !production,
       outputStyle: production ? 'compressed' : 'nested'
@@ -144,6 +146,7 @@ var tasks = {
       'loadMaps': true
     })))
     .pipe(postcss([autoprefixer({browsers: ['last 2 versions']})]))
+    .pipe(gulpif(production, cssnano()))
     // we don't serve the source files
     // so include scss content inside the sourcemaps
     .pipe(sourcemaps.write({

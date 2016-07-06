@@ -1,0 +1,394 @@
+/*	-------------------------------------
+	:: The Grid
+	---------------------------------- */
+
+	$padding-base: 1.75rem;
+	$padding-container: 2rem;
+
+	.container {
+		width: 92.5%;
+		max-width: $max-width;
+		margin: 0 auto;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+
+		/* container modifiers */
+		&.tiny   { max-width: 700px;  }
+		&.thin   { max-width: 1185px; }
+		&.wide   { max-width: 1450px; }
+		&.widest { max-width: 1535px; }
+		&.bleed  { width: 100%; max-width: 100%; }
+		&.justify-center { justify-content: center; }
+
+		.column {
+			flex: 0 0 100%;
+
+			&.last { order: initial; }
+			&.center { align-self: center; }
+
+			@include min-width(501px) {
+
+				&:first-child { margin-left: 0; }
+
+				/* column widths */
+				&.one    { flex: 0 0 8.333333333333%; }
+				&.two    { flex: 0 0 16.66666666666%; }
+				&.three  { flex: 0 0 24.99999999999%; }
+				&.four   { flex: 0 0 33.33333333333%; }
+				&.five   { flex: 0 0 41.66666666666%; }
+				&.six    { flex: 0 0 50%; }
+				&.seven  { flex: 0 0 58.33333333331%; }
+				&.eight  { flex: 0 0 66.66666666664%; }
+				&.nine   { flex: 0 0 74.99999999997%; }
+				&.ten    { flex: 0 0 83.33333333333%; }
+				&.eleven { flex: 0 0 91.66666666663%; }
+				&.twelve { flex: 0 0 100%; }
+
+				&.two-thirds { flex: 0 0 66.66666666664%; }
+				&.one-half   { flex: 0 0 50%; }
+
+				/* offsets */
+				&.offset-by-one    { margin-left: 8.66666666667%; }
+				&.offset-by-two    { margin-left: 17.3333333333%; }
+				&.offset-by-three  { margin-left: 26%; }
+				&.offset-by-four   { margin-left: 33.6666666667%; }
+				&.offset-by-five   { margin-left: 43.3333333333%; }
+				&.offset-by-six    { margin-left: 52%; }
+				&.offset-by-seven  { margin-left: 60.6666666667%; }
+				&.offset-by-eight  { margin-left: 69.3333333333%; }
+				&.offset-by-nine   { margin-left: 78.0%; }
+				&.offset-by-ten    { margin-left: 86.6666666667%; }
+				&.offset-by-eleven { margin-left: 95.3333333333%; }
+				&.offset-by-one-third  { margin-left: 34.6666666667%; }
+				&.offset-by-two-thirds { margin-left: 69.3333333333%; }
+				&.offset-by-one-half   { margin-left: 52%; }
+
+				&.last { order: 1; }
+			}
+		}
+
+		&.one-half,
+		&.one-third,
+		&.one-fourth,
+		&.one-sixth,
+		&.one-eighth,
+		&.one-twelfth {
+			&.padding {
+				& > .column {
+					margin-bottom: 6rem;
+
+					&:last-of-type {
+						margin-bottom: 0;
+					}
+				}
+
+				/*
+				:: OPTIONAL
+				:: Set the container's padding, then subtract the column's margin-bottom
+				:: to ensure the padding is equal on all sides of the container.
+				padding: $padding-container;
+				padding-bottom: calc( (#{$padding-container}) - (#{$padding-base}) );
+				*/
+
+			}
+		}
+
+		/* container-dictated column widths */
+		&.one-half {
+
+			& > .column {
+				@include min-width(401px) {
+					flex: 0 0 50%;
+				}
+			}
+
+			&.padding {
+				& > .column {
+					@include min-width(401px) {
+						flex: 0 0 calc( 50% - #{$padding-base} );
+					}
+				}
+			}
+		}
+
+		&.one-third {
+			&.lop-off {
+				& > .column {
+					@include max-width(500px) {
+						flex: 0 0 50%;
+
+						&:last-of-type {
+							display: none;
+						}
+					}
+				}
+			}
+
+			& > .column {
+				@include min-width(501px) {
+					flex: 0 0 33.3333333333333%;
+				}
+			}
+
+			&.bleed {
+				& > .column {
+					@include min-width(501px) {
+						flex: 0 0 33.3333333333333%;
+					}
+				}
+			}
+
+			&.padding {
+				& > .column {
+					@include min-width(501px) {
+						flex: 0 0 calc( 33.3333333333333% - #{$padding-base} );
+					}
+				}
+
+				&.bleed {
+					& > .column {
+						@include min-width(501px) {
+							flex: 0 0 calc( 33.3333333333333% - #{$padding-base} );
+						}
+					}
+				}
+			}
+		}
+
+		&.one-fourth {
+			& > .column {
+				@include min-width(351px) {
+					flex: 0 0 50%;
+				}
+
+				@include min-width(1001px) {
+					flex: 0 0 25%;
+				}
+			}
+
+			&.bleed {
+				& > .column {
+					@include min-width(351px) {
+						flex: 0 0 50%;
+					}
+
+					@include min-width(1001px) {
+						flex: 0 0 25%;
+					}
+				}
+			}
+
+			&.padding {
+				& > .column {
+					@include min-width(311px) {
+						flex: 0 0 calc(50% - #{$padding-base} / 2);
+					}
+
+					@include min-width(801px) {
+						flex: 0 0 calc( 25% - #{$padding-base} );
+					}
+				}
+
+				&.bleed {
+					& > .column {
+						@include min-width(311px) {
+							flex: 0 0 calc(50% - #{$padding-base} / 1.25);
+						}
+
+						@include min-width(1101px) {
+							flex: 0 0 calc( 25% - #{$padding-base} );
+						}
+					}
+				}
+			}
+		}
+
+		&.one-sixth {
+			& > .column {
+				flex: 0 0 50%;
+
+				@include min-width(601px) {
+					flex: 0 0 33.3333333333333%;
+				}
+
+				@include min-width(1101px) {
+					flex: 0 0 16.666666666667%;
+				}
+			}
+
+			&.bleed {
+				& > .column {
+					flex: 0 0 50%;
+
+					@include min-width(601px) {
+						flex: 0 0 33.3333333333333%;
+					}
+
+					@include min-width(1101px) {
+						flex: 0 0 16.666666666667%;
+					}
+				}
+			}
+
+			&.padding {
+				& > .column {
+					flex: 0 0 calc(50% - #{$padding-base} / 2);
+
+					@include min-width(801px) {
+						flex: 0 0 calc(25% - #{$padding-base} / 1.25);
+					}
+
+					@include min-width(1201px) {
+						flex: 0 0 calc(16.666666666667% - #{$padding-base});
+					}
+				}
+
+				&.bleed {
+					& > .column {
+						flex: 0 0 calc(50% - #{$padding-base} / 2);
+
+						@include min-width(651px) {
+							flex: 0 0 calc(25% - #{$padding-base} / 1.25);
+						}
+
+						@include min-width(1101px) {
+							flex: 0 0 calc( 16.666666666667% - #{$padding-base} );
+						}
+					}
+				}
+			}
+		}
+
+
+		&.one-eighth {
+			& > .column {
+				flex: 0 0 50%;
+
+				@include min-width(701px) {
+					flex: 0 0 25%;
+				}
+
+				@include min-width(1201px) {
+					flex: 0 0 12.5%;
+				}
+			}
+
+			&.bleed {
+				& > .column {
+					flex: 0 0 50%;
+
+					@include min-width(601px) {
+						flex: 0 0 25%;
+					}
+
+					@include min-width(801px) {
+						flex: 0 0 16.666666666667%;
+					}
+
+					@include min-width(1201px) {
+						flex: 0 0 8.3333333333333%;
+					}
+				}
+			}
+
+			&.padding {
+				& > .column {
+					flex: 0 0 calc(50% - #{$padding-base} / 2);
+
+					@include min-width(801px) {
+						flex: 0 0 calc(25% - #{$padding-base} / 1.25);
+					}
+
+					@include min-width(1301px) {
+						flex: 0 0 calc(12.5% - #{$padding-base});
+					}
+				}
+
+				&.bleed {
+					& > .column {
+						flex: 0 0 calc(50% - #{$padding-base} / 2);
+
+						@include min-width(651px) {
+							flex: 0 0 calc(25% - #{$padding-base} / 1.25);
+						}
+
+						@include min-width(1101px) {
+							flex: 0 0 calc(12.5% - #{$padding-base});
+						}
+					}
+				}
+			}
+		}
+
+
+		&.one-twelfth {
+			& > .column {
+				flex: 0 0 50%;
+
+				@include min-width(451px) {
+					flex: 0 0 33.3333333333333%;
+				}
+
+				@include min-width(801px) {
+					flex: 0 0 16.666666666667%;
+				}
+
+				@include min-width(1201px) {
+					flex: 0 0 8.3333333333333%;
+				}
+			}
+
+
+			&.bleed {
+				& > .column {
+					flex: 0 0 50%;
+
+					@include min-width(451px) {
+						flex: 0 0 33.3333333333333%;
+					}
+
+					@include min-width(801px) {
+						flex: 0 0 16.666666666667%;
+					}
+
+					@include min-width(1201px) {
+						flex: 0 0 8.3333333333333%;
+					}
+				}
+			}
+
+
+			&.padding {
+				& > .column {
+					flex: 0 0 calc(50% - #{$padding-base} / 2.5);
+
+					@include min-width(451px) {
+						flex: 0 0 calc(33.3333333333333% - #{$padding-base} / 2);
+					}
+
+					@include min-width(801px) {
+						flex: 0 0 calc(16.666666666667% - #{$padding-base} / 2);
+					}
+
+					@include min-width(1201px) {
+						flex: 0 0 calc(8.3333333333333% - #{$padding-base} / 2.5);
+					}
+				}
+
+
+				&.bleed {
+					& > .column {
+
+						@include min-width(651px) {
+							flex: 0 0 calc(16.666666666667% - #{$padding-base} / 2);
+						}
+
+						@include min-width(1101px) {
+							flex: 0 0 calc(8.3333333333333% - #{$padding-base} / 2.5);
+						}
+					}
+				}
+			}
+		}
+	}

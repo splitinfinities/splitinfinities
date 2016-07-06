@@ -1,0 +1,150 @@
+.progressive_image {
+	position: relative;
+	transition: all 0.35s $ease 1s;
+
+	* {
+		opacity: 0;
+	}
+
+	.ie8-fallback {
+		display: none;
+
+		html.ie8 & {
+			display: block !important;
+			width: 100%;
+			height: 100%;
+			background: black;
+		}
+	}
+
+	&:hover {
+		position: relative;
+		z-index: 99;
+	}
+
+	&::after {
+		content: '';
+		display: block;
+		pointer-events: none;
+		transition: all 0.55s linear 0s;
+		position: absolute;
+		top: 0; bottom: 0;
+		left: 0; right: 0;
+		z-index: 2;
+	}
+
+	img {
+		width: 100%;
+		overflow: hidden;
+	}
+
+	.aspect_ratio_placeholder {
+		background: transparent 50% 50% / cover no-repeat !important;
+		transition: background 0.35s $ease 1s;
+	}
+
+	.low_quality_image {
+		image-rendering: crisp-edges;
+		opacity: 0;
+		filter: blur(12px);
+		transition: all 0.35s $ease 0.9s;
+		pointer-events: none;
+		position: absolute;
+		top: 0;
+		z-index: 1 !important;
+	}
+
+	.aspect_ratio_fill {
+		width: 100%;
+		margin: 0 auto;
+		background: transparent 50% 50% / cover no-repeat;
+	}
+
+	.progressive_media {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		background: transparent 50% 50% / cover no-repeat;
+
+		&.is_canvasLoaded {
+
+		}
+
+		&.is_imageLoaded {
+
+		}
+	}
+		.js_swap_for_picture {
+
+		}
+
+		picture {
+			opacity: 0;
+			transition: all 0.35s $ease 0s;
+			animation: fadeIn;
+		}
+
+	noscript {
+
+	}
+
+	figcaption {
+		opacity: 0;
+		transition: opacity 0.35s $ease 1.3s;
+		right: 0 !important;
+	}
+
+	&.totally_loaded {
+		background: transparent !important;
+
+		* {
+			opacity: 1;
+		}
+
+		&::after {
+			opacity: 0;
+		}
+
+		.aspect_ratio_placeholder {
+
+		}
+
+		// .aspect_ratio_placeholder[style*="background-image"] {
+		// 	background-image: none !important;
+		// }
+
+		.low_quality_image {
+			opacity: 0;
+		}
+
+		picture {
+			opacity: 1;
+		}
+
+		figcaption {
+			opacity: 1;
+		}
+	}
+
+	.no-js & {
+		background: transparent !important;
+
+		* {
+			opacity: 1;
+			cursor: default !important;
+		}
+
+		.low_quality_image {
+			opacity: 0;
+		}
+
+		.aspect_ratio_placeholder {
+			opacity: 1;
+		}
+
+		img {
+			opacity: 1;
+		}
+	}
+}

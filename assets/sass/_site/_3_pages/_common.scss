@@ -1,0 +1,18 @@
+main {
+	margin-top: calc(#{$nav-mobile-height} + 4rem);
+
+	@include min-width(783px) {
+		margin-top: calc(#{$nav-tablet-height} + 6rem);
+	}
+
+	@include min-width(1025px) {
+		margin-top: calc(#{$nav-desktop-height} + 8rem);
+	}
+}
+
+
+article {
+	aside {
+		ul {}
+	}
+}

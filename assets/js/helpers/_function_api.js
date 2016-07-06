@@ -95,20 +95,6 @@ window.λ = function lambda() {
 	// });
 };
 
-λ.new_business_page_init = function() {
-	$('a:last', '[data-type="toggle_button"]').hide();
-
-	$('a', '[data-type="toggle_button"]').on('click', function() {
-		$(this).hide().siblings().show();
-
-		$(this).closest('form').attr( 'data-opened', $(this).attr('data-value') );
-
-		setTimeout(function() {
-			λ.rebind_textarea_autoresize();
-		}, 100);
-	});
-};
-
 λ.init_testimonial = function() {
 	if ($('.testimonial-slider').length === 1) {
 		$('.testimonial-slider').slick({
@@ -180,12 +166,6 @@ window.λ = function lambda() {
 	$('body').off('keydown.close_modal');
 };
 
-λ.rebind_fancy_buttons = function() {
-	$('.button').each(function() {
-		$(this).append('<span></span><span></span>')
-	});
-};
-
 λ.rebind_caf = function() {
 	$('.caf').each(function() {
 		if (typeof $._data($(this)[0], "events") === "undefined") {
@@ -200,10 +180,6 @@ window.λ = function lambda() {
 λ.textarea_autoresize = function(el) {
 	el.style.height = '0px';     //Reset height, so that it not only grows but also shrinks
 	el.style.height = (el.scrollHeight + 2) + 'px';    //Set new height
-};
-
-λ.contact_submission = function(param1, param2) {
-	console.log(param1, param2);
 };
 
 λ.rebind_textarea_autoresize = function() {
@@ -390,67 +366,81 @@ window.λ = function lambda() {
 	 * This each will go test the first entry all the way to the last entry for matches, with each match
 	 * overriding the bg_img variable.
 	 **/
-	 $.each( items, function(media_query, image_uri) {
-	 	/* feel free to clone this if you'd like to add new hardcoded names, this one checks for "mobile" */
-	 	media_query = ( media_query === "mobile" ) ? '(max-width: 640px)' : media_query;
+	$.each( items, function(media_query, image_uri) {
+		/* feel free to clone this if you'd like to add new hardcoded names, this one checks for "mobile" */
+		media_query = ( media_query === "mobile" ) ? '(max-width: 640px)' : media_query;
 
-	 	if (Modernizr.mq(media_query)) {
-	 		bg_img = image_uri;
-	 	}
-	 });
+		if (Modernizr.mq(media_query)) {
+			bg_img = image_uri;
+		}
+	});
 
-	 /* TODO: Cache these images so we don't request them on resize. */
-	 $(initial_element).css('background-image', 'url("' + bg_img + '")');
-	};
+	/* TODO: Cache these images so we don't request them on resize. */
+	$(initial_element).css('background-image', 'url("' + bg_img + '")');
+};
 
-	λ.check_for_progressive_images = function() {
-		$('.progressive_image.js-not_loaded').each(function() {
-			if ($(this).offset().top <= $(window).scrollTop() + ( $(window).innerHeight() * 1.25 ) ) {
-				try {
-					$(window).off('scroll.load_progressive_images');
-					$(this).removeClass('js-not_loaded');
+λ.check_for_progressive_images = function() {
+	$('.progressive_image.js-not_loaded').each(function() {
+		if ($(this).offset().top <= $(window).scrollTop() + ( $(window).innerHeight() * 1.25 ) ) {
+			try {
+				$(window).off('scroll.load_progressive_images');
+				$(this).removeClass('js-not_loaded');
 
-					var the_whole_element = this;
+				var the_whole_element = this;
 
-					var has_zoom = ($(this).hasClass('has_zoom')) ? 'data-action="zoom"' : '';
+				var has_zoom = ($(this).hasClass('has_zoom')) ? 'data-action="zoom"' : '';
 
-					var picture_array = JSON.parse(atob($('.js-swap-for-picture', this).attr('data-image_info')));
+				var picture_array = JSON.parse(atob($('.js-swap-for-picture', this).attr('data-image_info')));
 
-					var largest_image, source = '';
+				var largest_image, source = '';
 
-					$.each(picture_array, function(key, val) {
-						source += '<source srcset="' + val + '" media="' + key + '" />';
-						largest_image = val;
-					});
+				$.each(picture_array, function(key, val) {
+					source += '<source srcset="' + val + '" media="' + key + '" />';
+					largest_image = val;
+				});
 
-					var picture_tag = '<picture src="' + largest_image + '">';
-					picture_tag += source;
+				var picture_tag = '<picture src="' + largest_image + '">';
+				picture_tag += source;
 
-					picture_tag += '<img srcset="' + largest_image + '" alt="…" ' + has_zoom + ' />';
-					picture_tag += '</picture>';
+				picture_tag += '<img srcset="' + largest_image + '" alt="…" ' + has_zoom + ' />';
+				picture_tag += '</picture>';
 
-					$('.js-swap-for-picture', this).replaceWith(picture_tag);
+				$('.js-swap-for-picture', this).replaceWith(picture_tag);
 
-					$('picture img', this).bind('load', function() {
-						$(the_whole_element).addClass('totally-loaded');
-					});
+				$('picture img', this).bind('load', function() {
+					$(the_whole_element).addClass('totally-loaded');
+				});
 
-					λ.rebind_progressive_images();
+				λ.rebind_progressive_images();
 
-				} catch(error) {
-					λ.rebind_progressive_images();
-				}
+			} catch(error) {
+				λ.rebind_progressive_images();
 			}
-		});
-	};
+		}
+	});
+};
 
-	λ.rebind_progressive_images = function() {
+λ.rebind_progressive_images = function() {
+	λ.check_for_progressive_images();
+
+	$(window).on('scroll.load_progressive_images', function() {
 		λ.check_for_progressive_images();
+	});
+};
 
-		$(window).on('scroll.load_progressive_images', function() {
-			λ.check_for_progressive_images();
-		});
-	};
+λ.hide_scroll_params = {
+	'did_scroll' : null,
+	'last_scroll_top' : null,
+	'delta' : null,
+	'navbar_height' : null,
+	'interval': null
+};
+
+λ.rebind_hide_navigation_on_scroll = function() {
+
+	$('header').removeClass('nav-up nav-down');
+
+	clearInterval(λ.hide_scroll_params.interval);
 
 	λ.hide_scroll_params = {
 		'did_scroll' : null,
@@ -460,21 +450,7 @@ window.λ = function lambda() {
 		'interval': null
 	};
 
-	λ.rebind_hide_navigation_on_scroll = function() {
-
-		$('header').removeClass('nav-up nav-down');
-
-		clearInterval(λ.hide_scroll_params.interval);
-
-		λ.hide_scroll_params = {
-			'did_scroll' : null,
-			'last_scroll_top' : null,
-			'delta' : null,
-			'navbar_height' : null,
-			'interval': null
-		};
-
-		if ($('body').hasClass('single-blog') || $('body').hasClass('single-work')) {
+	if ($('body').hasClass('single-blog') || $('body').hasClass('single-work')) {
 		// Hide Header on on scroll down
 		λ.hide_scroll_params.did_scroll;
 		λ.hide_scroll_params.last_scroll_top = 0;

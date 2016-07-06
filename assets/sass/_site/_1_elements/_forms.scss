@@ -1,0 +1,175 @@
+/*	-------------------------------------
+	:: Forms
+	---------------------------------- */
+	input[type="email"],
+	input[type="number"],
+	input[type="search"],
+	input[type="text"],
+	input[type="tel"],
+	input[type="url"],
+	input[type="password"],
+	textarea,
+	select {
+		font: normal 700 1.6rem / 1.8 $body-font;
+		padding: 12px 14px; /* The 6px vertically centers text on FF, ignored by Webkit */
+		background-color: #F5F9FC;
+		border: 1px solid #A7BFDA;
+		border-radius: 0.2em;
+		min-height: initial !important;
+		color: $body !important;
+
+		&:focus {
+			border-color: mix(#A7BFDA, $body, 75%);
+			outline: 0;
+		}
+	}
+
+	/* Removes awkward default styles on some inputs for iOS */
+	input[type="email"], input[type="number"],
+	input[type="search"], input[type="text"],
+	input[type="tel"], input[type="url"],
+	input[type="password"], textarea {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+	}
+
+	textarea {
+		padding-top: 12px;
+		padding-bottom: 12px;
+		padding-left: 14px;
+		resize: none;
+	}
+
+	label, legend {
+		font: normal 700 2rem / 1.4 $body-font;
+		display: block;
+		margin-bottom: .5rem;
+		color: $gray;
+
+		.field-required,
+		.field_required {
+			color: $gray-light !important;
+			margin-left: -3px;
+		}
+	}
+
+	fieldset {
+		padding: 0;
+		border-width: 0;
+	}
+
+	input[type="checkbox"],
+	input[type="radio"] {
+		display: inline;
+	}
+
+	label > .label-body {
+		display: inline-block;
+		margin-left: .5rem;
+		font-weight: normal;
+	}
+
+	.search-form {
+		.input-group {
+			display: flex;
+
+			input {
+				flex: 0 0 70%
+			}
+
+			.input-group-btn {
+				flex: 0 0 30%;
+				margin: 0 0 0 12px;
+
+				button {
+					width: 100%;
+					text-align: center;
+					display: block;
+				}
+			}
+		}
+	}
+
+	// Placeholders!
+	::-webkit-input-placeholder { color: $gray; line-height: 1.8 !important; padding-bottom: 0.6em; }
+	:-moz-placeholder           { color: $gray; line-height: 1.8 !important; padding-bottom: 0.6em; }
+	::-moz-placeholder          { color: $gray; line-height: 1.8 !important; padding-bottom: 0.6em; }
+	:-ms-input-placeholder      { color: $gray; line-height: 1.8 !important; padding-bottom: 0.6em; }
+
+/*	-------------------------------------7
+	:: Checkboxes and Radio Buttons
+	---------------------------------- */
+	.radio-custom, .checkbox-custom {
+		display: inline-block;
+		line-height: 30px;
+		cursor: pointer;
+		transition: all 50ms ease 0ms,
+					background 400ms ease 200ms,
+					color 400ms ease 200ms,
+					border-color 400ms ease 200ms;
+
+		&:hover .inner {
+			transform: scale(0.5) rotate(-45deg);
+			opacity: .5;
+		}
+
+		input {
+			width: 1px;
+			height: 1px;
+			opacity: 0;
+
+			&:checked + .outer .inner {
+				transform: scale(1) rotate(-45deg);
+				opacity: 1;
+			}
+
+			&:checked + .outer { border: 2px solid #ccc; }
+
+			&:active + .outer .inner {
+				transform: scale(1) rotate(-45deg);
+				opacity: 1;
+				background-color: darken($cta, 10%);
+			}
+		}
+
+		.outer {
+			width: 20px;
+			height: 20px;
+			display: block;
+			float: left;
+			margin: 5px 3px 5px 15px;
+			border: 2px solid #ccc;
+			background-color: #fff;
+			transition: all 50ms ease 0ms,
+			background 400ms ease 200ms,
+			color 400ms ease 200ms,
+			border-color 400ms ease 200ms;
+		}
+
+		.inner {
+			width: 11px;
+			height: 6px;
+			display: block;
+			margin: 4px 3px;
+			position: relative;
+			background-color: white;
+			border: 2.5px solid $cta;
+			border-top: 0;
+			border-right: 0;
+			opacity: 0;
+			transform: scale(0) rotate(-45deg);
+			transition: all 50ms ease 0ms,
+			background 400ms ease 200ms,
+			color 400ms ease 200ms,
+			border-color 400ms ease 200ms;
+		}
+	}
+
+	.radio {
+		.outer,
+		.inner {
+			border-radius: 50%;
+		}
+	}
+
+

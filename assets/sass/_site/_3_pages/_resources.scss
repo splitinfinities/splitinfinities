@@ -1,0 +1,100 @@
+body.resources {
+
+	main {
+		p {
+			margin-bottom: 0;
+			font-family: $heading-font;
+			letter-spacing: 0;
+			@include font-size(1.8);
+			padding-right: 1.2em;
+
+			a {
+				color: inherit;
+				border-bottom: 1px dotted $gray;
+
+				&:hover,
+				&:active,
+				&:focus {
+					color: $red;
+				}
+			}
+		}
+
+		h2, .h2 {
+			position: relative;
+			@include font-size(2.4);
+			margin-bottom: 1em;
+			font-weight: bold;
+			white-space: nowrap;
+
+			&:after {
+				content: '';
+				width: 100%;
+				display: block;
+				position: absolute;
+				bottom: -0.4em;
+				display: block;
+				border-bottom: 1px solid $gray;
+			}
+		}
+
+		.list-item {
+			h2, .h2 {
+				&:after {
+					display: none;
+				}
+
+				@include min-width(650px) {
+					&:after {
+						display: block;
+					}
+				}
+			}
+		}
+
+		.resources-list > .column.four {
+			flex: 0 0 100%;
+			margin-bottom: 4em;
+
+			@include min-width(650px) {
+				flex: 0 0 25.9090909%;
+				margin-bottom: 0;
+			}
+		}
+
+		.resources-list > .column.eight {
+			flex: 0 0 100%;
+
+			@include min-width(650px) {
+				flex: 0 0 74.0909091%;
+			}
+
+			& > .four {
+				flex: 0 0 100%;
+				margin-bottom: 6em;
+
+				@include min-width(375px) {
+					flex: 0 0 50%;
+					margin-bottom: 8em;
+				}
+
+				@include min-width(980px) {
+				flex: 0 0 220px;
+
+					&:nth-of-type(3n+1),
+					&:nth-of-type(3n+2) {
+						h2, .h2 {
+							&:after {
+								width: 150%;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		// .three {
+		// 	margin-bottom: 4em;
+		// }
+	}
+}

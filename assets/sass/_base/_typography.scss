@@ -2,6 +2,78 @@
 	:: Typography
 	---------------------------------- */
 
+	html {
+		font-family: $body-font;
+		-ms-text-size-adjust: 100%;
+		-webkit-text-size-adjust: 100%;
+		font-size: 62.5%; // 10px
+
+		@include max-width(1200px) {
+			font-size: 59.375%;
+		}
+
+		@include max-width(1000px) {
+			font-size: 58.25%;
+		}
+
+		@include max-width(800px) {
+			font-size: 56.125%;
+		}
+
+		@include max-width(600px) {
+			font-size: 54%;
+		}
+
+		@include max-width(400px) {
+			font-size: 52.25%;
+		}
+
+		@include max-width(375px) {
+			font-size: 50.5%;
+		}
+
+		&.macosx * {
+			text-rendering: optimizeLegibility;
+		}
+	}
+
+	// Headline Tags
+	h1, h2, h3, h4, h5, h6,
+	.h1, .h2, .h3, .h4, .h5, .h6 {
+		font-weight: normal;
+		font-style: normal;
+		font-family: $heading-font;
+		letter-spacing: -0.04em;
+		margin: 0;
+		display: block;
+		line-height: 1.4;
+		color: $black;
+		margin-bottom: 1em;
+		transition: all 0.1s $ease 0s;
+
+
+		&:last-of-type {
+			margin-bottom: 0;
+
+			& + p {
+				margin-top: 1em;
+			}
+		}
+
+		a {
+			color: inherit;
+			font-size: inherit;
+			font-family: inherit;
+		}
+	}
+
+	h1, .h1, %h1 { @include font-size(4.2); line-height: 1.19047619; font-weight: bold; }
+	h2, .h2, %h2 { @include font-size(2.4); line-height: 1.333333333; }
+	h3, .h3, %h3 { @include font-size(2.2); }
+	h4, .h4, %h4 { @include font-size(2.0); }
+	h5, .h5, %h5 { @include font-size(1.6); }
+	h6, .h6, %h6 { @include font-size(1.4); }
+
 	/* Helpful Typography Defaults */
 	em, i {
 		font-style: italic;
@@ -24,111 +96,40 @@
 	sub { bottom: -.25em; }
 
 	/* Paragraph */
-	p, span {
-		font: normal 400 1.6rem / 2.117647059 $body-font;
-		color: $body;
+	p,
+	span {
+		@include font-size(2.1);
+		font-family: $body-font;
+		line-height: 1.523809524;
+		font-weight: 400;
+		font-style: normal;
 		margin-top: 0;
+		margin-bottom: 20px;
+		transition: all 0.1s $ease 0s;
 		font-feature-settings: "pnum", "liga", "clig", "calt", "salt" 1, "frac", "ordn", "kern";
-
-		&.light { color: $body_light; }
-
-		strong {
-			font-weight: 400;
-			color: $body_dark;
-		}
-
-		@include min-width(1000px) {
-			font-size: 1.7rem;
-		}
 	}
-
-	// Header Tags
-	.h1, h1, .h2, h2, .h3, h3,
-	.h4, h4, .h5, h5, .h6, h6 {
-		margin-top: 0;
-
-		a {
-			color: inherit;
-			font: inherit;
-			letter-spacing: inherit;
-		}
-	}
-
-	.h1, h1 { @include h1; }
-	.h2, h2 { @include h2; }
-	.h3, h3 { @include h3; }
-	.h4, h4 { @include h4; }
-	.h5, h5 { @include h5; }
-	.h6, h6 { @include h6; }
-
-	.title {
-		@include h1;
-		font-size: 5.0rem;
-
-		@include min-width(1024px) {
-			font-size: 8.0rem;
-		}
-	}
-
-	// Creates hr on either side of the headline
-	.ruled {
-		text-align: center;
-		position: relative;
-		z-index: 1;
-		overflow: hidden;
-		max-width: 1050px;
-		// Do this to avoid overriding the margin bottom defined by the tag used
-		margin-left: auto;
-		margin-right: auto;
-
-		&::before,
-		&::after {
-			position: absolute;
-			top: 51%;
-			overflow: hidden;
-			width: 50%;
-			height: 1px;
-			content: '';
-			background-color: #CCCCCC;
-			margin-left: 2%;
-		}
-
-		&::before {
-			margin-left: -53%;
-			text-align: right;
-		}
-	}
-
 
 	/* Links */
 	a {
 		position: relative;
 		text-decoration: none;
 		color: $cta;
-		opacity: 1;
 		line-height: inherit;
-		transition: color 100ms $cubic_bezier 0ms;
+		transition: all 0.1s $ease 0s;
 
 		&:hover,
 		&:active {
-			opacity: 1;
+			// text-decoration: underline;
 		}
 
-		&:focus  {
-			color: $cta;
-			outline: none;
-		}
-
-		& > span {
-			color: inherit;
-			font: inherit;
-			text-decoration: inherit;
-			line-height: inherit;
-		}
+		&:focus  { outline: none; }
 
 		img { border: none; }
 	}
 
+	.muted {
+		color: $gray !important;
+	}
 
 	/* Images */
 	img {
@@ -139,23 +140,28 @@
 		&.scale { width: 100%; }
 	}
 
+	svg:not(:root) { overflow: hidden; }
+
 	canvas.apng-image {
 		margin: 0 auto;
 	}
 
-	svg:not(:root) { overflow: hidden; }
-
-
 	/* Unsorted/Sorted Lists */
 	ul, ol {
-		margin: 0;
+		margin: 2.4em 0 2.4em 2.4em;
 		padding: 0;
 		font-family: inherit;
+		counter-reset: item;
+		list-style: none;
 
 		&.unstyled {
 			list-style-type: none;
 			padding: 0;
 			margin: 0;
+
+			li:before {
+				display: none !important;
+			}
 		}
 
 		&.inline > li {
@@ -167,10 +173,24 @@
 			&:last-of-type  { padding-right: 0; }
 		}
 
-		&.reset,
-		ul.reset,
-		ol.reset {
+		&.reset {
 			list-style-type: circle
+		}
+
+		li {
+			@include font-size(2.1);
+			line-height: 1.523809524;
+			font-weight: 400;
+			font-style: normal;
+			margin-top: 0;
+			margin-bottom: 0.2em;
+
+			&:before {
+				/* Color the counter however you want! */
+				color: $gray;
+				margin-right: 0.4em;
+				font-style: italic;
+			}
 		}
 
 		&.checked-list {
@@ -235,42 +255,138 @@
 				}
 			}
 		}
+
 	}
+
+	ul li:before {
+		/* Trail counter with period and a space */
+		content: " • ";
+		font-size: 65%;
+		position: relative;
+		margin-right: 0.4em;
+		top: -0.2em;
+		/* Increase one for every one new item */
+		counter-increment: item;
+	}
+
+	ol li:before {
+		/* Trail counter with period and a space */
+		content: counter(item) ". ";
+		margin-right: 0em;
+		font-weight: 100;
+		/* Increase one for every one new item */
+		counter-increment: item;
+	}
+
 
 
 	/* Quotes */
 	blockquote {
-		margin: 40px 0 56px 0;
-		padding-left: 26px;
-		border-left: 2px solid $body_dark;
-		transition: all 0.2s $cubic_bezier;
+		// Need Still
+	}
+	q { quotes: '\201C' '\201D' '\2018' '\2019'; }
 
-		/* the only element that should be used within block quote (according to Michael) */
-		p {
-			@include h1;
-		}
 
-		/* Adjust the offset of the block quote for the left border */
-		@include min-width(800px) {
-			margin-left: -30px;
-		}
 
-		@include min-width(1000px) {
-			.layout-simple_content .container & {
-				margin-left: -98px;
+	/* Horizontal Rules */
+	hr {
+		height: 1px;
+		background: #808080;
+		border: none;
+	}
+
+
+	/* Subhead rules */
+	.subhead {
+		@include font-size(1.8);
+		line-height: 1.555555556;
+		font-family: $heading-font;
+	}
+
+	cite {
+		color: $red;
+		font-size: 75%;
+		line-height: 0;
+		vertical-align: super;
+		cursor: pointer;
+
+		&:hover {
+			.citation {
+				transform: translateX(0.4em);
 			}
 		}
 
-
+		.cite-focused & {
+			.citation {
+				transform: translateX(0.8em);
+			}
+		}
 	}
-		q {
-			quotes: '\201C' '\201D' '\2018' '\2019';
+
+	/* notes rules */
+	.citation {
+		color: $gray;
+		@include font-size(1.5);
+		line-height: 1.4;
+		font-family: $heading-font;
+		transition: transform 0.1s $ease 0s;
+	}
+
+	hr {
+		@include font-size(1.8);
+		width: 50%;
+		display: block;
+		-moz-border-bottom-colors: none;
+		-moz-border-image: none;
+		-moz-border-left-colors: none;
+		-moz-border-right-colors: none;
+		-moz-border-top-colors: none;
+		border-color: #EEEEEE
+		-moz-use-text-color #FFFFFF;
+		border-style: $gray solid none;
+		border-width: 1px 0;
+		margin: 2em auto;
+	}
+
+	figure {
+		@include font-size(1.6);
+		margin: 3em 0 3em 0;
+		width: 100% !important;
+		transition: all 0.1s $ease 0s !important;
+		cursor: pointer;
+
+		@include min-width(901px) {
+			&.expanded {
+				width: 150% !important;
+				margin-left: -50%;
+			}
 		}
 
+		img {
+			margin: 0 auto;
+		}
 
-	// Horizontal Rules
-	hr {
-		height: 1px;
-		background: $gray-light;
-		border: none;
+		figcaption {
+			font-family: $heading-font !important;
+			@include font-size(1.7);
+			color: black;
+			font-style: italic;
+			margin: 2rem auto;
+
+			@include min-width(1201px) {
+				position: absolute;
+				width: 210px;
+				right: calc(50vw - 350px);
+				transform: translate(235px, -60px);
+				float: right;
+			}
+		}
+	}
+
+	.cite-unfocused {
+		color: $gray !important;
+	}
+
+	figure.cite-unfocused {
+		opacity: 0.5;
 	}

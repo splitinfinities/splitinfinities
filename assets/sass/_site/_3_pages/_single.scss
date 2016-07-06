@@ -1,0 +1,153 @@
+.single,
+.page {
+	.container.title {
+		.content {
+			margin-bottom: 6em;
+			max-width: 530px;
+		}
+	}
+
+	.container.single-content {
+		.offset-by-four {
+			position: relative;
+
+			p {
+				position: relative;
+			}
+
+			.offset,
+			span.citation,
+			.pullquote {
+				position: absolute;
+				left: -50%;
+				width: 50%;
+				padding-right: 10rem;
+			}
+
+			.pullquote {
+				@include font-size(2.4);
+				line-height: 1.333333333;
+				font-family: $heading-font;
+				top: 0;
+			}
+
+			span.citation {
+				margin-top: 0.5em;
+				text-indent: -2.35em;
+				padding-left: 2.4em;
+
+				&::first-letter {
+					width: 40px;
+					padding-right: 2em;
+				}
+			}
+
+
+			.cite-focused {
+				// if we want to figure out a better way to make cite's pop.
+				cite {
+					//text-shadow: 0 0 0 $body;
+				}
+
+				span.citation {
+					color: mix($body, $gray, 25%);
+				}
+			}
+
+			@include max-width(900px) {
+				width: 100%;
+				flex: 0 0 100%;
+				margin: 0;
+
+				.cite-focused {
+					transform: translateX(60vw);
+
+					.citation {
+						background: white;
+						left: -66.66666666%;
+						width: 60vw;
+					}
+				}
+			}
+
+			@include max-width(550px) {
+				.citation {
+					background: white;
+					left: -36% !important;
+					top: 0 !important;
+					width: 54vw !important;
+					transform: translateX(-50%) translateY(15%) !important;
+					padding: 1.6em 2.2em !important;
+					border-right: 1px solid $gray;
+					margin: 0 !important;
+				}
+
+				.cite-focused {
+					transform: translateX(66.6666%);
+
+					cite {
+						//position: relative;
+					}
+
+					.citation {
+						background: white;
+						left: -33.3333%;
+						top: 0;
+						transform: translateX(-50%) translateY(-0%);
+						border-right: 1px solid $gray;
+					}
+				}
+			}
+		}
+
+		.column {
+
+		}
+	}
+
+
+	.single_lists-grouped_list,
+	.single_lists-list_and_content {
+		.list-item {
+			margin-bottom: 3.2em;
+
+			p {
+				margin: 0;
+				@include font-size(1.8);
+				font-family: $heading-font;
+
+				&.h4 {
+					@include font-size(1.8);
+				}
+
+				a {
+					border-bottom: 1px dotted $gray;
+
+					&:hover,
+					&:active,
+					&:focus {
+						color: $red;
+					}
+				}
+			}
+		}
+	}
+
+	.single_lists-grouped_list {
+		.list-group {
+			padding: 0;
+			@include min-width(783px) {
+				&:nth-of-type(even) {
+					padding-left: 3.2em;
+				}
+			}
+		}
+
+		.list-item {
+
+			&:first-of-type {
+				margin-top: 3.2em;
+			}
+		}
+	}
+}

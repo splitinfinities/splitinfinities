@@ -1,57 +1,14 @@
 /*	-------------------------------------
 	:: Initial
 	---------------------------------- */
-	@import "_base/_variables.scss";
-	@import "_base/_mixins.scss";
-	@import "_base/_base.scss";
-	@import "_base/_helpers.scss";
-	@import "_base/_typography.scss";
+	@import "_base/_variables";
+	@import "_base/_mixins";
+	@import "_base/_base";
+	@import "_base/_helpers";
+	@import "_base/_typography";
+	@import "_base/_grid";
 
-
-/*	-------------------------------------
-	:: Optional Includes
-	---------------------------------- */
-	// @import "_partials/_0_optional/_animations.scss";
-	// @import "_partials/_0_optional/_parallax-mixins.scss";
-	// @import "_partials/_0_optional/_breadcrumbs.scss";
-	// @import "_partials/_0_optional/gravityform-override.scss";
-	// @import "_partials/_0_optional/_instagram.scss";
-	// @import "_partials/_0_optional/_subnav.scss";
-	// @import "_partials/_0_optional/_search.scss";
-	@import "_partials/_0_optional/_tables.scss";
-
-
-/*	-------------------------------------
-	:: Required Includes
-	----------------------------------  */
-	@import "_partials/_1_tools/_article-progress.scss";
-	@import "_partials/_1_tools/_buttons.scss";
-	@import "_partials/_1_tools/_ellipsis.scss";
-	@import "_partials/_1_tools/_forms.scss";
-	@import "_partials/_1_tools/_grid.scss";
-	@import "_partials/_1_tools/_image_zoom.scss";
-	@import "_partials/_1_tools/_kitchensink.scss";
-	@import "_partials/_1_tools/_loader.scss";
-	@import "_partials/_1_tools/_modal.scss";
-	@import "_partials/_1_tools/_progressive-images.scss";
-	@import "_partials/_1_tools/_select.scss";
-	@import "_partials/_1_tools/_slider.scss";
-	@import "_partials/_1_tools/_tabs.scss";
-
-
-	@import "_partials/_2_sections/_footer.scss";
-	@import "_partials/_2_sections/_header.scss";
-	@import "_partials/_2_sections/_header_subnav.scss";
-	@import "_partials/_2_sections/_layout-content_in_columns.scss";
-	@import "_partials/_2_sections/_layout-hero.scss";
-	@import "_partials/_2_sections/_layout-screenshots.scss";
-	@import "_partials/_2_sections/_layout-simple_content.scss";
-	@import "_partials/_2_sections/_layout-single_device_preview.scss";
-	@import "_partials/_2_sections/_layout-social_media.scss";
-	@import "_partials/_2_sections/_layout-switch_focus.scss";
-	@import "_partials/_2_sections/_layout-testimonial.scss";
-	@import "_partials/_2_sections/_page-navigation.scss";
-
-
-	@import "_partials/_3_pages/_404.scss";
-	@import "_partials/_3_pages/_common.scss";
+	@import "_site/_0_optional/*";
+	@import "_site/_1_elements/*";
+	@import "_site/_2_sections/*";
+	@import "_site/_3_pages/*";

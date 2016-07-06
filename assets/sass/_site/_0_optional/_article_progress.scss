@@ -1,0 +1,50 @@
+progress#article-progress {
+	display: none;
+}
+
+.single {
+	progress#article-progress {
+		/* Positioning */
+		position: absolute;
+		display: block !important;
+		left: 0;
+		bottom: 0;
+
+		/* Dimensions */
+		width: 100%;
+		height: 2px;
+
+		/* Reset the appearance */
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+
+		opacity: 1;
+		transition: transform 100ms $ease 0ms, opacity 100ms $ease 0ms;
+
+		/* Get rid of the default border in Firefox/Opera. */
+		border: none;
+
+		/* Progress bar container for Firefox/IE10+ */
+		background-color: transparent;
+
+		/* Progress bar value for IE10+ */
+		color: $black;
+
+		&::-webkit-progress-bar {
+			background-color: transparent;
+		}
+
+		&::-webkit-progress-value {
+			background-color: $black;
+		}
+
+		&::-moz-progress-bar {
+			background-color: $black;
+		}
+
+		&.done {
+			opacity: 0;
+		}
+	}
+}

@@ -1,0 +1,133 @@
+.archive {
+
+	aside {
+		padding-top: 100px;
+		margin-top: -100px;
+
+		& > ul {
+			& > li {
+				margin-bottom: 0.6em;
+				display: block;
+			}
+
+			ul {
+				margin: 1.0em 0 2.4em 0;
+
+				& > li {
+					margin-bottom: 0;
+				}
+			}
+
+			a.subhead {
+				color: $gray;
+
+				&.active {
+					color: $body;
+				}
+			}
+
+			li.year-container {
+				a.h2 {
+					color: $gray;
+				}
+
+				&.active {
+					a.h2 {
+						color: $body;
+					}
+				}
+			}
+		}
+
+		.subhead {
+			color: $black;
+		}
+
+		@include max-width(782px) {
+			display: none;
+		}
+	}
+
+	.column.eight {
+		@include max-width(782px) {
+			width: 100%;
+			flex: 0 0 100%;
+		}
+	}
+
+	.current-year {
+		opacity: 0;
+		transition: opacity 0.1s $ease 0.05s;
+		background: white;
+
+		&.in {
+			opacity: 1;
+		}
+
+		h2, .h2 {
+			margin-bottom: 1.2em;
+		}
+	}
+
+	.post-mosiac {
+		.the-mosiac {
+			display: block;
+			width: 100%;
+			position: relative;
+
+			.column {
+				display: block;
+				padding-bottom: 0;
+				transition: opacity 0.2s $ease 0.1s;
+				background: white;
+
+				@include min-width(501px) {
+					width: 50%;
+					padding-right: 2.4em;
+					opacity: 0;
+					padding-bottom: 2.8em;
+					position: absolute;
+				}
+
+				&.in {
+					opacity: 1;
+				}
+
+				.h2 {
+					line-height: 1.523809524;
+				}
+
+				// @include min-width(801px) {
+				// 	width: calc(50% - 50px);
+				// 	margin-right: 50px;
+				// 	float: left;
+				// }
+			}
+		}
+	}
+
+	&.post-type-archive-essays,
+	&.post-type-archive-lists {
+
+		.current-year {
+			display: block;
+			opacity: 1;
+			height: 0;
+			border-top: 1px solid $gray;
+
+			h3, .h3 {
+				line-height: 56px;
+				@include font-size(2.4);
+				font-weight: bold;
+			}
+
+			@include max-width(375px) {
+				height: 3.8rem;
+			}
+		}
+
+		h3, .h3 {
+			@include font-size(1.8);
+		}
+	}
+}

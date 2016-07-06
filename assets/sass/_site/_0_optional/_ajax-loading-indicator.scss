@@ -1,0 +1,14 @@
+/*	-------------------------------------
+	:: Loader Bar
+	---------------------------------- */
+	#loader-bar {
+		background: $black;
+		position: fixed;
+		top: 0;
+		height: 3px;
+		left: 0;
+		width: 0vw;
+		z-index: 20;
+		transition: all 0.25s $ease 0ms;
+		-webkit-backdrop-filter: blur(4px);
+	}

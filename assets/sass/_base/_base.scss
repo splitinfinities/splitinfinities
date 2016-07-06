@@ -1,12 +1,14 @@
 /*	-------------------------------------
 	:: Base / General Styling
 	---------------------------------- */
+
 	html {
 		font: normal 400 62.5%/1.4 $body_font;
 		color: $body;
 		box-sizing: border-box;
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
+		line-height: 1.4;
 		margin: 0;
 		padding: 0;
 		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -15,62 +17,19 @@
 		-ms-text-size-adjust: 100%;
 		-webkit-text-size-adjust: 100%;
 		overflow-x: hidden;
-		background-color: $body_dark;
+		background-color: $body;
 		-ms-overflow-style: -ms-autohiding-scrollbar;
-		transition: background-color 1s $cubic_bezier 0;
+		transition: background-color 1s $ease 0;
 
-		@include max-width(1200px) {
-			font-size: 59.375%;
-		}
-
-		@include max-width(1000px) {
-			font-size: 58.25%;
-		}
-
-		@include max-width(800px) {
-			font-size: 56.125%;
-		}
-
-		@include max-width(600px) {
-			font-size: 54%;
-		}
-
-		@include max-width(400px) {
-			font-size: 52.25%;
-		}
-
-		&.mac * {
-			text-rendering: optimizeLegibility;
-		}
-
-		&.overlay-open,
-		&.zoom-overlay-open {
-			overflow: hidden;
-			height: 100vh;
-
-			body {
-				overflow: hidden;
-				height: 100vh;
-			}
-
-			@include max-width(600px) {
-				height: 100%;
-
-				body {
-					height: 100%;
-				}
-			}
-		}
+		//@include outline();
 	}
 
-	#main {
-		overflow-x: hidden;
-		background-color: white;
-		min-height: 100vh;
-	}
+	#wp-admin-bar-ultimo-wp { display: none; }
+
+	#main { overflow: hidden; }
 
 	body {
-		font: normal 400 1.6rem/1.4 $body_font;
+		font-family: $body-font;
 		margin: 0;
 		padding: 0;
 		height: auto;
@@ -81,10 +40,6 @@
 		box-sizing: inherit;
 	}
 
-	::selection, *::selection {
-		background: $cta;
-		color: white;
-	}
 
 	::-moz-selection, *::-moz-selection {
 		background: $cta;
@@ -96,3 +51,6 @@
 			display: none;
 		}
 	}
+
+	::-moz-selection, *::-moz-selection { background: $red; }
+	::selection, *::selection { background: $red; }

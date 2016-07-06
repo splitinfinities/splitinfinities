@@ -36,7 +36,7 @@
 			margin-bottom: 44.184210529px;
 
 			strong {
-				color: $body_dark;
+				color: $body;
 				font-weight: 600 !important;
 			}
 
@@ -92,16 +92,16 @@
 		/* Headline Styles */
 		h1,
 		.h1,
-		.head { @include h1; }
+		.head { @extend %h1; }
 
 		h2,
 		.h2,
-		.subhead { @include h2; }
+		.subhead { @extend %h2; }
 
-		h3, .h3 { @include h3; }
-		h4, .h4 { @include h4; }
-		h5, .h5 { @include h5; }
-		h6, .h6 { @include h6; }
+		h3, .h3 { @extend %h3; }
+		h4, .h4 { @extend %h4; }
+		h5, .h5 { @extend %h5; }
+		h6, .h6 { @extend %h6; }
 
 
 		/* Unsorted Lists */
@@ -263,7 +263,6 @@
 				&:hover,
 				&:active {
 					color: $cta_active;
-					@include add_alt_smart_underline();
 					background-image: linear-gradient($cta_active, $cta_active), linear-gradient($cta_active, $cta_active), linear-gradient($cta_active, $cta_active);
 				}
 			}
@@ -309,7 +308,7 @@
 
 
 		strong {
-			color: $body_dark;
+			color: $body;
 			font-weight: 600;
 		}
 
@@ -454,7 +453,7 @@
 				figcaption {
 					font-family: $body_font !important;
 					font-size: 1.7rem;
-					color: $body_dark;
+					color: $body;
 					font-style: italic;
 					margin: 2rem auto;
 

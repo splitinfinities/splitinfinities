@@ -1,115 +1,34 @@
 /*	-------------------------------------
 	:: General Sizes
 	---------------------------------- */
-	$max_width: 1300px;
-	$nav_height: 80px;
-	$nav_inactive_height: 95px;
-	$nav_min_height: 50px;
-
-	$preview_content_max_width: 660px;
+	$max-width: 1100px;
+	$nav-mobile-height: 7.0rem;
+	$nav-tablet-height: 12.0rem;
+	$nav-desktop-height: 18.0rem;
 
 
 /*	-------------------------------------
 	:: Brand Colors
 	---------------------------------- */
+
 	// Default Colors
-	$gray: #999999;
-	$gray_light: #ededed;
-	$gray_mid: #cecece;
-	$gray_dark: #666666;
-	$gradients_in_the_theme: true !default;
+	$gray: #B3B3B3;
+	$gray-light: #ededed;
+	$gray-mid: #cecece;
+
+	$red: #911d1d;
+	$yellow: #FDE5A5;
+
 
 	// Generic
-	$body: #989EA3;
-	$body_light: #ECF1F3;
-	$body_dark: #333E48;
-	$cta: $body_light;
-	$cta_active: $body_dark;
-
-
-	// Years colors
-	// Show 26
-	$primary-2016: #F7CAC9; // Rose Quartz
-	$secondary-2016: #92A8D1; // Serenity
-	$primary-2016: #6FC9C1; // Teal
-	$secondary-2016: #213D4B; // Serenity
-
-	// Show 25
-	$primary-2015: #f5926c; // Some orange - not pantone
-	$secondary-2015: mix($primary-2015, $body, 50%);
-
-	// Show 24
-	$primary-2014: #B565A7; // Radiant Orchid
-	$secondary-2014: mix($primary-2014, $body, 50%);
-
-	// Show 23
-	$primary-2013: #009B77; // Emerald
-	$secondary-2013: mix($primary-2013, $body, 5%);
-
-	// Show 22
-	$primary-2012: #DD4124; // Tangerine Tango
-	$secondary-2012: $primary-2012;
-
-	// Show 21
-	$primary-2011: #D65076; // Honeysuckle
-	$secondary-2011: $primary-2011;
-
-	// Show 20
-	$primary-2010: #45B8AC; // Turquoise
-	$secondary-2010: $primary-2010;
-
-	// Show 19
-	$primary-2009: #EFC050; // Mimosa
-	$secondary-2009: $primary-2009;
-
-	// Show 18
-	$primary-2008: #5B5EA6; // Blue Izis
-	$secondary-2008: $primary-2008;
-
-	// Show 17
-	$primary-2007: #9B2335; // Chili Pepper
-	$secondary-2007: $primary-2007;
-
-	// Show 16
-	$primary-2006: #DFCFBE; // Sand Dollar
-	$secondary-2006: $primary-2006;
-
-	// Show 15
-	$primary-2005: #55B4B0; // Blue Turquoise
-	$secondary-2005: $primary-2005;
-
-	// Show 14
-	$primary-2004: #E15D44; // Tigerlily
-	$secondary-2004: $primary-2004;
-
-	// Show 13
-	$primary-2003: #7FCDCD; // Aqua Sky
-	$secondary-2003: $primary-2003;
-
-	// Show 12
-	$primary-2002: #BC243C; // True Red
-	$secondary-2002: $primary-2002;
-
-	// Show 11
-	$primary-2001: #C3447A; // Fuchsia Rose
-	$secondary-2001: $primary-2001;
-
-	// Show 10
-	$primary-2000: #98B4D4; // Cerulean Blue
-	$secondary-2000: $primary-2000;
+	$body: #211d1d;
+	$body-light: #f0efed;
+	$cta: $gray;
+	$cta-active: $gray-light;
 
 
 	// This site's colors
 	$black: #2D2D2D;
-	$current_year-primary: $primary-2016;
-	$current_year-secondary: $secondary-2016;
-
-	$body-dark: mix($current_year-secondary, #222, 10%);
-	$body-dark: #213D4B;
-
-	$cta: $current_year-secondary;
-	$cta-active: mix($current_year-secondary, #222, 10%);
-
 
 
 /*	-------------------------------------
@@ -118,62 +37,20 @@
 	// Example:
 	// $custom-font: 'Custom Font Name', sans-serif;
 
-	$open-sans: "Open Sans", sans-serif;
+	$freight: "freight-text-pro", sans-serif;
+	$circular: "Circular-Subsetted", "Karla", sans-serif;
 
 	// Replace the 'inherit' value with the proper font variables from directly above
-	$body-font: $open-sans;
-	$heading-font: $open-sans;
-	$button-font: $open-sans;
-	$nav-font: $open-sans;
-
+	$body-font: $freight;
+	$heading-font: $circular;
+	$button-font: $circular;
+	$nav-font: $circular;
 
 
 /*	-------------------------------------
 	:: Client Global Easing (Animation)
 	---------------------------------- */
 	$ease: cubic-bezier(.15,.5,.5,.95);
-	$cubic_bezier: cubic-bezier(.2,.3,.25,.9);
-
-/*	-------------------------------------
-	:: Button Sizes map
-	---------------------------------- */
-	$button-sizes: (
-	'normal': (
-		fontSize: 1.6rem,
-		lineHeight: 1.5,
-		paddingTB: 0.875em,
-		paddingLR: 1.6em
-		),
-	'big': (
-		fontSize: 1.8rem,
-		lineHeight: 1.5,
-		paddingTB: 0.625em,
-		paddingLR: 1.875em
-		),
-	'small': (
-		fontSize: 1.4rem,
-		lineHeight: 1.273,
-		paddingTB: 0.545454545em,
-		paddingLR: 1.818181818em
-		),
-	'huge': (
-		fontSize: 2.0rem,
-		lineHeight: 1.5,
-		paddingTB: 15px,
-		paddingLR: 30px
-		),
-	'hugeLg': (
-		fontSize: 2.4rem,
-		lineHeight: 1.5,
-		paddingTB: 18px,
-		paddingLR: 50px
-		)
-	);
-
-	$button-bg-color: $current_year-primary;
-	$button-text-color: $body;
-	$button-border-color: currentColor;
-	$button-border-radius: 0.2em;
 
 
 /*	-------------------------------------
