@@ -1,0 +1,830 @@
+[
+    {
+        "key": "group_56fc1c923682b",
+        "title": "Social Discovery Optimization",
+        "fields": [
+            {
+                "key": "field_56fc1ca86a611",
+                "label": "App Integration",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_56fc1cb56a612",
+                "label": "Display \"Download this App\" banner on homepage?",
+                "name": "sdo_display_banner",
+                "type": "true_false",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 0
+            },
+            {
+                "key": "field_56fc1cca6a613",
+                "label": "Apple Appstore ID",
+                "name": "sdo_apple_appstore_id",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_56fc1cb56a612",
+                            "operator": "==",
+                            "value": "1"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": "",
+                "readonly": 0,
+                "disabled": 0
+            },
+            {
+                "key": "field_56fc1cd96a614",
+                "label": "Apple Appstore link",
+                "name": "sdo_apple_appstore_link",
+                "type": "url",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_56fc1cb56a612",
+                            "operator": "==",
+                            "value": "1"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_56fc1cec6a615",
+                "label": "Google Play Store App link",
+                "name": "sdo_googleplay_link",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_56fc1cb56a612",
+                            "operator": "==",
+                            "value": "1"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": "",
+                "readonly": 0,
+                "disabled": 0
+            },
+            {
+                "key": "field_56fc1d276a616",
+                "label": "Connecting",
+                "name": "connecting",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_56fc1d63bea59",
+                "label": "Platforms to include in Connecting",
+                "name": "sdo_social_connect",
+                "type": "repeater",
+                "instructions": "List your social platforms, this list displays in the footer. When someone clicks on these icons, they'll be brought to your page on that site.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "field_56fc1d85bea5a",
+                "min": 1,
+                "max": "",
+                "layout": "table",
+                "button_label": "Add a Social Platform",
+                "sub_fields": [
+                    {
+                        "key": "field_56fc1d85bea5a",
+                        "label": "Platform",
+                        "name": "platform",
+                        "type": "select",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "twitter": "Twitter",
+                            "facebook": "Facebook",
+                            "googleplus": "Google+",
+                            "instagram": "Instagram",
+                            "pinterest": "Pinterest",
+                            "linkedin": "LinkedIn",
+                            "youtube": "YouTube",
+                            "producthunt": "Product Hunt",
+                            "deviantart": "DeviantArt",
+                            "dribbble": "Dribbble",
+                            "behance": "Behance",
+                            "houzz": "Houzz"
+                        },
+                        "default_value": [],
+                        "allow_null": 0,
+                        "multiple": 0,
+                        "ui": 0,
+                        "ajax": 0,
+                        "placeholder": "",
+                        "disabled": 0,
+                        "readonly": 0
+                    },
+                    {
+                        "key": "field_56fc1d9abea5b",
+                        "label": "Platform URL",
+                        "name": "platform_url",
+                        "type": "url",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": ""
+                    }
+                ]
+            },
+            {
+                "key": "field_56fc1e92bea5d",
+                "label": "Sharing and Fallback Image",
+                "name": "sharing_and_fallback_image",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_56fc1ed9bea62",
+                "label": "Fallback Image",
+                "name": "sdo_fallback_image",
+                "type": "image",
+                "instructions": "Upload an image at: 1600px \u00d7 800px high with a 160px padding on the left and right margins.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "id",
+                "preview_size": "thumbnail",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": ""
+            },
+            {
+                "key": "field_56fc201067df1",
+                "label": "Platforms to include in Sharing",
+                "name": "sdo_social_share",
+                "type": "repeater",
+                "instructions": "List all the social platforms that you'd like to have sharing functionality - Usually this is on a single blog page.\r\n",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "field_56fc20ecf1ca0",
+                "min": 1,
+                "max": "",
+                "layout": "table",
+                "button_label": "Add a Social Platform",
+                "sub_fields": [
+                    {
+                        "key": "field_56fc20ecf1ca0",
+                        "label": "Platform",
+                        "name": "platform",
+                        "type": "select",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "twitter": "Twitter",
+                            "facebook": "Facebook",
+                            "googleplus": "Google+",
+                            "pinterest": "Pinterest",
+                            "linkedin": "LinkedIn",
+                            "houzz": "Houzz"
+                        },
+                        "default_value": [],
+                        "allow_null": 0,
+                        "multiple": 0,
+                        "ui": 0,
+                        "ajax": 0,
+                        "placeholder": "",
+                        "disabled": 0,
+                        "readonly": 0
+                    }
+                ]
+            },
+            {
+                "key": "field_56fec32201641",
+                "label": "Twitter Cards",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_56fec36f01643",
+                "label": "Twitter Card",
+                "name": "sdo_twitter_card",
+                "type": "select",
+                "instructions": "Reference these items <a href=\"https:\/\/dev.twitter.com\/cards\/types\/product\" target=\"_blank\">here<\/a>.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "none": "None",
+                    "summary": "Summary",
+                    "summary_large_image": "Summary with a Large Image",
+                    "photo": "Photo",
+                    "gallery": "Gallery",
+                    "app": "App",
+                    "player": "Video Player",
+                    "product": "Product"
+                },
+                "default_value": [
+                    "none"
+                ],
+                "allow_null": 0,
+                "multiple": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": "",
+                "disabled": 0,
+                "readonly": 0
+            },
+            {
+                "key": "field_56fed4e95d645",
+                "label": "Brand's Twitter Handle",
+                "name": "sdo_twitter_card_site",
+                "type": "text",
+                "instructions": "Add a valid Twitter handle - this would be the blanket account for this business. ",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_56fec36f01643",
+                            "operator": "!=",
+                            "value": "none"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "@neighborhood",
+                "prepend": "",
+                "append": "",
+                "maxlength": "",
+                "readonly": 0,
+                "disabled": 0
+            },
+            {
+                "key": "field_56fec3ad01644",
+                "label": "Creator",
+                "name": "sdo_twitter_card_creator",
+                "type": "text",
+                "instructions": "Add a valid Twitter handle - this would be the person who wrote this article",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_56fec36f01643",
+                            "operator": "!=",
+                            "value": "none"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "@neighborhood",
+                "prepend": "",
+                "append": "",
+                "maxlength": "",
+                "readonly": 0,
+                "disabled": 0
+            },
+            {
+                "key": "field_56fec41601645",
+                "label": "Labels & information",
+                "name": "sdo_twitter_card_labels_and_data",
+                "type": "repeater",
+                "instructions": "This card supports up to four lists of information. ",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_56fec36f01643",
+                            "operator": "==",
+                            "value": "product"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "field_56fec43301646",
+                "min": 1,
+                "max": 4,
+                "layout": "table",
+                "button_label": "Add a Label",
+                "sub_fields": [
+                    {
+                        "key": "field_56fec43301646",
+                        "label": "Label",
+                        "name": "label",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": "",
+                        "readonly": 0,
+                        "disabled": 0
+                    },
+                    {
+                        "key": "field_56fec43b01647",
+                        "label": "Data",
+                        "name": "data",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": "",
+                        "readonly": 0,
+                        "disabled": 0
+                    }
+                ]
+            },
+            {
+                "key": "field_56fec44e01648",
+                "label": "Gallery",
+                "name": "sdo_twitter_card_gallery",
+                "type": "repeater",
+                "instructions": "Galleries support up to 4 images. Make sure the images are square. ",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_56fec36f01643",
+                            "operator": "==",
+                            "value": "gallery"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "",
+                "min": 1,
+                "max": 4,
+                "layout": "table",
+                "button_label": "Add an Image",
+                "sub_fields": [
+                    {
+                        "key": "field_56fec4c201651",
+                        "label": "Image",
+                        "name": "image",
+                        "type": "image",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "url",
+                        "preview_size": "apple-square-76",
+                        "library": "all",
+                        "min_width": "",
+                        "min_height": "",
+                        "min_size": "",
+                        "max_width": "",
+                        "max_height": "",
+                        "max_size": "",
+                        "mime_types": ""
+                    }
+                ]
+            },
+            {
+                "key": "field_56fed6f13dbd8",
+                "label": "App Country",
+                "name": "sdo_twitter_card_app_country",
+                "type": "text",
+                "instructions": "You'll need a country, and links if you want to add iPhone, iPad, or Google play links. ",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_56fec36f01643",
+                            "operator": "==",
+                            "value": "app"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "US",
+                "prepend": "",
+                "append": "",
+                "maxlength": "",
+                "readonly": 0,
+                "disabled": 0
+            },
+            {
+                "key": "field_56fec45a0164b",
+                "label": "App Details",
+                "name": "sdo_twitter_card_app_details",
+                "type": "repeater",
+                "instructions": "You'll need links if you want to add iPhone, iPad, or Google play links. ",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_56fec36f01643",
+                            "operator": "==",
+                            "value": "app"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "field_56fec53001652",
+                "min": 1,
+                "max": 3,
+                "layout": "table",
+                "button_label": "Add a Platform",
+                "sub_fields": [
+                    {
+                        "key": "field_56fec53001652",
+                        "label": "Platform",
+                        "name": "platform",
+                        "type": "select",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "iphone": "iPhone",
+                            "ipad": "iPad",
+                            "googleplay": "Google Play"
+                        },
+                        "default_value": [],
+                        "allow_null": 0,
+                        "multiple": 0,
+                        "ui": 0,
+                        "ajax": 0,
+                        "placeholder": "",
+                        "disabled": 0,
+                        "readonly": 0
+                    },
+                    {
+                        "key": "field_56fec57c12d5f",
+                        "label": "App Name",
+                        "name": "app_name",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "Cannonball",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": "",
+                        "readonly": 0,
+                        "disabled": 0
+                    },
+                    {
+                        "key": "field_56fec58b12d60",
+                        "label": "App ID",
+                        "name": "app_id",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": 929750075,
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": "",
+                        "readonly": 0,
+                        "disabled": 0
+                    },
+                    {
+                        "key": "field_56fec59212d61",
+                        "label": "App URL",
+                        "name": "app_url",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "cannonball:\/\/poem\/5149e249222f9e600a7540ef",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": "",
+                        "readonly": 0,
+                        "disabled": 0
+                    }
+                ]
+            },
+            {
+                "key": "field_56fec46a0164e",
+                "label": "Video",
+                "name": "sdo_twitter_card_app_video",
+                "type": "repeater",
+                "instructions": "Video player",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_56fec36f01643",
+                            "operator": "==",
+                            "value": "player"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "",
+                "min": 1,
+                "max": 1,
+                "layout": "table",
+                "button_label": "Add a Video",
+                "sub_fields": [
+                    {
+                        "key": "field_56fec46a0164f",
+                        "label": "Player MP4 video",
+                        "name": "player_stream",
+                        "type": "file",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "array",
+                        "library": "all",
+                        "min_size": "",
+                        "max_size": "",
+                        "mime_types": ".mp4"
+                    },
+                    {
+                        "key": "field_56fec46a01650",
+                        "label": "Player Vimeo Link",
+                        "name": "player_vimeo_link",
+                        "type": "url",
+                        "instructions": "You can use this if you have a pro account on Vimeo. Otherwise, please upload the video. ",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": ""
+                    }
+                ]
+            },
+            {
+                "key": "field_56fec32f01642",
+                "label": "Facebook Stories",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_56fee1ea0065b",
+                "label": "Facebook Story Type",
+                "name": "sdo_facebook_story_type",
+                "type": "select",
+                "instructions": "Reference these items <a href=\"https:\/\/developers.facebook.com\/docs\/sharing\/webmasters#media\" target=\"_blank\">here<\/a>.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "none": "None",
+                    "article": "Article",
+                    "books.book": "Book",
+                    "books.author": "Book - Specific Author",
+                    "books.genre": "Book - Specific Genre",
+                    "business.business": "Business",
+                    "fitness.course": "Fitness - Course",
+                    "game.achievement": "Game - Specific Achievement",
+                    "music.album": "Music - Specific Album",
+                    "music.playlist": "Music - Specific Playlist",
+                    "music.radio_station": "Music - Specific Radio Station",
+                    "music.song": "Music - Specific Song",
+                    "place": "Place",
+                    "product": "a Standalone Product",
+                    "product.group": "a Family of Products",
+                    "product.item": "an Item in a Family of Products",
+                    "profile": "Facebook Profile",
+                    "restaurant.restaurant": "Restaurant",
+                    "restaurant.menu": "Restaurant - Menu",
+                    "restaurant.menu_item": "Restaurant - Menu Item",
+                    "restaurant.menu_section": "Restaurant - Menu section",
+                    "video.movie": "Video - Movie",
+                    "video.tv_show": "Video - TV Show",
+                    "video.episode": "Video - a single episode of a TV Show",
+                    "video.other": "Video - Other"
+                },
+                "default_value": [
+                    "none"
+                ],
+                "allow_null": 0,
+                "multiple": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": "",
+                "disabled": 0,
+                "readonly": 0
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "options_page",
+                    "operator": "==",
+                    "value": "acf-options-sdo"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "acf_after_title",
+        "style": "seamless",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": "This sets up the entire site's Social Discovery - such as sharing links, follow links, Twitter cards, and Facebook stories"
+    }
+]

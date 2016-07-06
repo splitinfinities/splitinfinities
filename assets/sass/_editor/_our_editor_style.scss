@@ -1,0 +1,575 @@
+/*	-------------------------------------
+	:: Base
+	---------------------------------- */
+	html {
+		font-family: $body_font !important;
+		margin: 20px;
+		font-size: 10px;
+	}
+
+/*	-------------------------------------
+	:: Typography
+	---------------------------------- */
+
+		.two-col-pub {
+			column-count: 2;
+			column-gap: 2.5%;
+
+			p {
+				margin: 0;
+			}
+		}
+
+		.three-col-pub {
+			column-count: 3;
+			column-gap: 3.33333%;
+
+			p {
+				margin: 0;
+			}
+		}
+
+		p {
+			font: normal 400 1.9rem / 1.684210526 $body_font;
+			letter-spacing: 0.2px;
+			color: $body;
+			margin-bottom: 44.184210529px;
+
+			strong {
+				color: $body_dark;
+				font-weight: 600 !important;
+			}
+
+			a {
+				color: $cta;
+
+				&.button {
+					border: 0;
+					font-weight: 900;
+				}
+
+				&:hover,
+				&:active {
+					color: $cta_active;
+				}
+			}
+
+			&.smallcaps {
+				font-size: 1.4rem;
+				letter-spacing: 2px;
+				text-transform: uppercase;
+				font-weight: 900;
+				color: $cta;
+			}
+
+			&.raised-cap:first-letter {
+				color: black;
+				font-size: 5rem;
+				text-transform: uppercase;
+				font-family: $heading_font !important;
+				float: left;
+				line-height: 1;
+				margin: 0;
+				margin-top: 1rem;
+				padding: 0 12px 0 6px;
+
+				@include min-width(801px) {
+					font-size: 5.3rem;
+				}
+
+				@include min-width(1201px) {
+					font-size: 5.4rem;
+				}
+			}
+		}
+
+		strong {
+			color: $gray;
+			font-weight: 600 !important;
+		}
+
+
+		/* Headline Styles */
+		h1,
+		.h1,
+		.head { @include h1; }
+
+		h2,
+		.h2,
+		.subhead { @include h2; }
+
+		h3, .h3 { @include h3; }
+		h4, .h4 { @include h4; }
+		h5, .h5 { @include h5; }
+		h6, .h6 { @include h6; }
+
+
+		/* Unsorted Lists */
+		ul, ol {
+			@include unstyled();
+			margin: 2px 0 2px 40px;
+			width: 100%;
+
+			li {
+				font-size: 1.9rem;
+				color: $body;
+				line-height: 1.684210526;
+				position: relative;
+				font-family: $body_font !important;
+				margin-bottom: 4px;
+			}
+
+			&.aligncenter {
+				margin: 0 auto;
+				text-align: left;
+			}
+
+			&.two {
+				display: flex;
+				flex-wrap: wrap;
+
+				li {
+					width: 50%;
+					flex: 0 0 50%;
+				}
+			}
+
+			&.three {
+				display: flex;
+				flex-wrap: wrap;
+
+				li {
+					width: 50%;
+					flex: 0 0 33.333333%;
+				}
+			}
+
+			@include min-width(1000px) {
+				width: 50%;
+			}
+		}
+
+		ul {
+			li {
+				background: url("../img/list-arrow.svg") 8px 50% / 6.4px 10.4px no-repeat;
+				padding-left: 22px;
+			}
+		}
+
+		.button { padding: 18px 24px; }
+
+		hr {
+			width: 50%;
+			max-width: 420px;
+			border: 0;
+			height: 2px;
+			background: $gray_light;
+
+			&.alignleft {
+				margin: 0 0 18px 0;
+			}
+		}
+
+
+		/* Image Styles */
+		img {
+			max-width: 100%;
+			height: auto;
+
+			&.aligncenter {
+				display: block;
+				margin: 24px auto;
+			}
+
+			&.alignleft,
+			&.alignright {
+				display: block;
+				float: none;
+				margin: 0 auto 20px;
+
+				@include min-width(800px) {
+					display: table;
+					margin: 10px 20px 20px 0;
+				}
+			}
+				@include min-width(800px) {
+					&.alignleft  { float: left;  }
+					&.alignright { float: right; }
+				}
+		}
+
+		blockquote {
+			margin: 24px 0 24px 24px;
+			padding-left: 16px;
+			padding-right: 60px;
+			border-left: 3px solid #0093c9;
+
+			* {
+				font-size: 1.8rem;
+				font-weight: 400;
+				font-style: italic;
+				text-transform: none;
+				color: $body !important;
+			}
+		}
+
+		.wp-caption {
+			margin: 0 auto 5rem auto;
+
+			.wp-caption-dd {
+				font-family: $heading_font !important;
+				font-size: 1.7rem;
+				color: black;
+				font-style: italic;
+			}
+		}
+
+
+
+
+		/* Paragraph Overrides */
+		p {
+			margin-bottom: 4.2rem;
+
+			strong {
+
+			}
+
+			/*
+			&.serif {
+				font-family: $heading-font !important; --- This is default now
+			}
+			*/
+
+			&.mbn {
+				margin-bottom: 1rem !important;
+			}
+
+			a:not(.button) {
+				background-position: 0% 92.5%, 100% 92.5%, 0% 92.5% !important;
+
+				@include min-width(500px) {
+					background-position: 0% 90%, 100% 90%, 0% 90% !important;
+				}
+
+				@include min-width(800px) {
+					background-position: 0% 87.5%, 100% 87.5%, 0% 87.5% !important;
+				}
+
+				@include min-width(1200px) {
+					background-position: 0% 85%, 100% 85%, 0% 85% !important;
+				}
+
+				&:hover,
+				&:active {
+					color: $cta_active;
+					@include add_alt_smart_underline();
+					background-image: linear-gradient($cta_active, $cta_active), linear-gradient($cta_active, $cta_active), linear-gradient($cta_active, $cta_active);
+				}
+			}
+
+			/**
+			* TODO: rework to use real smallcaps (if the font has them)
+			* real smallcaps have to be lowercase and will use the same font-size (these are Faux)
+			*/
+			&.smallcaps {
+				font-size: 1.4rem;
+				letter-spacing: 2px;
+				text-transform: uppercase;
+				font-weight: 900;
+				color: $cta;
+			}
+
+			&.raised-cap:first-letter {
+				color: black;
+				font-size: 7.7rem;
+				text-transform: uppercase;
+				float: left;
+				line-height: 0.675;
+				margin: 1rem 0 0 -0.185em;
+				padding: 0 12px 0 6px;
+
+				@include min-width(801px) {
+					font-size: 7.8rem;
+				}
+			}
+
+			& + img {
+				margin-top: 0;
+			}
+
+			&:last-of-type {
+				margin-bottom: 0;
+
+				& + * {
+					margin-top: 3.4rem;
+				}
+			}
+		}
+
+
+		strong {
+			color: $body_dark;
+			font-weight: 600;
+		}
+
+
+		/* Headline Overrides */
+		h1,
+		.h1,
+		.head {
+			margin-bottom: 2.8rem;
+		}
+
+		h2,
+		.h2,
+		.subhead {
+			margin-bottom: 3.2rem;
+		}
+
+		h3, .h3 {
+			margin-bottom: 0.5em;
+		}
+
+		h4, .h4 {
+			line-height: 3.1rem;
+			margin-bottom: 1.7rem;
+		}
+
+		h5, .h5 {
+			margin-bottom: 3.6rem;
+		}
+
+		h6, .h6 {
+
+		}
+
+		h6 + h6,
+		h6 + .h6,
+		.h6 + h6,
+		.h6 + .h6 {
+			margin-left: 0.8em !important;
+		}
+
+
+		/* Unsorted Lists Overrides */
+		ul, ol {
+			// @include unstyled(); --- We need bullets and numbers by default.
+			padding: 0;
+			margin: 0 0 6rem 32px;
+			width: calc(100% - 32px);
+
+			li {
+				font-size: 1.7rem;
+				color: $body;
+				line-height: 1.6;
+				position: relative;
+				margin-bottom: 1.6rem;
+			}
+
+			&.aligncenter {
+				margin: 0 auto;
+				text-align: left;
+			}
+
+			&.no-indent {
+				margin-left: 0 !important;
+			}
+
+			&.checked-list {
+				margin-left: 0;
+				width: 100%;
+			}
+		}
+
+		/* Button Overrides */
+		.button {
+			font-size: 1.4rem;
+			color: $cta;
+			padding: 14px 16px;
+			text-transform: uppercase;
+		}
+
+
+		/* Rule Overrides */
+		hr {
+
+		}
+
+
+		/* Image Overrides */
+		img {
+			display: block;
+			margin: 0 auto 5rem auto;
+			transition: all 200ms ease 0ms;
+
+			&.aligncenter {
+				display: block;
+			}
+
+			&.alignleft,
+			&.alignright {
+				display: block;
+				float: none;
+				margin: 0 auto 20px;
+
+				@include min-width(800px) {
+					display: table;
+					margin: 10px 20px 20px 0;
+				}
+			}
+
+				@include min-width(800px) {
+					&.alignleft  { float: left;  }
+					&.alignright { float: right; }
+				}
+		}
+
+			.zoomable-image:last-of-type {
+				img {
+					margin-bottom: 0;
+				}
+
+				& + * {
+					margin-top: 5rem;
+				}
+			}
+
+			img:last-of-type {
+				margin-bottom: 0;
+
+				& + * {
+					margin-top: 5rem;
+				}
+			}
+
+			figure {
+				margin: 0 auto 5rem auto;
+				width: 100% !important;
+
+				img {
+					margin: 0 auto;
+				}
+
+				figcaption {
+					font-family: $body_font !important;
+					font-size: 1.7rem;
+					color: $body_dark;
+					font-style: italic;
+					margin: 2rem auto;
+
+					@include min-width(1201px) {
+						position: absolute;
+						width: 210px;
+						right: calc(50vw - 350px);
+						transform: translate(235px, -90px);
+						float: right;
+					}
+				}
+			}
+				figure:last-of-type {
+					margin-bottom: 0;
+
+					& + * {
+						margin-top: 5rem;
+					}
+				}
+
+		/* Quote Overrides */
+		blockquote {
+
+		}
+			q {
+
+			}
+
+
+		.video-wrapper {
+			margin-bottom: 5rem;
+		}
+
+		.hashtag {
+			background: $gray;
+			padding: 6px;
+			display: block;
+			float: left;
+			margin: 0 4px 4px 0;
+			color: white;
+		}
+
+		/* Pubs */
+		.two-col-pub {
+			column-gap: 2.25em;
+
+			&[min-width~="700px"] {
+				column-count: 2;
+			}
+
+			p {
+				margin: 0;
+			}
+		}
+
+		.three-col-pub {
+			column-gap: 36px;
+
+			p {
+				margin: 0;
+			}
+
+			&[min-width~="650px"] {
+				column-count: 2;
+			}
+
+			&[min-width~="1000px"] {
+				column-count: 3;
+			}
+
+			h3, .h3 {
+				margin-bottom: 1.2rem;
+			}
+		}
+
+
+	blockquote.left {  }
+	blockquote.right {  }
+	.wp-caption {  }
+	.wp-caption img {  }
+	.wp-caption p.wp-caption-text {  }
+	.wp-smiley {  }
+
+
+
+/*	-------------------------------------
+	:: Image Alignment
+	---------------------------------- */
+	.entry-content img {  }
+
+	.alignleft,
+	img.alignleft {  }
+
+	.alignright,
+	img.alignright {  }
+
+	.aligncenter,
+	img.aligncenter {  }
+
+	.alignnone,
+	img.alignnone {  }
+
+
+
+/*	-------------------------------------
+	:: Other
+	---------------------------------- */
+	.gallery dl {  }
+	.gallery dt {  }
+	.gallery dd {  }
+	.gallery dl a {  }
+	.gallery dl img {  }
+	.gallery-caption {  }
+
+	.size-full {  }
+	.size-large {  }
+	.size-medium {  }
+	.size-thumbnail {  }

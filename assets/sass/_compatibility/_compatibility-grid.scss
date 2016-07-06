@@ -1,0 +1,325 @@
+.no-flexbox {
+	.container {
+		zoom: 1;
+		display: block;
+
+		&::before,
+		&::after {
+			content: "";
+			display: table;
+			width: 0;
+			clear: both;
+		}
+
+		&::after {
+			clear: both;
+		}
+
+		.column {
+			float: left;
+		}
+
+		@include min-width(650px) {
+
+			.column {
+
+				&:first-child {
+					margin-left: 0;
+				}
+
+				&.one {
+					width: 6.66666666667%;
+					flex: 1 0 6.66666666667%;
+				}
+
+				&.two {
+					width: 15.3333333333%;
+					flex: 2 0 15.3333333333%;
+				}
+
+				&.three {
+					width: 24%;
+					flex: 3 0 24%;
+				}
+
+				&.four {
+					width: 32.6666666667%;
+					flex: 4 0 32.6666666667%;
+				}
+
+				&.five {
+					width: 41.3333333333%;
+					flex: 5 0 41.3333333333%;
+				}
+
+				&.six {
+					width: 50%;
+					flex: 6 0 50%;
+				}
+
+				&.seven {
+					width: 58.6666666667%;
+					flex: 7 0 58.6666666667%;
+				}
+
+				&.eight {
+					width: 67.3333333333%;
+					flex: 8 0 67.3333333333%;
+				}
+
+				&.nine {
+					width: 76.0%;
+					flex: 9 0 76.0%;
+				}
+
+				&.ten {
+					width: 84.6666666667%;
+					flex: 10 0 84.6666666667%;
+				}
+
+				&.eleven {
+					width: 93.3333333333%;
+					flex: 11 0 93.3333333333%;
+				}
+
+				&.twelve {
+					width: 100%;
+					flex: 0 0 100.002%;
+					margin: 0;
+				}
+
+				&.third {
+					width: 30.6666666667%;
+					flex: 1 30.6666666667%;
+				}
+
+				&.two-thirds {
+					width: 65.3333333333%;
+					flex: 1 65.3333333333%;
+				}
+
+				&.one-half {
+					width: 48%;
+					flex: 1 48%;
+				}
+
+				/* offset! */
+				&.offset-by-one {
+					margin-left: 8.66666666667%;
+				}
+
+				&.offset-by-two {
+					margin-left: 17.3333333333%;
+				}
+
+				&.offset-by-three {
+					margin-left: 26%;
+				}
+
+				&.offset-by-four {
+					margin-left: 34.6666666667%;
+				}
+
+				&.offset-by-five {
+					margin-left: 43.3333333333%;
+				}
+
+				&.offset-by-six {
+					margin-left: 52%;
+				}
+
+				&.offset-by-seven {
+					margin-left: 60.6666666667%;
+				}
+
+				&.offset-by-eight {
+					margin-left: 69.3333333333%;
+				}
+
+				&.offset-by-nine {
+					margin-left: 78.0%;
+				}
+
+				&.offset-by-ten {
+					margin-left: 86.6666666667%;
+				}
+
+				&.offset-by-eleven {
+					margin-left: 95.3333333333%;
+				}
+
+				&.offset-by-one-third {
+					margin-left: 34.6666666667%;
+				}
+
+				&.offset-by-two-thirds {
+					margin-left: 69.3333333333%;
+				}
+
+				&.offset-by-one-half {
+					margin-left: 52%;
+				}
+			}
+		}
+
+		/* Responsive modifiers */
+		&.bleed {
+			max-width: 100%;
+			width: 100%;
+		}
+
+		&.one-half {
+
+			& > .column {
+				width: 46%;
+				margin-left: 4%;
+
+				&:nth-of-type(odd) {
+					margin-left: 0;
+					margin-right: 4%;
+				}
+
+				@include max-width(1000px) {
+					width: 100%;
+					margin: 12px 0 !important;
+				}
+			}
+		}
+
+		&.one-third {
+			& > .column {
+				width: 33.3333333333%;
+			}
+
+			@include max-width(1000px) {
+				& > .column {
+					width: 48%;
+					max-width: 48%;
+
+					&:last-child {
+						margin-top: 4vw;
+						margin-left: 0;
+					}
+				}
+			}
+
+			@include max-width(sm) {
+				& > .column {
+					max-width: 100%;
+					margin: 0;
+					margin-top: 8vw;
+				}
+			}
+
+			@include max-width(xs) {
+				& > .column {
+					margin-top: 50px;
+
+					&:first-of-type {
+						margin-top: 0;
+					}
+				}
+			}
+		}
+
+		&.one-fourth {
+
+			& > .column {
+				width: 25%;
+				margin: 0;
+				padding: 0 25px 0 0;
+
+				&:nth-of-type(4n+4) {
+					margin-left: 0;
+				}
+
+				@include max-width(800px) {
+					width: 50%;
+				}
+
+				@include max-width(500px) {
+					width: 100%;
+					padding: 0;
+				}
+			}
+		}
+	}
+}
+
+.no-flexboxlegacy {
+	.home #history > .container > .column {
+		padding-left: 0;
+	}
+
+	.two-three-col-feature :last-of-type.container .column {
+		max-width: 33.3333%;
+	}
+
+		@include min-width(650px) {
+
+			.column {
+				margin: 0 auto;
+
+				&.one {
+					max-width: 6.66666666667%;
+				}
+
+				&.two {
+					max-width: 15.3333333333%;
+				}
+
+				&.three {
+					max-width: 24%;
+				}
+
+				&.four {
+					max-width: 32.6666666667%;
+				}
+
+				&.five {
+					max-width: 41.3333333333%;
+				}
+
+				&.six {
+					max-width: 50%;
+				}
+
+				&.seven {
+					max-width: 58.6666666667%;
+				}
+
+				&.eight {
+					max-width: 67.3333333333%;
+				}
+
+				&.nine {
+					max-width: 76.0%;
+				}
+
+				&.ten {
+					max-width: 84.6666666667%;
+				}
+
+				&.eleven {
+					max-width: 93.3333333333%;
+				}
+
+				&.twelve {
+					max-width: 100%;
+					margin: 0;
+				}
+
+				&.third {
+					max-width: 30.6666666667%;
+				}
+
+				&.two-thirds {
+					max-width: 65.3333333333%;
+				}
+
+				&.one-half {
+					max-width: 48%;
+				}
+			}
+		}
+}

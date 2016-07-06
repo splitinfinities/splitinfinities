@@ -1,0 +1,132 @@
+.layout-hero {
+	padding: 0 !important;
+	overflow: hidden;
+}
+
+.hero {
+	background: #1F2323 50% 50% / cover no-repeat;
+	height: auto;
+	position: relative;
+	min-height: 250px;
+	max-height: 720px;
+
+	&.hero-large {  }
+
+	&.hero-medium {  }
+
+	&.hero-small {
+		padding: 35px 0;
+		max-height: 480px;
+
+		@include min-width(1001px) {
+			padding: 70px 0;
+		}
+	}
+
+	.container {
+		padding-top: $nav-min-height;
+		display: flex;
+		align-items: center;
+		height: 100%;
+		position: absolute;
+		width: 90%;
+		left: 0;
+		right: 0;
+		padding-bottom: 5vw;
+
+		@include min-width(801px) {
+			padding-top: $nav-height;
+		}
+
+		@include min-width(1051px) {
+			padding-top: $nav-height;
+			padding-bottom: 70px;
+		}
+
+		@include min-width(1201px) {
+			padding-bottom: 10rem;
+		}
+	}
+
+	.kitchensink {
+
+		* {
+			color: white;
+		}
+	}
+
+
+	img.sizer {
+		width: 100%;
+		z-index: -9;
+		position: relative;
+		opacity: 0;
+	}
+
+	body.single-team &,
+	body.author & {
+		background: 50% 0% / cover no-repeat;
+	}
+
+	/* Overrides for the blog */
+	body.single-blog & {
+
+		.container {
+			align-items: flex-end;
+		}
+
+		.kitchensink {
+			margin-left: 2.5%;
+
+			h6, .h6 {
+				font-size: 1rem;
+				background: transparent;
+				border: 0px solid currentColor;
+				margin: 0;
+				margin-bottom: 1.6em;
+				top: 1.4rem;
+				right: 1.4rem;
+				background: rgba($body-dark, 0.2);
+				color: white;
+				backdrop-filter: blur(10px) grayscale(100%);
+				-webkit-backdrop-filter: blur(10px);
+			}
+
+			.h1, h1 {
+				margin-top: 0;
+				margin-bottom: 1rem;
+				font-size: 2.8rem;
+				line-height: 1.066666667;
+
+				@include min-width(501px) {
+					font-size: 2.8rem;
+				}
+
+				@include min-width(801px) {
+					font-size: 6rem;
+				}
+			}
+
+			p.byline {
+				&, * {
+					font-size: 1.4rem;
+					margin-bottom: 0;
+
+					@include min-width(801px) {
+						font-size: 1.6rem;
+					}
+				}
+			}
+		}
+
+		&.hero-small {
+			.container {
+				bottom: 0;
+				max-width: 1225px;
+			}
+			.h6, h6 {
+				display: none;
+			}
+		}
+	}
+}

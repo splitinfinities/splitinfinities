@@ -1,0 +1,319 @@
+[
+    {
+        "key": "group_56fc1c923682b",
+        "title": "General SDO (Social Discovery Optimization)",
+        "fields": [
+            {
+                "key": "field_56fc1ca86a611",
+                "label": "App Integration",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_56fc1cb56a612",
+                "label": "Display \"Download this App\" banner on homepage?",
+                "name": "sdo_display_banner",
+                "type": "true_false",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 0
+            },
+            {
+                "key": "field_56fc1cca6a613",
+                "label": "Apple Appstore ID",
+                "name": "sdo_apple_appstore_id",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_56fc1cb56a612",
+                            "operator": "==",
+                            "value": "1"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": "",
+                "readonly": 0,
+                "disabled": 0
+            },
+            {
+                "key": "field_56fc1cd96a614",
+                "label": "Apple Appstore link",
+                "name": "sdo_apple_appstore_link",
+                "type": "url",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_56fc1cb56a612",
+                            "operator": "==",
+                            "value": "1"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_56fc1cec6a615",
+                "label": "Google Play Store App link",
+                "name": "sdo_googleplay_link",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_56fc1cb56a612",
+                            "operator": "==",
+                            "value": "1"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": "",
+                "readonly": 0,
+                "disabled": 0
+            },
+            {
+                "key": "field_56fc1d276a616",
+                "label": "Connecting",
+                "name": "connecting",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_56fc1d63bea59",
+                "label": "Platforms to include in Connecting",
+                "name": "sdo_social_connect",
+                "type": "repeater",
+                "instructions": "List your social platforms, this list displays in the footer. When someone clicks on these icons, they'll be brought to your page on that site.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "field_56fc1d85bea5a",
+                "min": 1,
+                "max": "",
+                "layout": "table",
+                "button_label": "Add a Social Platform",
+                "sub_fields": [
+                    {
+                        "key": "field_56fc1d85bea5a",
+                        "label": "Platform",
+                        "name": "platform",
+                        "type": "select",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "twitter": "Twitter",
+                            "facebook": "Facebook",
+                            "googleplus": "Google+",
+                            "instagram": "Instagram",
+                            "pinterest": "Pinterest",
+                            "linkedin": "LinkedIn",
+                            "youtube": "YouTube",
+                            "producthunt": "Product Hunt",
+                            "deviantart": "DeviantArt",
+                            "dribbble": "Dribbble",
+                            "behance": "Behance",
+                            "houzz": "Houzz"
+                        },
+                        "default_value": [],
+                        "allow_null": 0,
+                        "multiple": 0,
+                        "ui": 0,
+                        "ajax": 0,
+                        "placeholder": "",
+                        "disabled": 0,
+                        "readonly": 0
+                    },
+                    {
+                        "key": "field_56fc1d9abea5b",
+                        "label": "Platform URL",
+                        "name": "platform_url",
+                        "type": "url",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": ""
+                    }
+                ]
+            },
+            {
+                "key": "field_56fc1e92bea5d",
+                "label": "Sharing",
+                "name": "sharing",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_56fc1ed9bea62",
+                "label": "Fallback Image",
+                "name": "sdo_fallback_image",
+                "type": "image",
+                "instructions": "Upload an image at: 1600px \u00d7 800px high with a 160px padding on the left and right margins.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "id",
+                "preview_size": "thumbnail",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": ""
+            },
+            {
+                "key": "field_56fc201067df1",
+                "label": "Platforms to include in Sharing",
+                "name": "sdo_social_share",
+                "type": "repeater",
+                "instructions": "List all the social platforms that you'd like to have sharing functionality - Usually this is on a single blog page.\r\n",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "field_56fc20ecf1ca0",
+                "min": 1,
+                "max": "",
+                "layout": "table",
+                "button_label": "Add a Social Platform",
+                "sub_fields": [
+                    {
+                        "key": "field_56fc20ecf1ca0",
+                        "label": "Platform",
+                        "name": "platform",
+                        "type": "select",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "twitter": "Twitter",
+                            "facebook": "Facebook",
+                            "googleplus": "Google+",
+                            "pinterest": "Pinterest",
+                            "linkedin": "LinkedIn",
+                            "houzz": "Houzz"
+                        },
+                        "default_value": [],
+                        "allow_null": 0,
+                        "multiple": 0,
+                        "ui": 0,
+                        "ajax": 0,
+                        "placeholder": "",
+                        "disabled": 0,
+                        "readonly": 0
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "options_page",
+                    "operator": "==",
+                    "value": "acf-options-sdo"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "acf_after_title",
+        "style": "seamless",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": "This sets up the entire site's Social Discovery - such as sharing links, follow links, Twitter cards, and Facebook stories"
+    }
+]

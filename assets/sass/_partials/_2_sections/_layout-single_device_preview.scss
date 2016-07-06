@@ -1,0 +1,317 @@
+.single_device_preview {
+	background: transparent 50% 50% / cover no-repeat;
+
+	&.below_device {
+		.container:first-of-type {
+			margin-bottom: 4em;
+		}
+	}
+
+	&.left_device,
+	&.right_device {
+		.container {
+			flex-wrap: none;
+			align-items: center;
+
+			.column {
+				.kitchensink {
+					padding: 6.4vw 0;
+					text-align: center;
+
+					@include min-width(1001px) {
+						padding: 6.4rem 0;
+						text-align: left;
+					}
+				}
+
+				&.first,
+				&.last {
+					order: -1;
+					margin-bottom: 4em;
+				}
+
+				@include min-width(1001px) {
+					&.last {
+						order: 1;
+						margin: 0;
+					}
+				}
+			}
+
+			@include min-width(1001px) {
+				.column {
+					flex: 0 0 50%;
+
+					&.first {
+						margin: 0 auto;
+					}
+
+					.content {
+						max-width: 80%;
+						margin: 0 auto;
+					}
+				}
+			}
+		}
+
+		&.vertical {
+			@include min-width(1001px) {
+				.column:first-of-type {
+					flex: 0 0 40%;
+				}
+
+				.column:last-of-type {
+					flex: 0 0 60%;
+
+					.content {
+						max-width: 90%;
+					}
+				}
+			}
+		}
+
+		&.peeking-up {
+			.column:first-of-type {
+				height: 60vh;
+				max-height: 650px;
+				min-height: 300px;
+				overflow: hidden;
+			}
+		}
+	}
+}
+
+	.device {
+		display: block;
+		position: relative;
+		margin: 0 auto;
+
+		.device-content {
+			position: absolute;
+
+			img,
+			picture,
+			canvas,
+			video {
+				width: 100%;
+				height: 100%;
+			}
+		}
+
+		/* iPhone 5s */
+		&.iphone5s {
+			&.vertical {
+				max-width: 508.5px;
+
+				.device-content {
+					top: 13.6608238%;
+					left: 17.4974435%;
+					width: 62.8801868%;
+					height: 64.2170718%;
+
+				}
+			}
+
+			&.horizontal {
+				max-width: 802.5px;
+
+				.device-content {
+					top: 8.260824%;
+					left: 15.0997443%;
+					width: 70.580187%;
+					height: 83.117072%;
+				}
+			}
+		}
+
+		/* iPhone 6s */
+
+		&.iphone6s {
+			&.vertical {
+				max-width: 553px;
+
+				.device-content {
+					top: 11.1782964%;
+					left: 15.0090416%;
+					width: 67.8119349%;
+					height: 68.6052496%;
+
+				}
+			}
+
+			&.horizontal {
+				max-width: 802.5px;
+
+				.device-content {
+					top: 6.9044879%;
+					left: 12.2946176%;
+					width: 75.5807365%;
+					height: 86.306099%;
+				}
+			}
+		}
+
+		/* iPhone 6s+ */
+		&.iphone6s_plus {
+			&.vertical {
+				max-width: 728.5px;
+				max-width: 570px; //intentionally overridden because 728px max width is *massive*
+
+				.device-content {
+					top: 10.778296%;
+					left: 12.409042%;
+					width: 73.911935%;
+					height: 71.80525%;
+				}
+			}
+
+			&.horizontal {
+				max-width: 1337.5px;
+
+				.device-content {
+					top: 6.7627974%;
+					left: 11.6046259%;
+					width: 76.7767483%;
+					height: 86.7283344%;
+				}
+			}
+		}
+
+		/* iPad */
+		&.ipadmini4 {
+			&.vertical {
+				max-width: 728.5px;
+
+				.device-content {
+					top: 8.672376%;
+					left: 16.3392092%;
+					width: 63.231944%;
+					height: 65.9012878%;
+				}
+			}
+
+			&.horizontal {
+				max-width: 1337.5px;
+
+				.device-content {
+					top: 6.062797%;
+					left: 10.504626%;
+					width: 79.176748%;
+					height: 88.028334%;
+				}
+			}
+		}
+
+		/* iPad Air */
+		&.ipadair2 {
+			&.vertical {
+				max-width: 728.5px;
+
+				.device-content {
+					top: 8.5202456%;
+					left: 11.1808801%;
+					width: 77.6923116%;
+					height: 76.244399%;
+				}
+			}
+
+			&.horizontal {
+				max-width: 1337.5px;
+
+				.device-content {
+					top: 6.662797%;
+					left: 9.304626%;
+					width: 81.776748%;
+					height: 86.928334%;
+				}
+			}
+		}
+
+		/* iPad Air */
+		&.ipadpro {
+			&::after {
+				content: '';
+				display: block;
+				position: absolute;
+				right: 20px;
+				bottom: -5.5%;
+				width: 17.5%;
+				height: 65%;
+				background: url('../img/devices/ipadpro_pencil.png') 50% 50% / contain no-repeat;
+			}
+
+			&.vertical {
+				max-width: 728.5px;
+
+				.device-content {
+					top: 6.820246%;
+					left: 9.38088%;
+					width: 81.192312%;
+					height: 80.744399%;
+				}
+
+				&::after {
+					right: 5.25%;
+				}
+			}
+
+			&.horizontal {
+				max-width: 1337.5px;
+
+				.device-content {
+					top: 5.662797%;
+					left: 7.204626%;
+					width: 85.676748%;
+					height: 88.828334%;
+				}
+			}
+		}
+
+		/* Macbook */
+		&.macbook {
+			max-width: 1300px;
+
+			.device-content {
+				top: 6.220246%;
+				left: 16.98088%;
+				width: 65.292312%;
+				height: 67.544399%;
+			}
+		}
+
+		/* Macbook Pro */
+		&.macbook_pro {
+			max-width: 1300px;
+
+			&::after {
+				content: '';
+				display: block;
+				position: absolute;
+				right: 9.5940959%;
+				top: 0.6102877%;
+				width: 30.6273063%;
+				height: 78.9014821%;
+				background: url('../img/devices/macbook-pro-glare.png') 50% 50% / contain no-repeat;
+			}
+
+			.device-content {
+				top: 5.520246%;
+				left: 12.08088%;
+				width: 75.892312%;
+				height: 78.544399%;
+			}
+		}
+
+
+		/* iMac */
+		&.imac {
+			max-width: 1300px;
+
+			.device-content {
+				top: 5.520246%;
+				left: 12.08088%;
+				width: 75.892312%;
+				height: 78.544399%;
+			}
+		}
+	}

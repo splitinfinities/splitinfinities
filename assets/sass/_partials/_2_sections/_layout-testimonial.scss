@@ -1,0 +1,54 @@
+.testimonial {
+	padding: 75px 0;
+	overflow: hidden;
+	position: relative;
+
+	.profile-background {
+		background: 50% 50% / cover;
+		position: absolute;
+		top: -5%;
+		left: -5%;
+		width: 110%;
+		height: 110%;
+		opacity: 0.5;
+		mix-blend-mode: color;
+		-webkit-filter: blur(10px);
+	}
+
+	.kitchensink {
+		max-width: 800px;
+		margin: 0 auto;
+
+		img {
+			margin: 0 auto;
+			display: block;
+			width: 70px;
+			height: 70px;
+			border-radius: 100%;
+			box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.25);
+		}
+
+		h1 {
+
+		}
+
+		.name {
+			font-size: 2.4rem;
+			margin-bottom: 0;
+			margin-top: 0.3em;
+			font-weight: 100;
+		}
+
+		.title {
+			font-size: 1.6rem;
+		}
+	}
+
+	.testimonial-slider {
+		width: 100%;
+
+		button {
+			display: none !important;
+		}
+	}
+}

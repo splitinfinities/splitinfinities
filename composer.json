@@ -1,0 +1,30 @@
+{
+  "name": "aiganebraksa/wordpress-starter",
+  "type": "wordpress-theme",
+  "license": "MIT",
+  "description": "A WordPress Starter Theme focused on supporting a straight-forward workflow. Forked from Sage, this theme has a modern front-end development workflow. Uses gulp, or CodeKit.",
+  "homepage": "#",
+  "authors": [
+    {
+      "name": "William M. Riley",
+      "email": "mikeriley20@gmail.com",
+      "homepage": "https://github.com/bill-riley"
+    },
+    {
+      "name": "Dylan Baumann",
+      "email": "dylanbaumanndesign@gmail.com",
+      "homepage": "https://github.com/dylanbaumann"
+    }
+  ],
+  "keywords": [
+    "wordpress"
+  ],
+  "support": {
+    "issues": "https://github.com/aiganebraska/wordpress-starter/issues",
+    "forum": "#"
+  },
+  "require": {
+    "php": ">=5.4.0",
+    "composer/installers": "~1.0"
+  }
+}

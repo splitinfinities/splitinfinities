@@ -1,0 +1,319 @@
+/*	-------------------------------------
+	:: Font Sizing
+	---------------------------------- */
+
+	// Strip Values
+	@function strip-unit($num) {
+		@return $num / ($num * 0 + 1);
+	}
+
+	// Create Header Baselines
+	@mixin h1() {
+		font: normal 400 4.2rem / 1.135 $heading_font;
+		letter-spacing: 0;
+		color: $body_dark;
+
+		.hero &,
+		.dark &,
+		.feature & {
+			color: white;
+		}
+
+		small {
+			font: normal 400 1.7rem/1.8 inherit;
+			color: white;
+			letter-spacing: 0;
+			margin: 0;
+		}
+
+		@include min-width(650px) {
+			font-size: 4.8rem;
+		}
+
+		@include min-width(1001px) {
+			font-size: 5.5rem;
+		}
+	}
+
+	@mixin h2() {
+		font: normal 400 2.8rem/1.233333333 $heading_font;
+		margin: 0 0 10px 0;
+		color: $body_dark;
+
+		@include min-width(501px) {
+			font-size: 3.2rem;
+		}
+
+		@include min-width(1001px) {
+			font-size: 3.8rem;
+		}
+	}
+
+	@mixin h3() {
+		font: normal 400 2.4rem/1.3 $heading_font;
+		margin: 0 0 0.8em 0;
+		color: $body_dark;
+
+		@include min-width(501px) {
+			font-size: 2.8rem;
+		}
+
+		@include min-width(1001px) {
+			font-size: 3.2rem;
+		}
+	}
+
+	@mixin h4() {
+		font: normal 400 1.9rem/1.8 $body_font;
+		margin: 0 0 10px 0;
+		color: $body_dark;
+	}
+
+	@mixin h5() {
+		font: normal 400 2.1rem $nav_font;
+		text-transform: uppercase;
+		letter-spacing: 1.5px;
+		margin: 0 0 10px 0;
+		color: $body_dark;
+	}
+
+	@mixin h6() {
+		font: normal 600 1.2rem $button_font;
+		display: inline-block;
+		padding: 0.6rem 0.8rem 0.6rem 1.2rem;
+		letter-spacing: 0.4em;
+		text-transform: uppercase;
+		margin: 0 auto 4rem auto;
+		color: $body_dark;
+		background: $gray_light;
+	}
+
+/*	-------------------------------------
+	:: Move away from using extend
+	---------------------------------- */
+	@mixin unstyled() {
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	@mixin inline() {
+		&  > li {
+			display: inline-block;
+			padding-right: 5px;
+			padding-left: 5px;
+
+			&:first-of-type { padding-left: 0; }
+			&:last-of-type  { padding-right: 0; }
+		}
+	}
+
+	@mixin display-table() {
+		display: table;
+		position: relative
+	}
+
+	@mixin table-cell() {
+		display: table-cell
+	}
+
+	@mixin middle() {
+		vertical-align: middle
+	}
+
+	@mixin group() {
+		zoom: 1;
+		&::before,
+		&::after {
+			content: "";
+			display: table;
+			width: 0;
+		}
+		&::after { clear: both; }
+	}
+
+	@mixin momentum_scrolling() {
+		overflow: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	@mixin outline() {
+		&, * {
+			outline: 1px solid black;
+		}
+	}
+
+	@mixin add_smart_underline() {
+		position: relative;
+		text-shadow: 0.065em 0.065em 0px white, 0.065em -0.065em 0px white, -0.065em -0.065em 0px white, -0.065em 0.065em 0px white;
+
+		&:after {
+			content: attr(data-copy);
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			z-index: -1;
+			opacity: 0;
+			transition: none;
+			text-decoration: underline;
+			text-decoration-skip: ink;
+		}
+
+		span {
+			z-index: -1;
+		}
+	}
+
+	@mixin add_alt_smart_underline() {
+		text-shadow: 0.065em 0.065em 0px white, 0.065em -0.065em 0px white, -0.065em -0.065em 0px white, -0.065em 0.065em 0px white;
+		background-image: linear-gradient(currentColor, currentColor), linear-gradient(currentColor, currentColor), linear-gradient(currentColor, currentColor);
+		background-size: .05em 1px, .05em 1px, 1px 1px;
+		background-repeat: no-repeat, no-repeat, repeat-x;
+		background-position: 0% 85%, 100% 85%, 0% 85%;
+
+		&:after {
+			display: none;
+		}
+	}
+
+	@mixin remove_smart_underline() {
+		background: none;
+		text-shadow: none;
+
+		* {
+			background: none;
+			text-shadow: none;
+		}
+	}
+
+/*	-------------------------------------
+	:: Mobile First Mixin
+	---------------------------------- */
+	@mixin min-width($media) {
+		@media (min-width: $media) {
+			@content;
+		}
+	}
+
+
+/*	-------------------------------------
+	:: Desktop First Mixin
+	---------------------------------- */
+	@mixin max-width($media) {
+		@media (max-width: ($media - 1px)) {
+			@content;
+		}
+	}
+
+
+/*	-------------------------------------
+	:: Firefox mixin
+	---------------------------------- */
+	@mixin firefox() {
+		@-moz-document url-prefix() {
+			@content;
+		}
+	}
+
+
+/*	-------------------------------------
+	:: Safari mixin
+	---------------------------------- */
+	@mixin safari() {
+		@supports (overflow:-webkit-marquee) and (justify-content:inherit) {
+			@content;
+		}
+	}
+
+/*	-------------------------------------
+	:: Retina mixin
+	---------------------------------- */
+	@mixin retina() {
+		@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+			@content;
+		}
+	}
+
+/*	-------------------------------------
+	:: Dark Gradient
+	---------------------------------- */
+	@mixin dark_gradient() {
+		&:after {
+			content: '';
+			display: block;
+			position: absolute;
+			left: 0; right: 0;
+			top: 0; bottom: 0;
+			background: rgba($current_year-primary, 0.55);
+			background: linear-gradient(45deg, rgba($current_year-secondary,0.55) 0%,rgba($current_year-primary,0.55) 100%);
+			-webkit-backdrop-filter: blur(4px);
+			transition: all .3s $ease 0s;
+		}
+	}
+
+/*	-------------------------------------
+	:: Light Gradient
+	---------------------------------- */
+	@mixin light_gradient() {
+		&:after {
+			content: '';
+			display: block;
+			position: absolute;
+			left: 0; right: 0;
+			top: 0; bottom: 0;
+			background-color: rgba($current_year-primary, 0.55);
+			background: linear-gradient(to bottom, rgba($current_year-primary,0.55) 0%,rgba($current_year-secondary,0.55) 100%);
+			-webkit-backdrop-filter: blur(4px);
+			//mix-blend-mode: multiply;
+			transition: all .3s $ease 0s;
+		}
+	}
+
+/*	-------------------------------------
+	:: Hue Rotate
+	---------------------------------- */
+	@mixin hue-rotate() {
+		animation: hue-rotate 20s linear infinite;
+	}
+
+	@keyframes hue-rotate {
+		from {
+			filter: hue-rotate(0deg)
+		}
+		to {
+			filter: hue-rotate(360deg)
+		}
+	}
+
+
+/*	-------------------------------------
+	:: REM Fallback
+	---------------------------------- */
+	@mixin rem-fallback($property, $values...) {
+		$max: length($values);
+		$pxValues: '';
+		$remValues: '';
+
+		@for $i from 1 through $max {
+			$value: strip-unit(nth($values, $i));
+			$pxValues: #{$pxValues + $value*16}px;
+
+			@if $i < $max {
+				$pxValues: #{$pxValues + " "};
+			}
+		}
+
+		@for $i from 1 through $max {
+			$value: strip-unit(nth($values, $i));
+			$remValues: #{$remValues + $value}rem;
+
+			@if $i < $max {
+				$remValues: #{$remValues + " "};
+			}
+		}
+
+		#{$property}: $pxValues;
+		#{$property}: $remValues;
+	}

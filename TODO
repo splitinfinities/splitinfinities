@@ -1,0 +1,106 @@
+
+Phase 1:
+  ✔ HTML Compression @done (15-02-06 03:13)
+  ✔ CSS Flex support @done (15-03-17 09:17)
+      ✔ Succinct API for Flex @done (15-07-16 15:43)
+      ✔ Include css file with fallback code if Flex doesn't exist for browser (modernizr) @done (15-07-16 15:43)
+  ✔ print_image function @done (15-01-17 18:57)
+      ☐ Add support for uploaded wp-content (currently only content in /assets/img/* is accessible)
+      ✔ Picture element support, with Picture polyfill (http://scottjehl.github.io/picturefill/) @done (15-08-12 09:43)
+      ✔ Add standard image sizes for screens @done (15-08-12 09:44)
+      ☐ Add webp support (https://github.com/ivopetkov/responsively-lazy)
+      ✔ Add apng support @done (15-04-04 13:25)
+      ☐ Image optimization on upload using imagemagick (confirm Flywheel has this apache/nginx module installed)
+           ☐ jpg's -> progressive
+           ☐ png's -> ???
+           ☐ gif's -> ???
+  ✔ Ajax @done (15-03-17 09:13)
+      ☐ Add transient support for static pages (maybe, depending)
+  ✔ Add SENDO from Hubdia @done (15-01-17 18:57)
+      ☐ Add Schema functionality
+      ☐ Update javascript/css asset pipeline to use Wordpress script/style enqueue
+  ☐ HTTP/2 support (confirm Flywheel has this apache/nginx module installed)
+      ☐ HTTP/2 server push support for assets
+  ☐ Local Font caching in local storage as MD5 hash
+  ☐ Native integration
+      ✔ Twitter: Link -> Native app API @done (15-05-13 15:54)
+      ✔ Facebook: Link -> Native app API @done (15-05-13 15:54)
+  ☐ Activation script (activate or deactivate certain features)
+  ☐ HTML5 Updates:
+      ☐ Add support for the address tag
+      ☐ Add support for the progress tag for ajax
+      ☐ Add support for multi-column layout (masonry or publication layout)
+      ☐ Make modals accessible (Be sure to add role="dialog" and aria-labelledby="...", referencing the modal title, to .modal, and role=”document” to the .modal-dialog` itself. Additionally, you may give a description of your modal dialog with aria-describedby on .modal.)
+      ☐ Update modals code from Bootstrap 4
+      ☐ Update .hidden to use the hidden attr
+      ☐ Update .sr to use from Bootstrap
+      ☐ Update video embeds from the_content to have ratios (4x3, 16x9, 21x9)
+  ☐ Add New Relic support to sites so we can monitor how the server load is going.
+
+Phase 2:
+  ☐ Review with team
+  ☐ Full testing suite
+  ☐ Child theming?
+
+
+Phase 3:
+  ☐ ???
+  ☐ Language?
+
+
+Phase 4:
+  ☐ ???
+
+
+==================
+
+Assets:
+  ☐
+
+
+Development Checklist:
+  ☐ w3c HTML Validation
+  ☐ w3c CSS Validation
+  ☐ Google Pagespeed Report
+  ☐ Accessibility Report via Chrome a11y Dev Tools
+  ☐ Browser & Device Check
+  ☐ Image Optim
+  ☐ Favicon
+  ☐ Clean up tagline and title
+  ☐ (optional) 404 page
+  ☐ (optional) Kitchen Sink
+
+
+Wordpress updates:
+  ☐ Populate All-in-one SEO on each page
+    ☐ Setup Google
+    ☐ Notify Google (Wait until website is live under the correct domain)
+  ☐ Check WP Backup is running correctly
+  ☐ Disable Wordpress auto-updates (wp-config.php)
+  ☐ Wordpress admin "client" account created and added to logins spreadsheet
+  ☐ ACF Optimized for client use on dashboard
+  ☐ All plugins are up to date
+  ☐ Gravity forms are styled correctly
+  ☐ Thank you form submission page
+  ☐ Theme includes page template - page.php
+  ☐ (Optional) Clean WP dashboard for users - leave admin alone.
+
+
+Browser & Device Checklist:
+  ☐ Chrome
+  ☐ Firefox 18
+  ☐ Firefox (Modern)
+  ☐ Safari 7
+  ☐ Safari 8
+  ☐ IE 10
+  ☐ IE 11
+  ☐ iPhone
+  ☐ iPad
+  ☐ Android Phone
+  ☐ Android Tablet
+
+
+Finalize:
+  ☐ Wordpress instructional PDF built.
+  ☐ Bundle w3c reports into a folder.
+  ☐ Client Login's spreadsheet exported and sent to client.

@@ -1,0 +1,59 @@
+body.faq {
+
+	.hero {
+		.column {
+			margin: 50px auto 0 auto;
+
+			h1 {
+				margin-top: 1.6em;
+				margin-bottom: 1.6em;
+
+				@include max-width(950px) {
+					font-size: 9vw;
+				}
+			}
+		}
+	}
+
+	.column.twelve {
+		margin-top: 8rem;
+
+		&:first-of-type {
+			margin-top: 4rem;
+		}
+
+		h2 {
+			display: inline-block;
+			margin-bottom: 1em;
+			text-transform: uppercase;
+			color: $current_year-primary;
+		}
+
+		.gradients & {
+			h2 {
+				color: white;
+				background: linear-gradient(60deg, rgba($current_year-primary,1) 0%,rgba($current_year-secondary,1) 100%);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+
+				@include firefox() {
+					color: $current_year-primary;
+				}
+			}
+		}
+	}
+
+	.eleven {
+		.container {
+			margin-bottom: 4rem;
+
+			&:last-of-type {
+				margin-bottom: 0;
+			}
+		}
+
+		&:last-of-type {
+			margin-bottom: 10rem;
+		}
+	}
+}

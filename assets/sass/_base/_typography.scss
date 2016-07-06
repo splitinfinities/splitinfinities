@@ -1,0 +1,276 @@
+/*	-------------------------------------
+	:: Typography
+	---------------------------------- */
+
+	/* Helpful Typography Defaults */
+	em, i {
+		font-style: italic;
+		line-height: inherit;
+	}
+
+	strong, b {
+		font-weight: bold;
+		line-height: inherit;
+	}
+
+	sub, sup {
+		font-size: 75%;
+		line-height: 0;
+		position: relative;
+		vertical-align: baseline;
+	}
+
+	sup { top: -.5em; }
+	sub { bottom: -.25em; }
+
+	/* Paragraph */
+	p, span {
+		font: normal 400 1.6rem / 2.117647059 $body-font;
+		color: $body;
+		margin-top: 0;
+		font-feature-settings: "pnum", "liga", "clig", "calt", "salt" 1, "frac", "ordn", "kern";
+
+		&.light { color: $body_light; }
+
+		strong {
+			font-weight: 400;
+			color: $body_dark;
+		}
+
+		@include min-width(1000px) {
+			font-size: 1.7rem;
+		}
+	}
+
+	// Header Tags
+	.h1, h1, .h2, h2, .h3, h3,
+	.h4, h4, .h5, h5, .h6, h6 {
+		margin-top: 0;
+
+		a {
+			color: inherit;
+			font: inherit;
+			letter-spacing: inherit;
+		}
+	}
+
+	.h1, h1 { @include h1; }
+	.h2, h2 { @include h2; }
+	.h3, h3 { @include h3; }
+	.h4, h4 { @include h4; }
+	.h5, h5 { @include h5; }
+	.h6, h6 { @include h6; }
+
+	.title {
+		@include h1;
+		font-size: 5.0rem;
+
+		@include min-width(1024px) {
+			font-size: 8.0rem;
+		}
+	}
+
+	// Creates hr on either side of the headline
+	.ruled {
+		text-align: center;
+		position: relative;
+		z-index: 1;
+		overflow: hidden;
+		max-width: 1050px;
+		// Do this to avoid overriding the margin bottom defined by the tag used
+		margin-left: auto;
+		margin-right: auto;
+
+		&::before,
+		&::after {
+			position: absolute;
+			top: 51%;
+			overflow: hidden;
+			width: 50%;
+			height: 1px;
+			content: '';
+			background-color: #CCCCCC;
+			margin-left: 2%;
+		}
+
+		&::before {
+			margin-left: -53%;
+			text-align: right;
+		}
+	}
+
+
+	/* Links */
+	a {
+		position: relative;
+		text-decoration: none;
+		color: $cta;
+		opacity: 1;
+		line-height: inherit;
+		transition: color 100ms $cubic_bezier 0ms;
+
+		&:hover,
+		&:active {
+			opacity: 1;
+		}
+
+		&:focus  {
+			color: $cta;
+			outline: none;
+		}
+
+		& > span {
+			color: inherit;
+			font: inherit;
+			text-decoration: inherit;
+			line-height: inherit;
+		}
+
+		img { border: none; }
+	}
+
+
+	/* Images */
+	img {
+		vertical-align: top;
+		max-width: 100%;
+		height: auto;
+
+		&.scale { width: 100%; }
+	}
+
+	canvas.apng-image {
+		margin: 0 auto;
+	}
+
+	svg:not(:root) { overflow: hidden; }
+
+
+	/* Unsorted/Sorted Lists */
+	ul, ol {
+		margin: 0;
+		padding: 0;
+		font-family: inherit;
+
+		&.unstyled {
+			list-style-type: none;
+			padding: 0;
+			margin: 0;
+		}
+
+		&.inline > li {
+			display: inline-block;
+			padding-right: 5px;
+			padding-left: 5px;
+
+			&:first-of-type { padding-left: 0; }
+			&:last-of-type  { padding-right: 0; }
+		}
+
+		&.reset,
+		ul.reset,
+		ol.reset {
+			list-style-type: circle
+		}
+
+		&.checked-list {
+			list-style: none;
+
+			li {
+				background: url('../img/icon_checkmark.svg') left 10px no-repeat;
+				background-size: 18px 14px;
+				padding-left: 34px;
+				margin-bottom: 20px;
+				font-weight: 600;
+
+				p, h5 {
+					margin-bottom: 0;
+				}
+
+				&::before {
+					display: none;
+				}
+			}
+		}
+
+		&.two {
+			display: flex;
+			flex-wrap: wrap;
+			margin: 0 auto;
+
+			li {
+				width: 100%;
+				flex: 0 0 100%;
+				padding: 0 5% 0 20px;
+				margin-bottom: 1em;
+			}
+
+			@include min-width(650px) {
+				position: relative;
+
+				li {
+					width: 50%;
+					flex: 0 0 50%;
+				}
+			}
+		}
+
+		&.three {
+			display: flex;
+			flex-wrap: wrap;
+
+			li {
+				width: 100%;
+				flex: 0 0 100%;
+				padding: 0 5% 0 0;
+				margin-bottom: 1em;
+			}
+
+			@include min-width(650px) {
+				position: relative;
+
+				li {
+					width: 33.33%;
+					flex: 0 0 33.33%;
+				}
+			}
+		}
+	}
+
+
+	/* Quotes */
+	blockquote {
+		margin: 40px 0 56px 0;
+		padding-left: 26px;
+		border-left: 2px solid $body_dark;
+		transition: all 0.2s $cubic_bezier;
+
+		/* the only element that should be used within block quote (according to Michael) */
+		p {
+			@include h1;
+		}
+
+		/* Adjust the offset of the block quote for the left border */
+		@include min-width(800px) {
+			margin-left: -30px;
+		}
+
+		@include min-width(1000px) {
+			.layout-simple_content .container & {
+				margin-left: -98px;
+			}
+		}
+
+
+	}
+		q {
+			quotes: '\201C' '\201D' '\2018' '\2019';
+		}
+
+
+	// Horizontal Rules
+	hr {
+		height: 1px;
+		background: $gray-light;
+		border: none;
+	}

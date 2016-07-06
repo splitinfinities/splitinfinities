@@ -1,0 +1,20 @@
+.layout-simple_content {
+
+	.container {
+		max-width: 700px;
+		position: static;
+		word-break: break-word;
+		word-wrap: break-word;
+
+		&.wide {
+			max-width: 1200px;
+		}
+	}
+
+	body.loading & {
+		animation-name: fadeOut;
+		animation-duration: 0.55s;
+		animation-fill-mode: both;
+		animation-timing-function: $cubic-bezier;
+	}
+}

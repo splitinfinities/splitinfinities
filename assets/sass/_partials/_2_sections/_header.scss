@@ -1,0 +1,234 @@
+/*	-------------------------------------
+	:: Nav
+	:: TODO: clean this up (maybe)
+	---------------------------------- */
+	header {
+		width: 100%;
+		position: fixed;
+		background: $gray;
+		top: 0;
+		height: $nav-min-height;
+		z-index: 10;
+		min-width: 320px;
+		font-family: $nav-font;
+		transition: all 150ms ease 0ms;
+
+		// Offset if user is logged into WP
+		@include min-width(783px) {
+			.admin-bar & { top: 32px; }
+		}
+
+		.container {
+			position: relative;
+			height: 100%;
+			max-width: none; // used to be 1350px
+
+			.column {
+				height: 100%;
+			}
+		}
+
+		a {
+			background: transparent;
+			text-shadow: none !important;
+		}
+
+		.logo {
+			width: 20.3205rem;
+			height: 3.0138rem;
+			position: absolute;
+			left: 0;
+			top: 50%;
+			margin-top: -1.4rem;
+			display: block;
+			color: transparent;
+			font-size: 0;
+			text-transform: none;
+
+			svg {
+				width: 100%;
+				height: 100%;
+			}
+		}
+
+		.ellipsis {
+			position: absolute;
+			right: -4vw;
+			z-index: 9;
+		}
+
+		nav {
+			display: block;
+			position: fixed;
+			padding-top: $nav-min-height;
+			right: 0;
+			margin: 0;
+			max-width: 320px;
+			width: 70vw;
+			height: 100vh;
+			transform: translate3d(105%, 0%, 0px);
+			transition: all 200ms cubic-bezier(.61,.92,.68,1.14) 0s;
+			background: white;
+			box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.25);
+			z-index: 8;
+
+			ul {
+				@include unstyled();
+			}
+
+			a {
+				color: $body-dark;
+				font-size: 2.6rem;
+				padding: 0.8em 5vw 0.8em 1em;
+				display: block;
+				opacity: 0;
+				transform: translate3d(25px, 0, 0);
+				transition: all 200ms $cubic-bezier 0s;
+
+				&:hover,
+				&:focus {
+					background: white;
+				}
+			}
+
+			.nav-open & {
+				transform: translate3d(40px, 0, 0);
+
+				li:nth-of-type(1) a { transition-delay: 0.3s; }
+				li:nth-of-type(2) a { transition-delay: 0.4s; }
+				li:nth-of-type(3) a { transition-delay: 0.5s; }
+				li:nth-of-type(4) a { transition-delay: 0.6s; }
+				li:nth-of-type(5) a { transition-delay: 0.7s; }
+				li:nth-of-type(6) a { transition-delay: 0.8s; }
+
+				a {
+					opacity: 1;
+					transform: translate3d(0, 0, 0);
+				}
+			}
+		}
+			// Set Active page colors
+			// This sits outside of `nav` because now you're able to call against &.mini on the `header`
+			.page-name & .menu-item-name {
+				a { color: $cta !important; }
+			}
+
+
+		// When you scroll down .mini is added
+		&.mini {
+			background: white;
+			height: $nav-min-height;
+			box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
+		}
+
+
+		&.nav-up:not(.article_complete) {
+			transform: translateY( -1 * $nav-min-height + 2px );
+
+			@include min-width(1100px) {
+				transform: translateY( -1 * $nav-height + 2px );
+			}
+		}
+
+
+		.zoom-overlay-open.single-work &,
+		.zoom-overlay-open.single-blog & {
+			transform: translateY( -1 * $nav-min-height + 2px );
+
+			@include min-width(1100px) {
+				transform: translateY( -1 * $nav-height + 2px );
+			}
+		}
+
+
+		// The Ellipsis menu is hidden, full navigation now displays
+		@include min-width(1100px) {
+			height: $nav-inactive-height;
+			transition: all 200ms ease 0ms;
+
+			// Hide the Ellipsis menu
+			.ellipsis { display: none; }
+			&::before { display: none; }
+
+			// Change the Nav to render in-line vs off-screen
+			nav {
+				box-shadow: none;
+				display: block;
+				position: absolute;
+				top: 0;
+				right: 5px;
+				width: auto;
+				background: transparent;
+				height: 100%;
+				overflow: initial;
+				-webkit-overflow-scrolling: initial;
+				transform: none;
+				transition: none;
+				padding: 0;
+				max-width: 700px;
+
+				ul {
+					@include inline();
+					width: 100%;
+					height: 100%;
+					border: 0;
+
+					li {
+						border: none;
+						position: relative;
+						height: 100%;
+
+						// makes the triangle gold
+						&.first-active ul::after {
+							border-bottom: 15px solid $cta;
+						}
+					}
+				}
+
+				a {
+					height: 100%;
+					padding: 20px 8px;
+					color: $body-dark;
+					opacity: 1;
+					padding: 1em 0.8em !important;
+					font-size: 2.1rem;
+					font-weight: 500;
+					display: inline-flex;
+					align-items: center;
+					align-content: center;
+					transition: none;
+
+					&:hover,
+					&:focus {
+						background: none;
+						color: $cta;
+					}
+				}
+			}
+
+			// When you scroll shorten the height
+			&.mini {
+				height: $nav-height;
+
+				nav {
+					a {
+						color: $body-dark;
+						transition: background 150ms ease 0ms;
+
+						&:hover,
+						&:active,
+						&:focus {
+							color: $cta;
+						}
+					}
+				}
+			}
+		}
+
+
+		@include min-width(1401px) {
+			nav {
+				max-width: 800px;
+			}
+		}
+	}

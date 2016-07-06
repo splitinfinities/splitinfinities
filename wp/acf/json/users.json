@@ -1,0 +1,143 @@
+[
+    {
+        "key": "group_561694d736f4d",
+        "title": "Team details (User)",
+        "fields": [
+            {
+                "key": "field_561695d0229c3",
+                "label": "Social Platforms",
+                "name": "social_platforms",
+                "type": "repeater",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "field_561695ff229c6",
+                "min": 1,
+                "max": "",
+                "layout": "block",
+                "button_label": "Add a Social Platform",
+                "sub_fields": [
+                    {
+                        "key": "field_561695ff229c6",
+                        "label": "Platform",
+                        "name": "social_platforms",
+                        "type": "radio",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": 40,
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "website": "Website",
+                            "facebook": "Facebook",
+                            "twitter": "Twitter",
+                            "lastfm": "Last.fm",
+                            "medium": "Medium",
+                            "dribbble": "Dribbble",
+                            "codepen": "CodePen",
+                            "linkedin": "LinkedIn",
+                            "instagram": "Instagram",
+                            "snapchat": "Snapchat",
+                            "pinterest": "Pinterest",
+                            "rdio": "Rdio",
+                            "spotify": "Spotify",
+                            "personality": "Personality"
+                        },
+                        "other_choice": 0,
+                        "save_other_choice": 0,
+                        "default_value": "",
+                        "layout": "horizontal"
+                    },
+                    {
+                        "key": "field_561695f0229c4",
+                        "label": "Link",
+                        "name": "link",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": 20,
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": "",
+                        "readonly": 0,
+                        "disabled": 0
+                    },
+                    {
+                        "key": "field_561695fa229c5",
+                        "label": "Username",
+                        "name": "username",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": 20,
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": "",
+                        "readonly": 0,
+                        "disabled": 0
+                    },
+                    {
+                        "key": "field_5642424e7844f",
+                        "label": "User ID",
+                        "name": "user_id",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": 20,
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": "",
+                        "readonly": 0,
+                        "disabled": 0
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "user_form",
+                    "operator": "==",
+                    "value": "edit"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "acf_after_title",
+        "style": "seamless",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    }
+]
