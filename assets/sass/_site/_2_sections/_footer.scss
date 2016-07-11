@@ -1,5 +1,7 @@
 footer {
-	padding: 25vh 0 10vh 0;
+	padding: 25vh 0 80vh 0;
+	overflow: hidden;
+	width: 100%;
 
 	p {
 		font-family: $heading-font;
@@ -24,6 +26,10 @@ footer {
 				display: block;
 			}
 		}
+	}
+
+	hr {
+		width: 100%;
 	}
 
 	@include max-width(650px) {

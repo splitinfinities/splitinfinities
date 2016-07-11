@@ -26,7 +26,7 @@
 
 	#wp-admin-bar-ultimo-wp { display: none; }
 
-	#main { overflow: hidden; }
+	#main { min-height: 45vh; }
 
 	body {
 		font-family: $body-font;

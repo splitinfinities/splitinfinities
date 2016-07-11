@@ -63,7 +63,7 @@ function custom_front_page($wp_query) {
 
 	if ( $wp_query->get('page_id') == get_option('page_on_front')):
 
-		$wp_query->set('post_type', 'notes');
+		$wp_query->set('post_type', array('notes', 'lists', 'essays'));
 		$wp_query->set('page_id', ''); //Empty
 
 		//Set properties that describe the page to reflect that

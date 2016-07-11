@@ -121,12 +121,12 @@
 				}
 
 				a {
-					border-bottom: 1px dotted $gray;
+
 
 					&:hover,
 					&:active,
 					&:focus {
-						color: $red;
+						color: mix($white_balanced, $red, 70%);
 					}
 				}
 			}

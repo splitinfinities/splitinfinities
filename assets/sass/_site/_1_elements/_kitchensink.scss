@@ -1,7 +1,7 @@
 /*	-------------------------------------
 	:: Kitchen Sink (CMS Content)
 	---------------------------------- */
-	$kitchensink_space_underneath: 5.5rem;
+	$kitchensink_space_underneath: 3.5rem;
 	$kitchensink_space_underneath_mobile: 5.5vw;
 
 	.kitchensink {
@@ -19,6 +19,7 @@
 			&.mbn { margin-bottom: 1rem !important; }
 
 			a:not(.button) {
+				@include add_alt_smart_underline();
 				background-position: 0% 92.5%, 100% 92.5%, 0% 92.5% !important;
 
 				@include min-width(500px) {
@@ -152,7 +153,7 @@
 		img {
 			display: block;
 			margin: 0 auto $kitchensink_space_underneath auto;
-			transition: all 200ms ease 0ms;
+			transition: all .4s ease 0ms;
 
 			@include max-width(650px) {
 				margin: 0 auto $kitchensink_space_underneath_mobile auto;
@@ -207,7 +208,7 @@
 			}
 
 			figure {
-				margin: 0 auto $kitchensink_space_underneath auto;
+				margin: ($kitchensink_space_underneath * 1.5) auto ($kitchensink_space_underneath * 2) auto;
 				width: 100% !important;
 
 				@include max-width(650px) {
@@ -220,29 +221,38 @@
 
 				figcaption {
 					font: italic 400 1.7rem / 1.4 $body-font !important;
-					color: $body;
+					color: white;
 					margin: 2rem auto;
+					transition: all 0.35s ease-out 0s;
+					padding: 1.6rem 1.6rem;
 
 					@include min-width(1201px) {
 						position: absolute;
-						width: 210px;
-						right: calc(50vw - 350px);
-						transform: translate(235px, -90px);
-						float: right;
+						width: 50% !important;
+						right: 100% !important;
+						transform: translate(0, -20px);
+						text-align: right;
+						padding-right: 4rem;
+						// float: right;
+					}
+				}
+
+				&.progressive_image:not(.expanded) figcaption {
+					background: transparent;
+					border-radius: 0;
+					box-shadow: none;
+				}
+
+				&.progressive_image.expanded figcaption {
+					@include min-width(1201px) {
+						width: 33.33333% !important;
+						right: 3rem !important;
+						bottom: 3rem;
+						margin: 0 !important;
 					}
 				}
 			}
-				& > figure:last-of-type {
-					margin-bottom: 0;
 
-					& + * {
-						margin-top: $kitchensink_space_underneath;
-
-						@include max-width(650px) {
-							margin-top: $kitchensink_space_underneath_mobile;
-						}
-					}
-				}
 
 		/* Quote Overrides */
 		blockquote {
@@ -305,75 +315,5 @@
 
 		.progressive-image {
 			background: $body-light;
-		}
-	}
-
-	.dark .kitchensink {
-
-		p {
-			color: rgba(#fff, 0.7);
-		}
-
-		a {
-			text-shadow: none !important;
-			color: white;
-
-			&::after {
-				display: none;
-			}
-
-			&:not(.button) {
-				&:hover,
-				&:active,
-				&:focus {
-					color: white;
-					background-image: linear-gradient(rgba(white, 0.25), rgba(white, 0.25)),linear-gradient(rgba(white, 0.25), rgba(white, 0.25)),linear-gradient(rgba(white, 0.25), rgba(white, 0.25));
-				}
-			}
-
-			&:hover,
-			&:active {
-				&:not(.button) {
-					@include add_smart_underline();
-
-					& > span {
-						@include add_smart_underline();
-					}
-				}
-			}
-		}
-
-		h1, .h1,
-		h2, .h2,
-		h3, .h3,
-		h4, .h4,
-		h5, .h5,
-		h6, .h6 {
-			color: white;
-		}
-
-		h6, .h6 {
-			background: rgba($body, 0.4);
-		}
-	}
-
-
-	.light .kitchensink {
-
-		p {
-			color: rgba($body, 0.5);
-		}
-
-		a {
-			text-shadow: none !important;
-
-			&:not(.button)::after {
-				display: none;
-			}
-		}
-
-		.h6, h6 {
-			background: rgba(white, 0.5) !important;
-			color: rgba($body, 0.9);
 		}
 	}

@@ -146,7 +146,7 @@ var tasks = {
       'loadMaps': true
     })))
     .pipe(postcss([autoprefixer({browsers: ['last 2 versions']})]))
-    .pipe(gulpif(production, cssnano()))
+    .pipe(cssnano())
     // we don't serve the source files
     // so include scss content inside the sourcemaps
     .pipe(sourcemaps.write({

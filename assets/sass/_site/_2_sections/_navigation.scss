@@ -87,6 +87,7 @@
 			right: -4vw;
 			z-index: 9;
 			width: 63px;
+			webkit-backdrop-filter: blur(2px);
 		}
 
 		nav {
@@ -95,43 +96,71 @@
 			padding-top: $nav-mobile-height;
 			right: -30px;
 			margin: 0;
-			max-width: 320px;
-			width: 70vw;
-			height: 100vh;
+			max-width: 600px;
+			width: 80vw;
+			height: 110vh;
 			transform: translate3d(105%, 0%, 0px);
 			transition: all 200ms $ease 0s;
 			background: $body;
 			box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.25);
 			z-index: 8;
+			overflow-y: auto;
+			-webkit-overflow-scrolling: touch;
+
+			@include safari() {
+				padding-right: 5vw;
+			}
 
 			ul {
 				@include unstyled();
+
+
+				&:last-of-type {
+					padding-bottom: 50vh;
+				}
+
+				li::before {
+					display: none;
+				}
 			}
 
 			a {
-				color: $gray;
-				@include font-size(2.2);
-				font-weight: 300;
-				padding: 20px 8px 20px 30px;
+				width: 100%;
+				color: white;
+				font-size: 10vw;
+				font-weight: 900;
+				letter-spacing: 0.175em;
+				text-align: right;
+				font-family: $heading-font;
+				text-transform: uppercase;
+				padding: 0 7.5vw 0em 0em;
 				display: block;
-				transition: all 200ms $ease 0s;
+				transition: all .3s $ease 0s;
+
+				@include add_smart_underline();
+
+				text-shadow: 0.065em 0.065em 0px $red,
+							 0.065em -0.065em 0px $red,
+							-0.065em -0.065em 0px $red,
+							-0.065em 0.065em 0px $red;
 
 				&:hover,
 				&:focus {
 					color: $black;
 					text-decoration: none;
+					letter-spacing: 0.35em;
 				}
 			}
 
-			li {
-				body.post-type-archive-notes &.menu-notes a,
-				body.single-lists &.menu-lists a,
-				body.post-type-archive-lists &.menu-lists a,
-				body.post-type-archive-essays &.menu-essays a,
-				body.single-essays &.menu-essays a,
-				body.resources &.menu-resources a,
-				body.about &.menu-about a { color: $black; }
-			}
+			// li {
+			// 	body.post-type-archive-notes &.menu-notes a,
+			// 	body.single-lists &.menu-lists a,
+			// 	body.post-type-archive-lists &.menu-lists a,
+			// 	body.post-type-archive-essays &.menu-essays a,
+			// 	body.single-essays &.menu-essays a,
+			// 	body.resources &.menu-resources a,
+			// 	body.about &.menu-about a { color: $black; }
+			// }
 
 			.nav-open & {
 				transform: translate3d(0%, 0%, 0px);
@@ -155,6 +184,11 @@
 
 				a {
 					opacity: 1;
+					letter-spacing: 0.04em !important;
+				}
+
+				.hide-later {
+					display: none;
 				}
 			}
 

@@ -1,61 +1,74 @@
 <?php sendo()->set_title(get_post_type_object(get_post_type())->labels->name); ?>
-<div class="container">
-	<aside class="column four">
-		<ul class="unstyled">
-			<?php $years = $wpdb->get_col("SELECT DISTINCT YEAR(post_date) FROM $wpdb->posts WHERE post_status = 'publish' AND post_type = '".get_post_type()."' ORDER BY post_date DESC"); ?>
-			<?php $i = 1; ?>
-			<?php $j = 1; ?>
-			<?php foreach($years as $year): ?>
-				<li class="year-container<?php echo ($i === 1) ? ' active' : ''; ?>">
-					<a class="h2"><strong><?php echo $year; ?></strong></a>
-					<ul class="archive-sub-menu unstyled">
+<?php if(!have_posts()): ?>
+	<section class="container">
+		<div class="column eight offset-by-four">
+			<div class="content kitchensink">
+				<h1>More to come!</h1>
+			</div>
+		</div>
+	</section>
+<?php else: ?>
+	<div class="container">
+		<aside class="column four">
+			<ul class="unstyled">
+				<?php $years = $wpdb->get_col("SELECT DISTINCT YEAR(post_date) FROM $wpdb->posts WHERE post_status = 'publish' AND post_type = '".get_post_type()."' ORDER BY post_date DESC"); ?>
+				<?php $i = 1; ?>
+				<?php $j = 1; ?>
+				<?php foreach($years as $year): ?>
+					<li class="year-container<?php echo ($i === 1) ? ' active' : ''; ?>">
+						<a class="h2"><strong><?php echo $year; ?></strong></a>
+						<ul class="archive-sub-menu unstyled">
+							<?php $months = $wpdb->get_col("SELECT DISTINCT MONTH(post_date) FROM $wpdb->posts WHERE post_status = 'publish' AND post_type = '".get_post_type()."' AND YEAR(post_date) = '".$year."' ORDER BY post_date DESC"); ?>
+							<?php foreach($months as $month): ?>
+								<li>
+									<a class="subhead scrollto<?php echo ($j === 1) ? ' active' : ''; ?>" href="#<?php echo strtolower(date( 'F', mktime(0, 0, 0, $month) ) . '-' . $year); ?>" data-scrollto="<?php echo strtolower(date( 'F', mktime(0, 0, 0, $month) ) . '-' . $year); ?>" title="Scroll to <?php echo date( 'F', mktime(0, 0, 0, $month) );?>, <?php echo $year; ?>"><?php echo date( 'F', mktime(0, 0, 0, $month) );?></a>
+								</li>
+								<?php $j++; ?>
+							<?php endforeach; ?>
+						</ul>
+					</li>
+					<?php $i++; ?>
+				<?php endforeach; ?>
+			</ul>
+		</aside>
+		<div class="column eight" itemscope="" itemtype="http://schema.org/Blog">
+			<?php $posts_in_order = []; ?>
+			<?php // build the array; ?>
+			<?php while (have_posts()) : the_post(); ?>
 
-						<?php $months = $wpdb->get_col("SELECT DISTINCT MONTH(post_date) FROM $wpdb->posts WHERE post_status = 'publish' AND post_type = '".get_post_type()."' AND YEAR(post_date) = '".$year."' ORDER BY post_date DESC");
-						foreach($months as $month) { ?>
-						<li>
-							<a class="subhead scrollto<?php echo ($j === 1) ? ' active' : ''; ?>" href="#<?php echo strtolower(date( 'F', mktime(0, 0, 0, $month) ) . '-' . $year); ?>" data-scrollto="<?php echo strtolower(date( 'F', mktime(0, 0, 0, $month) ) . '-' . $year); ?>" title="Scroll to <?php echo date( 'F', mktime(0, 0, 0, $month) );?>, <?php echo $year; ?>"><?php echo date( 'F', mktime(0, 0, 0, $month) );?></a>
-						</li>
-						<?php $j++; ?>
-						<?php } ?>
-					</ul>
-				</li>
-			<?php $i++; ?>
-			<?php endforeach; ?>
-		</ul>
-	</aside>
-	<div class="column eight" itemscope="" itemtype="http://schema.org/Blog">
-		<?php $posts_in_order = []; ?>
-		<?php // build the array; ?>
-		<?php while (have_posts()) : the_post(); ?>
+				<?php ob_start(); ?>
+				<?php partial('single', get_post_type()); ?>
+				<?php $this_posts_content = ob_get_clean(); ?>
 
-			<?php ob_start(); ?>
-			<?php partial('single', get_post_type()); ?>
-			<?php $this_posts_content = ob_get_clean(); ?>
-
-			<?php if ( ! array_key_exists( get_the_date( 'MY' ), $posts_in_order ) ): ?>
-				<?php $posts_in_order[get_the_date( 'MY' )] = array(
-					'pretty_year' => get_the_date( 'F Y' ),
-					'posts' => array()
-				); ?>
-			<?php endif; ?>
-			<?php $posts_in_order[get_the_date( 'MY' )]['posts'][] = array(
-				'content' => $this_posts_content,
-				); ?>
+				<?php if ( ! array_key_exists( get_the_date( 'MY' ), $posts_in_order ) ): ?>
+					<?php $posts_in_order[get_the_date( 'MY' )] = array( 'pretty_year' => get_the_date( 'F Y' ), 'posts' => array() ); ?>
+				<?php endif; ?>
+				<?php $posts_in_order[get_the_date( 'MY' )]['posts'][] = array( 'content' => $this_posts_content, 'title' => get_the_title(), 'type' => get_post_type(), 'link' => get_permalink(), 'pretty_date' => get_the_date('F j'), 'unix_timestamp' => get_the_date('U') ); ?>
 			<?php endwhile; ?>
 			<section class="container bleed">
 				<?php foreach($posts_in_order as $year => $years_content): ?>
 					<div data-section="<?php echo strtolower(str_replace(' ', '-', $years_content['pretty_year'])); ?>" class="current-year column twelve"><span class="h2"><strong><?php echo $years_content['pretty_year']; ?></strong></span></div>
 					<div class="column twelve post-mosiac">
-						<div class="the-mosiac">
-						<?php foreach($years_content['posts'] as $post): ?>
-							<?php echo $post['content']; ?>
-						<?php endforeach; ?>
+						<div class="the-mosiac kitchensink">
+							<?php foreach($years_content['posts'] as $post): ?>
+								<?php if ( $post['type'] == 'notes' ): ?>
+									<?php echo $post['content']; ?>
+								<?php else: ?>
+									<div href="<?php echo $post['link']; ?>" title="<?php echo $post['title']; ?>" class="column post-preview six notes <?php pjaxify(); ?>" itemscope="" itemtype="http://schema.org/BlogPosting">
+										<div class="content kitchensink">
+											<span class="h2 muted" datetime="<?php echo $post['unix_timestamp']; ?>" itemprop="datePublished"><?php echo $post['pretty_date']; ?></span>
+											<span class="copy"><p><a href="<?php echo $post['link']; ?>" class="<?php pjaxify(); ?>"><?php echo $post['title']; ?></a></p></span>
+										</div>
+									</div>
+								<?php endif; ?>
+							<?php endforeach; ?>
 						</div>
 					</div>
 				<?php endforeach; ?>
 			</section>
 		</div>
 	</div>
+
 	<?php sendo()->capture_javascript_start(); ?>
 	<script type="text/javascript">
 
@@ -63,7 +76,7 @@
 			if ($(window).innerWidth() > 500) {
 				$('.the-mosiac', '.post-mosiac').each(function() {
 					var side1 = 0,
-						side2 = 0;
+					side2 = 0;
 
 					$(this).children().each(function(index, element) {
 						if ( side1 <= side2 ) {
@@ -150,10 +163,11 @@
 				});
 			});
 
-		$(document).on('pjax:send', function() {
-			$(window).off('scroll.archive');
-		});
+			$(document).on('pjax:send', function() {
+				$(window).off('scroll.archive');
+			});
 
-	});
-</script>
-<?php sendo()->capture_javascript_end(); ?>
+		});
+	</script>
+	<?php sendo()->capture_javascript_end(); ?>
+<?php endif; ?>

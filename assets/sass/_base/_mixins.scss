@@ -10,8 +10,8 @@
 	@mixin inline() {
 		&  > li {
 			display: inline-block;
-			padding-right: 5px;
-			padding-left: 5px;
+			padding-right: 1em;
+			padding-left: 1em;
 
 			&:first-of-type { padding-left: 0; }
 			&:last-of-type  { padding-right: 0; }
@@ -97,9 +97,12 @@
 	---------------------------------- */
 	@mixin add_smart_underline() {
 		position: relative;
-		text-shadow: 0.065em 0.065em 0px white, 0.065em -0.065em 0px white, -0.065em -0.065em 0px white, -0.065em 0.065em 0px white;
+		text-shadow: 0.065em 0.065em 0px white,
+					 0.065em -0.065em 0px white,
+					-0.065em -0.065em 0px white,
+					-0.065em 0.065em 0px white;
 
-		&:after {
+		&::after {
 			content: attr(data-copy);
 			position: absolute;
 			width: 100%;
@@ -119,11 +122,11 @@
 	}
 
 	@mixin add_alt_smart_underline() {
-		text-shadow: 1px 1px 1px $red,
-					 1px -1px 1px $red,
-					 -1px -1px 1px $red,
-					 -1px 1px 1px $red;
-		background-image: linear-gradient(currentColor, currentColor), linear-gradient(currentColor, currentColor), linear-gradient(currentColor, currentColor);
+		text-shadow: 1px 1px 0px $red,
+					 1px -1px 0px $red,
+					 -1px -1px 0px $red,
+					 -1px 1px 0px $red;
+		background-image: repeating-linear-gradient(10deg, currentColor 20px, currentColor 40px), repeating-linear-gradient(10deg, currentColor 20px, currentColor 40px), repeating-linear-gradient(10deg, currentColor 5px, currentColor 10px);
 		background-size: .05em 1px, .05em 1px, 1px 1px;
 		background-repeat: no-repeat, no-repeat, repeat-x;
 		background-position: 0% 95%, 100% 95%, 0% 95%;

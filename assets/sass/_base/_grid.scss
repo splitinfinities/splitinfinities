@@ -27,7 +27,7 @@
 			&.last { order: initial; }
 			&.center { align-self: center; }
 
-			@include min-width(501px) {
+			@include min-width(650px) {
 
 				&:first-child { margin-left: 0; }
 
@@ -115,7 +115,7 @@
 		&.one-third {
 			&.lop-off {
 				& > .column {
-					@include max-width(500px) {
+					@include max-width(650px) {
 						flex: 0 0 50%;
 
 						&:last-of-type {
@@ -126,14 +126,14 @@
 			}
 
 			& > .column {
-				@include min-width(501px) {
+				@include min-width(650px) {
 					flex: 0 0 33.3333333333333%;
 				}
 			}
 
 			&.bleed {
 				& > .column {
-					@include min-width(501px) {
+					@include min-width(650px) {
 						flex: 0 0 33.3333333333333%;
 					}
 				}
@@ -141,14 +141,14 @@
 
 			&.padding {
 				& > .column {
-					@include min-width(501px) {
+					@include min-width(650px) {
 						flex: 0 0 calc( 33.3333333333333% - #{$padding-base} );
 					}
 				}
 
 				&.bleed {
 					& > .column {
-						@include min-width(501px) {
+						@include min-width(650px) {
 							flex: 0 0 calc( 33.3333333333333% - #{$padding-base} );
 						}
 					}

@@ -70,6 +70,10 @@
 			font-size: inherit;
 			font-family: inherit;
 		}
+
+		strong {
+			color: currentColor !important;
+		}
 	}
 
 	h1, .h1, %h1 { @include font-size(4.2); line-height: 1.19047619; font-weight: bold; letter-spacing: 0.02em; text-transform: uppercase; }
@@ -126,9 +130,10 @@
 		&:hover,
 		&:active {
 			// text-decoration: underline;
+			color: white;
 		}
 
-		&:focus  { outline: none; }
+		&:focus  { outline: none; color: white; }
 
 		img { border: none; }
 	}
@@ -172,8 +177,8 @@
 
 		&.inline > li {
 			display: inline-block;
-			padding-right: 5px;
-			padding-left: 5px;
+			padding-right: 1em;
+			padding-left: 1em;
 
 			&:first-of-type { padding-left: 0; }
 			&:last-of-type  { padding-right: 0; }
@@ -297,7 +302,7 @@
 	/* Horizontal Rules */
 	hr {
 		height: 1px;
-		background: #808080;
+		background: rgba($gray, 0.2);
 		border: none;
 	}
 

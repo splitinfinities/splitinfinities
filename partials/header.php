@@ -14,6 +14,11 @@
 					wp_nav_menu(array('theme_location' => 'primary_navigation', 'walker' => new NEIGHBORHOOD_Nav_Walker(), 'menu_class' => 'nav navbar-nav'));
 				endif;
 				?>
+				<?php
+				if (has_nav_menu('footer_navigation')) :
+					wp_nav_menu(array('theme_location' => 'footer_navigation', 'walker' => new NEIGHBORHOOD_Nav_Walker(), 'menu_class' => 'nav navbar-nav hide-later'));
+				endif;
+				?>
 			</nav>
 			<a class="logo subhead<?php pjaxify(); ?>" href="<?php echo esc_url(home_url('/')); ?>"><?php partial('assets', 'logo'); ?></a>
 		</div>
@@ -48,7 +53,6 @@
 	});
 
 	λ.open_nav = function(el) {
-		console.log('cool');
 		if (!$(el).hasClass('active')) {
 			$('body, html').addClass('nav-open');
 			$(el).addClass('active');
@@ -69,8 +73,7 @@
 
 	$(document).keyup(function(e) {
 		if (e.keyCode == 27) {
-			$('body, html').removeClass('nav-open search-open');
-			$('.hamburger').removeClass('active');
+			$('.ellipsis').click();
 		}
 	});
 </script>

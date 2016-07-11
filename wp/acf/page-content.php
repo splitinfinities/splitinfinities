@@ -3407,7 +3407,7 @@ Learn more',
 			array (
 				'param' => 'post_type',
 				'operator' => '!=',
-				'value' => 'post',
+				'value' => 'lists',
 			),
 		),
 	),

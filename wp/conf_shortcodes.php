@@ -151,7 +151,6 @@ function img_smart_image_shortcode( $attr, $content = null ) {
 			// Sets the aspect ratio
 			$css_padding_bottom = ($image_large[1] !== null && $image_large[2] !== null) ? ( ( $image_large[2] / $image_large[1] ) * 100 ).'%' : 0;
 
-
 			// begin creating the $final_image video with for the javascript to parse.
 			$final_image = '<figure id="' . $attr['image_id'] . '" class="progressive_image js-not_loaded' . $has_zoom . $has_bleed . ' ' . $attr['class'] . '" width="' . $attr['width'] . '" height="' . $attr['height'] . '" style="'. $css_max_width . '" ' . $zoom_color . ' itemscope="" itemtype="http://schema.org/ImageObject">';
 			//$final_image .= '<div class="aspect_ratio_placeholder" style="' . $css_max_width . ' background-image:url(\''.make_href_root_relative($placeholder[0]).'\');">';
