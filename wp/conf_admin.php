@@ -20,7 +20,7 @@ add_action( 'admin_menu', 'remove_menus' );
 function neighborhood_login_logo() { ?>
 <style type="text/css">
 	body.login div#login h1 a {
-		background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/assets/img/login-logo.jpg);
+		background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/assets_compiled/images/login-logo.jpg);
 		padding-bottom: 0px;
 		background-size: 310px 109px;
 		background-position: center top;

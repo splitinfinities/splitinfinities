@@ -226,6 +226,8 @@ gulp.task('browser-sync', function () {
     proxy: our_proxy_url,
     port: process.env.PORT || 3000,
     open: false,
+    notify: false,
+    scrollThrottle: 50,
     files: [
       "./assets_compiled/css/**/*.css",
       "./assets_compiled/js/**/*.js",
@@ -271,7 +273,7 @@ gulp.task('watch', ['sass', 'browserify', 'browser-sync'], function () {
   // --------------------------
   // watch:sass
   // --------------------------
-  gulp.watch('./assets/css/**/*.scss', ['sass', 'reload-sass']);
+  gulp.watch('./assets/sass/**/*.scss', ['sass', 'reload-sass']);
 
   // --------------------------
   // watch:js

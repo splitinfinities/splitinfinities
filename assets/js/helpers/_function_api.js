@@ -408,7 +408,7 @@ window.λ = function lambda() {
 				$('.js-swap-for-picture', this).replaceWith(picture_tag);
 
 				$('picture img', this).bind('load', function() {
-					$(the_whole_element).addClass('totally-loaded');
+					$(the_whole_element).addClass('totally_loaded');
 				});
 
 				λ.rebind_progressive_images();

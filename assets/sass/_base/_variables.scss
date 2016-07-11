@@ -11,24 +11,27 @@
 	:: Brand Colors
 	---------------------------------- */
 
-	// Default Colors
-	$gray: #B3B3B3;
-	$gray-light: #ededed;
-	$gray-mid: #cecece;
 
 	$red: #911d1d;
 	$yellow: #FDE5A5;
+	$white_balanced: #e6e6e6;
+
+	// Default Colors
+	$gray: mix($white_balanced, $red, 60%);
+	$gray-light: $white_balanced;
+	$gray-mid: #cecece;
+
 
 
 	// Generic
-	$body: #211d1d;
+	$body: #911d1d;
 	$body-light: #f0efed;
 	$cta: $gray;
 	$cta-active: $gray-light;
 
 
 	// This site's colors
-	$black: #2D2D2D;
+	$black: $gray-light;
 
 
 /*	-------------------------------------
@@ -37,14 +40,14 @@
 	// Example:
 	// $custom-font: 'Custom Font Name', sans-serif;
 
-	$freight: "freight-text-pro", sans-serif;
-	$circular: "Circular-Subsetted", "Karla", sans-serif;
+	$neuehanskendrick: "Neue Hans Kendrick", sans-serif;
+	$hankensans: "Hanken Sans", sans-serif;
 
 	// Replace the 'inherit' value with the proper font variables from directly above
-	$body-font: $freight;
-	$heading-font: $circular;
-	$button-font: $circular;
-	$nav-font: $circular;
+	$body-font: $hankensans;
+	$heading-font: $neuehanskendrick;
+	$button-font: $hankensans;
+	$nav-font: $hankensans;
 
 
 /*	-------------------------------------

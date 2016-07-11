@@ -1,7 +1,7 @@
 <header role="banner">
 	<div class="container">
 		<div class="column">
-			<button type="button" class="hamburger caf" data-func="open_nav">
+			<button type="button" class="ellipsis caf" data-func="open_nav">
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
@@ -48,6 +48,7 @@
 	});
 
 	λ.open_nav = function(el) {
+		console.log('cool');
 		if (!$(el).hasClass('active')) {
 			$('body, html').addClass('nav-open');
 			$(el).addClass('active');

@@ -19,10 +19,10 @@
 			}
 
 			a.subhead {
-				color: $gray;
+				color: $gray-mid;
 
 				&.active {
-					color: $body;
+					color: $gray;
 				}
 			}
 
@@ -33,7 +33,7 @@
 
 				&.active {
 					a.h2 {
-						color: $body;
+						color: $gray-mid;
 					}
 				}
 			}
@@ -58,7 +58,7 @@
 	.current-year {
 		opacity: 0;
 		transition: opacity 0.1s $ease 0.05s;
-		background: white;
+		background: $body;
 
 		&.in {
 			opacity: 1;
@@ -79,7 +79,7 @@
 				display: block;
 				padding-bottom: 0;
 				transition: opacity 0.2s $ease 0.1s;
-				background: white;
+				background: $body;
 
 				@include min-width(501px) {
 					width: 50%;

@@ -8,7 +8,7 @@ $(document).ready(function() {
 });
 
 $(document).on('pjax:send', function() {
-	animate_loader(40);
+	animate_loader(80);
 
 	$('.dropdown-menu').removeClass('nav-opened');
 
@@ -36,7 +36,7 @@ $(document).on('pjax:complete', function() {
 });
 
 $(document).on('pjax:success', function () {
-	animate_loader(70);
+	animate_loader(100);
 });
 
 $(document).on('pjax:end', function() {

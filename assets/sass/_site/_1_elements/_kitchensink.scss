@@ -30,7 +30,7 @@
 				}
 
 				@include min-width(1200px) {
-					background-position: 0% 85%, 100% 85%, 0% 85% !important;
+					background-position: 0% 94%, 100% 94%, 0% 94% !important;
 				}
 
 				&:hover,
@@ -267,7 +267,7 @@
 			display: block;
 			float: left;
 			margin: 0 4px 4px 0;
-			color: white;
+			color: $body;
 		}
 
 		/* Pubs */

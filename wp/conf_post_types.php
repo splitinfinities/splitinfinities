@@ -6,14 +6,35 @@
  */
 function init_custom_post_types() {
 	$post_types = array(
-		'blog' => array(
-			'slug'			=> 'blog',
-			'title'			=> 'Blog',
-			'singular'		=> 'Post',
-			'plural'		=> 'Posts',
-			'menu_icon'		=> 'dashicons-media-document',
+		// notes, lists, essays
+		'notes' => array(
+			'slug'			=> 'notes',
+			'title'			=> 'Notes',
+			'singular'		=> 'Note',
+			'plural'		=> 'Notes',
+			'menu_icon'		=> 'dashicons-text',
 			'supports'		=> array( 'title', 'content', 'editor', 'excerpt', 'page-attributes', 'revisions', 'permalinks' ),
-			'position'		=> 11,
+			'position'		=> 10,
+			'has_archive'	=> true
+		),
+		'lists' => array(
+			'slug'			=> 'lists',
+			'title'			=> 'Lists',
+			'singular'		=> 'List',
+			'plural'		=> 'Lists',
+			'menu_icon'		=> 'dashicons-editor-ul',
+			'supports'		=> array( 'title', 'content', 'editor', 'excerpt', 'page-attributes', 'revisions', 'permalinks' ),
+			'position'		=> 10,
+			'has_archive'	=> true
+		),
+		'essays' => array(
+			'slug'			=> 'essays',
+			'title'			=> 'Essays',
+			'singular'		=> 'Essay',
+			'plural'		=> 'Essays',
+			'menu_icon'		=> 'dashicons-media-text',
+			'supports'		=> array( 'title', 'content', 'editor', 'excerpt', 'page-attributes', 'revisions', 'permalinks' ),
+			'position'		=> 10,
 			'has_archive'	=> true
 		),
 	);
@@ -33,7 +54,7 @@ function init_custom_post_types() {
 			'search_items'       => __( 'Search ' . $options['plural'], 'neighborhood' ),
 			'parent_item_colon'  => __( 'Parent ' . $options['plural'], 'neighborhood' ),
 			'not_found'          => __( 'No ' . strtolower($options['plural']) . ' found.', 'neighborhood' ),
-			'not_found_in_trash' => __( 'No ' . strtolower($options['plural']) . ' found in Trash.', 'neighborhood' )
+			'not_found_in_trash' => __( 'No ' . strtolower($options['plural']) . ' found in Trash.', 'neighborhood' ),
 		);
 
 		$args = array(
@@ -49,7 +70,7 @@ function init_custom_post_types() {
 			'hierarchical'       => true,
 			'menu_position'      => $options['position'],
 			'menu_icon'          => $options['menu_icon'],
-			'supports'           => $options['supports']
+			'supports'           => $options['supports'],
 		);
 
 		register_post_type( $name, $args );

@@ -26,7 +26,7 @@
 		margin: auto -4px;
 		left: calc(50% + 1px);
 		top: calc(50% - 3px);
-		background: $body;
+		background: white;
 		transform-origin: 50% 50%;
 		transition: all 0.25s $ease 0ms;
 
@@ -50,7 +50,7 @@
 
 		.mini &,
 		.nav-open & {
-			background-color: $body;
+			background-color: white;
 		}
 
 	}

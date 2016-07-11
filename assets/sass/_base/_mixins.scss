@@ -119,11 +119,14 @@
 	}
 
 	@mixin add_alt_smart_underline() {
-		text-shadow: 0.065em 0.065em 0px white, 0.065em -0.065em 0px white, -0.065em -0.065em 0px white, -0.065em 0.065em 0px white;
+		text-shadow: 1px 1px 1px $red,
+					 1px -1px 1px $red,
+					 -1px -1px 1px $red,
+					 -1px 1px 1px $red;
 		background-image: linear-gradient(currentColor, currentColor), linear-gradient(currentColor, currentColor), linear-gradient(currentColor, currentColor);
 		background-size: .05em 1px, .05em 1px, 1px 1px;
 		background-repeat: no-repeat, no-repeat, repeat-x;
-		background-position: 0% 85%, 100% 85%, 0% 85%;
+		background-position: 0% 95%, 100% 95%, 0% 95%;
 
 		&:after {
 			display: none;

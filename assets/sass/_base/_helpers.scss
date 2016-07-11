@@ -223,6 +223,29 @@
 	@keyframes fadeInScale{0%{opacity:0;transform:scale(0.9875); filter: blur(4px);}100%{opacity:1;transform:none; filter: none;}}.fadeInScale{animation-name:fadeInScale}
 	@keyframes fadeOutScale{0%{opacity:1;transform:scale(1); filter: none;}100%{opacity:0;transform:scale(0.9875); filter: blur(4px);}}.fadeOutScale{animation-name:fadeOutScale}
 
+	@keyframes fadeInOut {
+		0% {
+			opacity: 0;
+		}
+
+		10%, 70% {
+			opacity: 1
+		}
+
+		30%, 90% {
+			opacity: 1;
+		}
+
+		40% {
+			opacity: 0;
+		}
+
+		100% {
+			opacity: 0;
+		}
+	}
+
+
 	// Animation helpers
 	.delay-50 { animation-delay: .05s }
 	.delay-100 { animation-delay: .1s }

@@ -102,7 +102,7 @@ function neighborhood_scripts() {
 		$base_assets['jquery.scrolldepth.js'] = $assets_basepath . $scripts_subdir . '/jquery.scrolldepth.js';
 	}
 
-	if ( pjaxify( true ) ) {
+	if ( pjaxify( true ) == "ajax" ) {
 		if (isset($_SERVER['HTTP_X_PJAX']) && $_SERVER['HTTP_X_PJAX'] == 'true') {
 
 			if (!is_admin() && current_theme_supports('jquery-cdn')) {

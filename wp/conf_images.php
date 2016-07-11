@@ -13,6 +13,7 @@ function disable_srcset( $sources ) {
 	return false;
 }
 add_filter( 'wp_calculate_image_srcset', 'disable_srcset' );
+
 /*
  * Initialize all the images for the theme
  */

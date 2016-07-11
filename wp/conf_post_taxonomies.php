@@ -9,18 +9,11 @@ function init_taxonomies() {
 	// You can edit these options here
 	$taxonomies = array(
 		'categories' => array(
-			'slug'			=> 'category',
+			'slug'			=> 'c',
 			'hierarchical'	=> true, // true is like categories, false is like tags
 			'singular'		=> 'Category',
 			'plural'		=> 'Categories',
-			'attached_to'	=> array( 'work', )
-		),
-		'year' => array(
-			'slug'			=> 'year',
-			'hierarchical'	=> true, // true is like categories, false is like tags
-			'singular'		=> 'Year',
-			'plural'		=> 'Years',
-			'attached_to'	=> array( 'work', )
+			'attached_to'	=> array( 'notes', 'lists', 'essays' )
 		),
 	);
 

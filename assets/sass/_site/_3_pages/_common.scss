@@ -1,5 +1,5 @@
 main {
-	margin-top: calc(#{$nav-mobile-height} + 4rem);
+	margin-top: calc(#{$nav-mobile-height} + 4rem + 15vw);
 
 	@include min-width(783px) {
 		margin-top: calc(#{$nav-tablet-height} + 6rem);

@@ -157,11 +157,11 @@ function img_smart_image_shortcode( $attr, $content = null ) {
 			//$final_image .= '<div class="aspect_ratio_placeholder" style="' . $css_max_width . ' background-image:url(\''.make_href_root_relative($placeholder[0]).'\');">';
 			$final_image .= '<div class="aspect_ratio_placeholder" style="' . $css_max_width . '">';
 			$final_image .= '<div class="aspect_ratio_fill" style="padding-bottom:' . $css_padding_bottom . ';"></div>'; // this div keeps the aspect ratio so the placeholder doesn't collapse
-			$final_image .= '<div class="progressiveMedia is-imageLoaded" style="'. $css_max_width . '">';
-			$final_image .= '<img src="' . $placeholder[0] . '" class="low-quality-image" style="'. $css_max_width . '" itemscope="contentUrl" content="' . make_href_root_relative($image_lg[0]) . '"/>'; // this is a tiny image with a resolution of e.g. ~27x17 and low quality
+			$final_image .= '<div class="progressive_media is-image_loaded" style="'. $css_max_width . '">';
+			$final_image .= '<img src="' . $placeholder[0] . '" class="low_quality_image" style="'. $css_max_width . '" itemscope="contentUrl" content="' . make_href_root_relative($image_lg[0]) . '"/>'; // this is a tiny image with a resolution of e.g. ~27x17 and low quality
 			// 		<canvas/> <!-- takes the above image and applies a blur filter -->
 			$final_image .= '<div class="js-swap-for-picture" data-image_info="' . $images . '"></div>'; // <!-- the large image to be displayed -->
-			$no_script_image = '<img class="progressiveMedia-noscript js-progressiveMedia-inner" src="' . make_href_root_relative($image_large[0]) . '" data-action="zoom" />';
+			$no_script_image = '<img class="progressive_media-noscript js-progressive_media-inner" src="' . make_href_root_relative($image_large[0]) . '" data-action="zoom" />';
 			$final_image .= '<noscript>' . $no_script_image . '</noscript>'; // fallback for no JS
 			$final_image .= '</div>';
 			$final_image .= '</div>';

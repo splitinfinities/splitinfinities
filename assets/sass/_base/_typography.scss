@@ -43,14 +43,19 @@
 		font-weight: normal;
 		font-style: normal;
 		font-family: $heading-font;
-		letter-spacing: -0.04em;
+		letter-spacing: 0.02em;
 		margin: 0;
 		display: block;
 		line-height: 1.4;
-		color: $black;
+		color: mix($gray-light, $red, 100%);
 		margin-bottom: 1em;
 		transition: all 0.1s $ease 0s;
+		font-feature-settings: initial !important;
 
+
+		& + p {
+			margin-top: 1em;
+		}
 
 		&:last-of-type {
 			margin-bottom: 0;
@@ -67,7 +72,7 @@
 		}
 	}
 
-	h1, .h1, %h1 { @include font-size(4.2); line-height: 1.19047619; font-weight: bold; }
+	h1, .h1, %h1 { @include font-size(4.2); line-height: 1.19047619; font-weight: bold; letter-spacing: 0.02em; text-transform: uppercase; }
 	h2, .h2, %h2 { @include font-size(2.4); line-height: 1.333333333; }
 	h3, .h3, %h3 { @include font-size(2.2); }
 	h4, .h4, %h4 { @include font-size(2.0); }
@@ -115,7 +120,8 @@
 		text-decoration: none;
 		color: $cta;
 		line-height: inherit;
-		transition: all 0.1s $ease 0s;
+		transition: all 0.1s $ease 0s,
+					text-shadow 0.1s $ease 0s;
 
 		&:hover,
 		&:active {
@@ -300,11 +306,12 @@
 	.subhead {
 		@include font-size(1.8);
 		line-height: 1.555555556;
-		font-family: $heading-font;
+		font-family: $body-font;
+		font-weight: 400;
 	}
 
 	cite {
-		color: $red;
+		color: $yellow;
 		font-size: 75%;
 		line-height: 0;
 		vertical-align: super;
@@ -330,6 +337,7 @@
 		line-height: 1.4;
 		font-family: $heading-font;
 		transition: transform 0.1s $ease 0s;
+		letter-spacing: 0.02em;
 	}
 
 	hr {

@@ -34,7 +34,7 @@ $NEIGHBORHOOD_mandatory_includes = [
 
 $NEIGHBORHOOD_features_prepend = [
 	'wp/api_mobiledetect.php',        // gets user agent string from request
-	'wp/api_carbon.php',              // Carbon API - Helps with date/times.
+	// 'wp/api_carbon.php',              // Carbon API - Helps with date/times.
 	// 'wp/api_codepen.php',             // Codepen API
 	// 'wp/api_dribbble.php',            // Dribbble API
 	// 'wp/api_facebook.php',            // Facebook API
@@ -47,7 +47,7 @@ $NEIGHBORHOOD_features_prepend = [
 ];
 
 $NEIGHBORHOOD_features_append = [
-	'wp/api_carbon.php',              // Carbon - Makes dealing with date/time easier
+	// 'wp/api_carbon.php',              // Carbon - Makes dealing with date/time easier
 	'wp/init_htmlcompression.php',    // HTML compression on every request
 	'wp/conf_shortcodes.php',         // Contains shortcodes, like [smart_image]
 	'wp/conf_prettify_acf.php',       // Contains the code to make flexible content fields look prettier.

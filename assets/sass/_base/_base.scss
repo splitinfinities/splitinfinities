@@ -4,7 +4,7 @@
 
 	html {
 		font: normal 400 62.5%/1.4 $body-font;
-		color: $body;
+		color: mix(white, $red, 65%);
 		box-sizing: border-box;
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
@@ -57,43 +57,133 @@
 
 
 	@font-face {
-		font-family: "Circular";
-		src:url("../fonts/lineto-circular-book.eot");
-		src:url("../fonts/lineto-circular-book.eot?#iefix") format("embedded-opentype"),
-			url("../fonts/lineto-circular-book.woff") format("woff");
+		font-family: "Hanken Sans";
+		src:url("../fonts/HankenSans-Regular.eot");
+		src:url("../fonts/HankenSans-Regular.eot?#iefix") format("embedded-opentype"),
+			url("../fonts/HankenSans-Regular.woff2") format('woff2'),
+			url("../fonts/HankenSans-Regular.woff") format("woff");
+		font-weight: 400;
+		font-style: normal;
+	}
+
+	@font-face {
+		font-family: "Hanken Sans";
+		src:url("../fonts/HankenSans-Light.eot");
+		src:url("../fonts/HankenSans-Light.eot?#iefix") format("embedded-opentype"),
+			url("../fonts/HankenSans-Light.woff2") format('woff2'),
+			url("../fonts/HankenSans-Light.woff") format("woff");
 		font-weight: 300;
 		font-style: normal;
 	}
 
-
-	/* Subsetted */
+	@font-face {
+		font-family: "Hanken Sans";
+		src:url("../fonts/HankenSans-Medium.eot");
+		src:url("../fonts/HankenSans-Medium.eot?#iefix") format("embedded-opentype"),
+			url("../fonts/HankenSans-Medium.woff2") format('woff2'),
+			url("../fonts/HankenSans-Medium.woff") format("woff");
+		font-weight: 500;
+		font-style: normal;
+	}
 
 	@font-face {
-		font-family: "Circular-Subsetted";
-		src:url("../fonts/lineto-circular-subsetted-book.eot");
-		src:url("../fonts/lineto-circular-subsetted-book.eot?#iefix") format("embedded-opentype"),
-			url("../fonts/lineto-circular-subsetted-book.woff") format("woff");
+		font-family: "Hanken Sans";
+		src:url("../fonts/HankenSans-Bold.eot");
+		src:url("../fonts/HankenSans-Bold.eot?#iefix") format("embedded-opentype"),
+			url("../fonts/HankenSans-Bold.woff2") format('woff2'),
+			url("../fonts/HankenSans-Bold.woff") format("woff");
+		font-weight: 600;
+		font-style: normal;
+	}
+
+	@font-face {
+		font-family: "Hanken Sans";
+		src:url("../fonts/HankenSans-ExtraBold.eot");
+		src:url("../fonts/HankenSans-ExtraBold.eot?#iefix") format("embedded-opentype"),
+			url("../fonts/HankenSans-ExtraBold.woff2") format('woff2'),
+			url("../fonts/HankenSans-ExtraBold.woff") format("woff");
+		font-weight: 700;
+		font-style: normal;
+	}
+
+	@font-face {
+		font-family: "Hanken Sans";
+		src:url("../fonts/HankenSans-Black.eot");
+		src:url("../fonts/HankenSans-Black.eot?#iefix") format("embedded-opentype"),
+			url("../fonts/HankenSans-Black.woff2") format('woff2'),
+			url("../fonts/HankenSans-Black.woff") format("woff");
+		font-weight: 800;
+		font-style: normal;
+	}
+
+// Neue Hans Kendrick
+	@font-face {
+		font-family: "Neue Hans Kendrick";
+		src:url("../fonts/NeueHansKendrick-Thin.eot");
+		src:url("../fonts/NeueHansKendrick-Thin.eot?#iefix") format("embedded-opentype"),
+			url("../fonts/NeueHansKendrick-Thin.woff2") format('woff2'),
+			url("../fonts/NeueHansKendrick-Thin.woff") format("woff");
+		font-weight: 200;
+		font-style: normal;
+	}
+
+	@font-face {
+		font-family: "Neue Hans Kendrick";
+		src:url("../fonts/NeueHansKendrick-Light.eot");
+		src:url("../fonts/NeueHansKendrick-Light.eot?#iefix") format("embedded-opentype"),
+			url("../fonts/NeueHansKendrick-Light.woff2") format('woff2'),
+			url("../fonts/NeueHansKendrick-Light.woff") format("woff");
 		font-weight: 300;
 		font-style: normal;
 	}
 
 	@font-face {
-		font-family: "Circular";
-		src:url("../fonts/lineto-circular-bold.eot");
-		src:url("../fonts/lineto-circular-bold.eot?#iefix") format("embedded-opentype"),
-			url("../fonts/lineto-circular-bold.woff") format("woff");
-		font-weight: 600;
+		font-family: "Neue Hans Kendrick";
+		src:url("../fonts/NeueHansKendrick-Regular.eot");
+		src:url("../fonts/NeueHansKendrick-Regular.eot?#iefix") format("embedded-opentype"),
+			url("../fonts/NeueHansKendrick-Regular.woff2") format('woff2'),
+			url("../fonts/NeueHansKendrick-Regular.woff") format("woff");
+		font-weight: 400;
+		font-style: normal;
+	}
+
+	@font-face {
+		font-family: "Neue Hans Kendrick";
+		src:url("../fonts/NeueHansKendrick-Medium.eot");
+		src:url("../fonts/NeueHansKendrick-Medium.eot?#iefix") format("embedded-opentype"),
+			url("../fonts/NeueHansKendrick-Medium.woff2") format('woff2'),
+			url("../fonts/NeueHansKendrick-Medium.woff") format("woff");
+		font-weight: 500;
 		font-style: normal;
 	}
 
 
-	/* Subsetted */
+	@font-face {
+		font-family: "Neue Hans Kendrick";
+		src:url("../fonts/NeueHansKendrick-Bold.eot");
+		src:url("../fonts/NeueHansKendrick-Bold.eot?#iefix") format("embedded-opentype"),
+			url("../fonts/NeueHansKendrick-Bold.woff2") format('woff2'),
+			url("../fonts/NeueHansKendrick-Bold.woff") format("woff");
+		font-weight: 600;
+		font-style: normal;
+	}
 
 	@font-face {
-		font-family: "Circular-Subsetted";
-		src:url("../fonts/lineto-circular-subsetted-bold.eot");
-		src:url("../fonts/lineto-circular-subsetted-bold.eot?#iefix") format("embedded-opentype"),
-			url("../fonts/lineto-circular-subsetted-bold.woff") format("woff");
-		font-weight: 600;
+		font-family: "Neue Hans Kendrick";
+		src:url("../fonts/NeueHansKendrick-ExtraBold.eot");
+		src:url("../fonts/NeueHansKendrick-ExtraBold.eot?#iefix") format("embedded-opentype"),
+			url("../fonts/NeueHansKendrick-ExtraBold.woff2") format('woff2'),
+			url("../fonts/NeueHansKendrick-ExtraBold.woff") format("woff");
+		font-weight: 700;
+		font-style: normal;
+	}
+
+	@font-face {
+		font-family: "Neue Hans Kendrick";
+		src:url("../fonts/NeueHansKendrick-Heavy.eot");
+		src:url("../fonts/NeueHansKendrick-Heavy.eot?#iefix") format("embedded-opentype"),
+			url("../fonts/NeueHansKendrick-Heavy.woff2") format('woff2'),
+			url("../fonts/NeueHansKendrick-Heavy.woff") format("woff");
+		font-weight: 800;
 		font-style: normal;
 	}
