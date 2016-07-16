@@ -19,7 +19,6 @@
 		overflow-x: hidden;
 		background-color: $body;
 		-ms-overflow-style: -ms-autohiding-scrollbar;
-		transition: background-color 1s $ease 0;
 
 		//@include outline();
 	}

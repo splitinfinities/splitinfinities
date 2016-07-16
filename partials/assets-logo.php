@@ -5,8 +5,8 @@
 	<defs>
 	</defs>
 	<style type="text/css">
-		.st0{fill:none;}
-		.st1{fill:#E6E6E6;}
+		.st0 { fill:none; }
+		.st1 { fill:#E6E6E6; }
 
 		line {
 			stroke-width: 1.5px;

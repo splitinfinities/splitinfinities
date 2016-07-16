@@ -62,6 +62,10 @@
 		}
 	};
 
+	$('a', 'nav').click(function() {
+		setTimeout(function() { $('button.ellipsis', 'header').click(); }, 500)
+	})
+
 	λ.open_search = function(el) {
 		if (!$(el).hasClass('active')) {
 			$('body, html').removeClass('nav-open');
@@ -73,7 +77,7 @@
 
 	$(document).keyup(function(e) {
 		if (e.keyCode == 27) {
-			$('.ellipsis').click();
+			$('button.ellipsis', 'header').click();
 		}
 	});
 </script>

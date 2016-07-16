@@ -51,19 +51,18 @@
 				g#mark,
 				g#split,
 				g#infinities {
-					opacity: 0;
+					// opacity: 0;
 				}
 
 				g#mark {
 					transform: scale(0.9) translate(-129%, 65%) !important;
-					animation: fadeInOut 20s ease alternate infinite;
-					animation-delay: -10s;
+					// animation: fadeInOut 20s ease alternate infinite;
+					// animation-delay: 10s;
 				}
 
 				g#split,
 				g#infinities {
-					animation: fadeInOut 20s ease alternate infinite;
-
+					// animation: fadeInOut 20s ease alternate infinite;
 				}
 
 				g#split {
@@ -71,8 +70,8 @@
 				}
 
 				g#infinities {
-					animation-delay: 1s;
-					transform: translate(28%, 0%) !important;
+					// animation-delay: 1s;
+					transform: translate(29%, 0%) !important;
 				}
 			}
 
@@ -84,10 +83,24 @@
 
 		.ellipsis {
 			position: absolute;
+			top: 1.25vw;
 			right: -4vw;
 			z-index: 9;
 			width: 63px;
-			webkit-backdrop-filter: blur(2px);
+			height: 63px;
+			transition: all 0.1s $ease 0s;
+			background: rgba($red, 0) !important;
+			border-radius: 100%;
+			overflow: hidden;
+
+			&.active {
+				transition: all 0.1s $ease 0.35s;
+				background: rgba($red, 0.75) !important;
+			}
+
+			@include min-width(783px) {
+				top: auto;
+			}
 		}
 
 		nav {

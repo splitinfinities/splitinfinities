@@ -47,7 +47,6 @@
 		border-radius: 4px;
 
 		@include safari() {
-			mix-blend-mode: screen;
 			opacity: 0.1;
 		}
 	}
@@ -73,7 +72,8 @@
 		opacity: 1;
 		filter: blur(4px);
 		overflow: hidden;
-		transition: all 0.75s $ease 1.25s;
+		transition: opacity 0.75s $ease 1.25s,
+					filter 0.75s $ease 1.25s;
 		pointer-events: none;
 		position: absolute;
 		top: 0;
@@ -108,7 +108,7 @@
 
 		picture {
 			opacity: 0;
-			transition: all 0.75s $ease 0.9s;
+			transition: opacity 0.75s $ease 0.9s;
 			animation: fadeIn;
 		}
 
@@ -138,6 +138,10 @@
 
 		&::after {
 			opacity: 1;
+
+			@include safari() {
+				opacity: 0.2;
+			}
 		}
 
 		&.expanded {
@@ -222,16 +226,9 @@
 	}
 
 	@include max-width(900px) {
+		&.expanded,
 		&.totally_loaded.expanded {
-			max-width: initial !important;
-			width: auto !important;
 			margin-left: 0 !important;
-
-			* {
-				max-width: initial !important;
-				width: 100% !important;
-				margin-left: 0 !important;
-			}
 		}
 	}
 }
