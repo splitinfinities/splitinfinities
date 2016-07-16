@@ -334,10 +334,9 @@ class SENDO {
 	 */
 	public function prepare_output() {
 		$shareable_image = (get_field('sdo_fallback_image')) ? get_field('sdo_fallback_image') : get_field('sdo_fallback_image', 'options');
-		$shareable_image = ($shareable_image) ? array_shift(wp_get_attachment_image_src($shareable_image, 'full') ) : get_template_directory_uri().'/assets/img/default-sharing.png';
+		$shareable_image = ($shareable_image !== null) ? $shareable_image : get_template_directory_uri().'/assets/img/default-sharing.png';
 		$twitter_card = (get_field('sdo_twitter_card') && get_field('sdo_twitter_card') !== 'none') ? get_field('sdo_twitter_card') : get_field('sdo_twitter_card', 'options');
 		$creator = (get_field('sdo_twitter_card_creator')) ? get_field('sdo_twitter_card_creator') : get_field('sdo_twitter_card_creator', 'options');
-
 
 		/* TWITTER LOGIC */
 		if ($twitter_card !== 'none') {
@@ -367,7 +366,7 @@ class SENDO {
 
 				$this->set_twitter_card('image', $shareable_image);
 
-				$this->set_twitter_card( 'app:country', $app_country );
+				$this->set_twitter_card('app:country', $app_country);
 
 				$all_app_details = (get_field('sdo_twitter_card_app_details')) ? get_field('sdo_twitter_card_app_details') : get_field('sdo_twitter_card_app_details', 'options');
 
@@ -406,6 +405,8 @@ class SENDO {
 				}
 			}
 		}
+
+		$this->set_opengraph_tag('image', $shareable_image);
 	}
 
 	/**
@@ -423,9 +424,9 @@ class SENDO {
 	 * @return void
 	 */
 	public function output($type) {
-		if ($this->override_output) {
+		// if ($this->override_output) {
 			$this->prepare_output();
-		}
+		// }
 
 		if ($type === 'meta') {
 			$opengraph = $this->opengraph;
