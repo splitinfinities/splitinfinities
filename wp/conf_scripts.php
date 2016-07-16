@@ -129,7 +129,7 @@ function neighborhood_jquery_local_fallback($src, $handle = null) {
 	static $add_jquery_fallback = true;
 
 	if ($add_jquery_fallback) {
-		echo '<script type="text/javascript">window.jQuery || document.write(\'<script type="text/javascript" src="' . get_template_directory_uri() . '/assets_compiled/js/jquery.js"><\/script>\')</script>' . "\n";
+		echo '<script type="text/javascript">window.jQuery || document.write(\'<script type="text/javascript" src="' . get_template_directory_uri() . '/assets/js/jquery.js"><\/script>\')</script>' . "\n";
 		$add_jquery_fallback = false;
 	}
 
