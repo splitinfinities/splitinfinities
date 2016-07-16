@@ -25,7 +25,7 @@
 	<div class="container">
 		<div class="column four">
 			<p class="muted"><small>William M. Riley</small></p>
-			<p class="muted"><small><a href="/?feed=rss2&post_type[]=essays&post_type[]=notes&post_type[]=lists" target="_blank">RSS</a>  |  <a href="https://twitter.com/splitinfinities" target="_blank">Twitter</a>  |  <a href="https://facebook.com/splitinfinities" target="_blank">Facebook</a></small></p>
+			<p class="muted"><small><a href="/?feed=rss2&post_type[]=essays&post_type[]=notes&post_type[]=lists" target="_blank">RSS</a>  |  <a href="https://twitter.com/splitinfinities" target="_blank">Twitter</a>  |  <a href="https://facebook.com/splitinfinities" target="_blank">Facebook</a>  |  <a href="https://instagram.com/splitinfinities" target="_blank">Instagram</a></small></p>
 		</div>
 		<div class="column four"></div>
 		<div class="column four">
