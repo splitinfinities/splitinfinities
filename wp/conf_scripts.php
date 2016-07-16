@@ -67,7 +67,7 @@ function neighborhood_scripts() {
 	$styles_subdir = '/css';
 	$scripts_subdir = '/js';
 
-	$assets_json_path = get_template_directory() . $assets_basepath . '/assets.json';
+	$assets_json_path = get_template_directory() . $assets_basepath . '/revision.json';
 
 	$production = file_exists($assets_json_path);
 
