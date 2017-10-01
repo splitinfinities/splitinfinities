@@ -1,0 +1,15 @@
+{
+  "dotenv": true,
+  "name": "splitinfinities",
+  "alias": "splitinfinities.com",
+  "type": "docker",
+  "env": [
+    "DB_HOST",
+    "DB_NAME",
+    "DB_USER",
+    "DB_PASSWORD",
+    "SENDGRID_API_KEY",
+    "SENDGRID_FROM_NAME",
+    "SENDGRID_FROM_EMAIL"
+  ]
+}
