@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{{ title }} • {{ name }}</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html-; charset=UTF-8" />
+    <meta http-equiv="imagetoolbar" content="no" />
+    <meta name="viewport" content="width=device-width" />
+    <meta itemprop="name" content="{{ title }} • {{ name }}" />
+    <meta itemprop="image" content="{{ image }}" />
+    <meta name="description" content="{{ description }}" />
+    <meta name="keywords" content="{{ keywords }}" />
+    <meta property="og:title" content="{{ title }}" />
+    <meta property="og:description" content="{{ description }}" />
+    <meta property="og:site_url" content="{{ site_url }}" />
+    <meta property="og:image" content="{{ image }}" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:creator" content="@splitinfinities" />
+    <meta property="twitter:site" content="@splitinfinities" />
+    <meta property="twitter:title" content="{{ title }}" />
+    <meta property="twitter:image" content="{{ image }}" />
+    <meta property="twitter:url" content="{{ site_url }}" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="application-name" content="{{ title }}" />
+    <meta name="apple-mobile-web-app-title" content="{{ title }}" />
+    <link rel="manifest" href="/manifest.json" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://splitinfinities.com/assets/img/favicon.png"
+    />
+    <link
+      rel="alternate"
+      href="https://splitinfinities.com/feed/feed.xml"
+      type="application/atom+xml"
+      title="Split Infinities"
+    />
+    <link
+      rel="alternate"
+      href="https://splitinfinities.com/feed/feed.json"
+      type="application/json"
+      title="Split Infinities"
+    />
+  </head>
+
+  <midwest-layout>
+    <midwest-card>
+      <section>sup</section>
+    </midwest-card>
+    <midwest-card>
+      <section>sup</section>
+    </midwest-card>
+  </midwest-layout>
+
+  <router-outlet></router-outlet>
+</html>
